@@ -1,5 +1,10 @@
 # Changelog
 
+## Update — 19 November 2026
+
+Added an explicit --from-examples mode using checksum-pinned, reviewed repository CSVs. Run provenance distinguishes reviewed extracts from fresh PDF verification. Certificate errors fail immediately with actionable instructions. Added seven tests (22 total), a network-free CLI check in CI, HTTPS troubleshooting and Python 3.11 Windows instructions. Recorded the repository's public visibility.
+
+
 ## 0.1.0 — 19 November 2026
 
 Initial local foundation: verified GACL report collection, targeted PDF extraction, 18 traceable observations, validation, SQLite storage, exports, failure logs, historical source reloads, 15 unit tests, example outputs and essential documentation.

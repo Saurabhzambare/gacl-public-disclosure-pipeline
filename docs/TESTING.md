@@ -48,3 +48,7 @@ An invalid contract or failed aggregate check fails the run before observation l
 
 Current limitation: raw parsing errors stop before a row can be constructed, so they appear as failed-run errors rather than fabricated quarantine rows.
 
+
+## Reviewed-extract input mode
+
+Use --from-examples when the report website is unavailable. It validates the pinned repository CSV snapshots, runs the normal data checks and loads the warehouse without downloading PDFs. Run history and data/processed/run_manifest.json record input_mode=reviewed_extracts and pdfs_verified_this_run=false. This is distinct from --offline, which verifies cached source PDFs. The 22-test suite includes no-network execution, duplicate-safe reruns, altered-snapshot rejection, Windows newline handling, certificate failure handling and migration of existing run history. See docs/HTTPS_TROUBLESHOOTING.md from the repository root.

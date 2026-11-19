@@ -1,0 +1,15 @@
+{
+  "description": "Reviewed factual extracts; normalized UTF-8/LF text checksums, not fresh source PDF verification.",
+  "files": [
+    {
+      "source_id": "gacl_dahej_plot3_ec_2025_h1",
+      "path": "data/examples/monthly_site_observations.csv",
+      "normalized_text_sha256": "30a6f95de0d1a305711e476a5405497871193e43fe892e0374316d0af5d88c59"
+    },
+    {
+      "source_id": "gacl_brsr_2025_26",
+      "path": "data/examples/annual_company_observations.csv",
+      "normalized_text_sha256": "5d636081e844e0d262519c2eb24830ced85011477f253d9deb338027f8b2c2ae"
+    }
+  ]
+}

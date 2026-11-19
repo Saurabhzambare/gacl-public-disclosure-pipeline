@@ -3,6 +3,7 @@ import csv
 import hashlib
 import json
 import logging
+import ssl
 import time
 import urllib.error
 import urllib.request
@@ -11,6 +12,7 @@ from pathlib import Path
 from uuid import uuid4
 
 from .extract import extract_pdf
+from .examples import load_examples
 from .store import COLUMNS, connect, finish_run, load, start_run
 from .validate import reconcile, validate_rows
 
@@ -57,17 +59,27 @@ def download(source, raw_dir, refresh=False):
         except urllib.error.HTTPError as exc:
             if exc.code not in (408, 429, 500, 502, 503, 504) or attempt == 2:
                 raise
-        except (urllib.error.URLError, TimeoutError):
+        except ssl.SSLCertVerificationError as exc:
+            raise ValueError("HTTPS certificate verification failed for " + source["url"] +
+                             ". Check the computer clock and certificate chain. "
+                             "To use reviewed extracts without downloading PDFs, run: "
+                             "python -m gacl_pipeline --from-examples") from exc
+        except (urllib.error.URLError, TimeoutError) as exc:
+            if isinstance(getattr(exc, "reason", None), ssl.SSLCertVerificationError):
+                raise ValueError("HTTPS certificate verification failed for " + source["url"] +
+                                 ". Check the computer clock and certificate chain. "
+                                 "To use reviewed extracts without downloading PDFs, run: "
+                                 "python -m gacl_pipeline --from-examples") from exc
             if attempt == 2:
                 raise
         time.sleep(2 ** attempt)
     raise RuntimeError("Download retry budget exhausted")
 
 
-def run(root, source_id=None, offline=False, refresh=False):
+def run(root, source_id=None, offline=False, refresh=False, from_examples=False):
     root = Path(root).resolve()
-    if offline and refresh:
-        raise ValueError("--offline and --refresh cannot be combined")
+    if sum(bool(x) for x in (offline, refresh, from_examples)) > 1:
+        raise ValueError("--offline, --refresh and --from-examples cannot be combined")
     sources = json.loads((root / "config/sources.json").read_text(encoding="utf-8"))["sources"]
     metrics = json.loads((root / "config/metrics.json").read_text(encoding="utf-8"))
     selected = [s for s in sources if source_id is None or s["source_id"] == source_id]
@@ -81,11 +93,17 @@ def run(root, source_id=None, offline=False, refresh=False):
     logger.setLevel(logging.INFO)
     logger.addHandler(handler)
     db = connect(root / "data/warehouse/gacl.sqlite")
-    start_run(db, run_id, utcnow(), [s["source_id"] for s in selected])
+    input_mode = "reviewed_extracts" if from_examples else ("cached_pdfs" if offline else "verified_pdfs")
+    start_run(db, run_id, utcnow(), [s["source_id"] for s in selected], input_mode)
     count = 0
     try:
         rows = []
+        if from_examples:
+            rows = load_examples(root, {s["source_id"] for s in selected})
+            logger.info("reviewed_extracts_loaded rows=%d; no PDFs verified this run", len(rows))
         for source in selected:
+            if from_examples:
+                continue
             logger.info("source_start source_id=%s", source["source_id"])
             path = root / "data/raw" / (source["source_id"] + ".pdf")
             if offline:
@@ -120,8 +138,11 @@ def run(root, source_id=None, offline=False, refresh=False):
         write_json(out / "observations.json", exported)
         write_json(out / "source_register.json", sources)
         finish_run(db, run_id, utcnow(), "success", count)
-        summary = {"run_id": run_id, "status": "success", "extracted_rows": count,
+        summary = {"run_id": run_id, "status": "success",
+                   "input_mode": input_mode, "pdfs_verified_this_run": not from_examples,
+                   "extracted_rows": 0 if from_examples else count, "loaded_rows": count,
                    "warehouse_rows": len(exported), "checks": checks}
+        write_json(out / "run_manifest.json", summary)
         write_json(log_dir / "latest_run.json", summary)
         logger.info("run_success rows=%d warehouse_rows=%d", count, len(exported))
         return summary
@@ -129,7 +150,8 @@ def run(root, source_id=None, offline=False, refresh=False):
         logger.exception("run_failed")
         finish_run(db, run_id, utcnow(), "failed", count, f"{type(exc).__name__}: {exc}")
         write_json(log_dir / "latest_run.json",
-                   {"run_id": run_id, "status": "failed", "error": f"{type(exc).__name__}: {exc}"})
+                   {"run_id": run_id, "status": "failed", "input_mode": input_mode,
+                    "error": f"{type(exc).__name__}: {exc}"})
         raise
     finally:
         db.close()

@@ -9,6 +9,6 @@
 7. **Targeted extraction.** Explicit labels, page references, expected row counts and year-column checks are easier to review than a general PDF parser.
 8. **No invented scale.** Small data demonstrates correctness; there is no throughput, cost-saving or operational impact claim.
 9. **No premature forecasting.** Six monthly averages are insufficient evidence for predictive maintenance.
-10. **Private development.** The repository is private initially. Public portfolio release can follow a review.
+10. **Public portfolio.** The user made the repository public after initial setup. Source attribution and current feature status remain explicit.
 11. **Source licensing stays separate.** MIT applies only to original project code.
 

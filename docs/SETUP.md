@@ -3,7 +3,7 @@
 ## Requirements
 
 - Python 3.11+; Python 3.12 is the verified development target.
-- Git or GitHub Desktop, with access to the private repository.
+- Git or GitHub Desktop; the repository is public.
 - Internet for the first PDF download and package installation.
 - Power BI Desktop on Windows for the reporting milestone.
 - No BigQuery account is needed for local development.
@@ -11,19 +11,27 @@
 ## Windows with GitHub Desktop
 
 1. Open GitHub Desktop with the Saurabhzambare account.
-2. File → Clone repository → select `gacl-public-disclosure-pipeline`.
+2. File → Clone repository → URL → enter https://github.com/Saurabhzambare/gacl-public-disclosure-pipeline.
 3. Choose a local folder, for example Documents/GitHub.
 4. Repository → Open in your editor or open PowerShell in that folder.
 5. Run the commands below. They call the virtual environment directly, so PowerShell script activation is unnecessary.
 
 ```powershell
-py -3.12 -m venv .venv
+py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e .
 .\.venv\Scripts\python.exe -m gacl_pipeline
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-If Python 3.12 is unavailable, install it from python.org or use an already installed supported version with `py -3.11`.
+Use `py -0p` to inspect installed versions. Python 3.11 is supported; Python 3.12 also works. Select an installed version explicitly rather than reinstalling Python unnecessarily.
+
+If the website download fails certificate validation, use:
+
+```powershell
+.\.venv\Scripts\python.exe -m gacl_pipeline --from-examples
+```
+
+This loads the reviewed repository CSV extracts without networking. It is distinct from `--offline`, which requires previously downloaded, checksum-verified PDFs. Certificate diagnosis and the distinction are documented in HTTPS_TROUBLESHOOTING.md.
 
 ## macOS / Linux
 

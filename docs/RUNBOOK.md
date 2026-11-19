@@ -39,3 +39,7 @@ Source versions remain separate in SQLite. There is no automatic choice of prefe
 
 Do not publish logs that expose credentials. The current logs contain source identifiers and errors, but should still be reviewed before sharing.
 
+
+## Reviewed-extract input mode
+
+Use --from-examples when the report website is unavailable. It validates the pinned repository CSV snapshots, runs the normal data checks and loads the warehouse without downloading PDFs. Run history and data/processed/run_manifest.json record input_mode=reviewed_extracts and pdfs_verified_this_run=false. This is distinct from --offline, which verifies cached source PDFs. The 22-test suite includes no-network execution, duplicate-safe reruns, altered-snapshot rejection, Windows newline handling, certificate failure handling and migration of existing run history. See docs/HTTPS_TROUBLESHOOTING.md from the repository root.

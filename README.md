@@ -33,12 +33,12 @@ Python **3.11 or newer** is required. Development was verified on Python 3.12.14
 
 ### Windows PowerShell
 
-Clone this private repository with GitHub Desktop, or authenticate Git and run:
+Clone this public repository with GitHub Desktop, or run:
 
 ```powershell
 git clone https://github.com/Saurabhzambare/gacl-public-disclosure-pipeline.git
 cd gacl-public-disclosure-pipeline
-py -3.12 -m venv .venv
+py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e .
 .\.venv\Scripts\python.exe -m gacl_pipeline
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
@@ -57,6 +57,20 @@ python3 -m venv .venv
 
 The first run downloads approximately 14 MB of public PDFs. Later runs reuse checksum-verified cached files. No cloud credentials are needed.
 
+If HTTPS certificate verification blocks the report download, explicitly use the
+reviewed extracts already included in the repository:
+
+```powershell
+.\.venv\Scripts\python.exe -m gacl_pipeline --from-examples
+```
+
+This mode makes no network requests. It checks the CSV snapshots against pinned
+normalized-text checksums, validates their records, and runs the same warehouse
+load and reporting exports. Expected: `input_mode: reviewed_extracts`,
+`loaded_rows: 18`, `warehouse_rows: 18`, `extracted_rows: 0` and
+`pdfs_verified_this_run: false`. The original PDF lineage is preserved, but this
+does not claim a fresh PDF download or verification. See [HTTPS troubleshooting](docs/HTTPS_TROUBLESHOOTING.md).
+
 Expected first-run output: `status: success`, `extracted_rows: 18`, `warehouse_rows: 18` and four passing dataset-level checks. Run identifiers and times vary.
 
 After a successful first run, use `--offline` to avoid downloads. For a historical source reload:
@@ -73,6 +87,7 @@ Use `--refresh` to re-download against the pinned checksum. A changed source sto
 - `data/processed/monthly_site_observations.csv`: six monthly site rates.
 - `data/processed/annual_company_observations.csv`: twelve annual totals.
 - `data/processed/observations.json`: all accepted observations.
+- `data/processed/run_manifest.json`: input mode and whether PDFs were verified in this run.
 - `logs/latest_run.json`: latest outcome.
 - `logs/<run_id>.checks.json`, `.quarantine.json` and `.log`: quality and diagnostic evidence.
 

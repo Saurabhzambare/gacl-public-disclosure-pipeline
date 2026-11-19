@@ -28,6 +28,8 @@ def connect(path):
         run_id TEXT PRIMARY KEY, started_at TEXT, ended_at TEXT,
         status TEXT, selected_sources TEXT, row_count INTEGER, error TEXT
     )""")
+    if "input_mode" not in {row[1] for row in db.execute("PRAGMA table_info(pipeline_runs)")}:
+        db.execute("ALTER TABLE pipeline_runs ADD COLUMN input_mode TEXT")
     db.commit()
     return db
 
@@ -41,10 +43,12 @@ def load(db, rows):
             [tuple(row[k] for k in COLUMNS) for row in rows])
 
 
-def start_run(db, run_id, started, ids):
+def start_run(db, run_id, started, ids, input_mode="verified_pdfs"):
     with db:
-        db.execute("INSERT INTO pipeline_runs VALUES (?,?,NULL,'running',?,0,NULL)",
-                   (run_id, started, json.dumps(ids)))
+        db.execute("""INSERT INTO pipeline_runs
+                   (run_id,started_at,ended_at,status,selected_sources,row_count,error,input_mode)
+                   VALUES (?,?,NULL,'running',?,0,NULL,?)""",
+                   (run_id, started, json.dumps(ids), input_mode))
 
 
 def finish_run(db, run_id, ended, status, count, error=None):
