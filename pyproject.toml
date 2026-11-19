@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gacl-public-disclosure-pipeline"
+version = "0.1.0"
+description = "Traceable batch data engineering using GACL public disclosures"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["PyMuPDF==1.26.6"]
+
+[project.optional-dependencies]
+cloud = ["google-cloud-bigquery>=3.38,<4"]
+dbt = ["dbt-bigquery>=1.10,<2"]
+
+[project.scripts]
+gacl-pipeline = "gacl_pipeline.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

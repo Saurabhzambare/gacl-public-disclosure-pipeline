@@ -1,0 +1,11 @@
+name: gacl_public_disclosures
+version: '0.1.0'
+config-version: 2
+profile: gacl_public_disclosures
+model-paths: ["models"]
+test-paths: ["tests"]
+clean-targets: ["target", "dbt_packages"]
+models:
+  gacl_public_disclosures:
+    +materialized: view
+

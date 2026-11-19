@@ -1,0 +1,18 @@
+version: 2
+models:
+  - name: stg_observations
+    description: Typed disclosure facts; source versions remain distinct.
+    columns:
+      - name: observation_id
+        data_tests: [not_null]
+      - name: value
+        data_tests: [not_null]
+      - name: source_url
+        data_tests: [not_null]
+      - name: reporting_scope
+        data_tests: [not_null]
+  - name: monthly_site_observations
+    description: Historical monthly average daily rates; never sum as monthly volume.
+  - name: annual_company_observations
+    description: Annual standalone totals at their disclosed reporting boundary.
+

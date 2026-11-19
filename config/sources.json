@@ -1,0 +1,47 @@
+{
+  "sources": [
+    {
+      "source_id": "gacl_dahej_plot3_ec_2025_h1",
+      "title": "GACL Dahej Plot 3 EC compliance, April–September 2025",
+      "url": "https://gacl.com/wp-content/uploads/2026/04/EC_Compliance_Plot-3_April-to-Sept-25.pdf",
+      "sha256": "4882f4e453a78fe956850944d9df2b636c74d225eab2331e7d8873fe4050c9c1",
+      "reporting_scope": "dahej_plot3_report",
+      "period_start": "2025-04-01",
+      "period_end": "2025-09-30",
+      "pages": [
+        {
+          "pdf_page": 5,
+          "printed_page": 4
+        }
+      ],
+      "parser": "monthly_water_v1"
+    },
+    {
+      "source_id": "gacl_brsr_2025_26",
+      "title": "GACL BRSR FY 2025–26",
+      "url": "https://gacl.com/wp-content/uploads/2026/08/53RD-AR-BRSR.pdf",
+      "sha256": "9fa0d33a69af711744590ad564145b93b2891e77f2e86004084bb89ba3390230",
+      "reporting_scope": "gacl_standalone",
+      "period_start": "2025-04-01",
+      "period_end": "2026-03-31",
+      "comparison_period": "2024-25",
+      "pages": [
+        {
+          "pdf_page": 36,
+          "printed_page": 78
+        },
+        {
+          "pdf_page": 37,
+          "printed_page": 79
+        },
+        {
+          "pdf_page": 38,
+          "printed_page": 80
+        }
+      ],
+      "parser": "annual_totals_v1",
+      "scope_evidence": "PDF page 1, printed page 43, item 13: disclosures made on standalone basis."
+    }
+  ]
+}
+

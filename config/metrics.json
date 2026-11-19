@@ -1,0 +1,59 @@
+[
+  {
+    "metric_id": "freshwater_average_daily",
+    "label": "Monthly average freshwater consumption",
+    "unit": "KL/day",
+    "statistic_type": "monthly_average_daily_rate",
+    "frequency": "monthly",
+    "reporting_scope": "dahej_plot3_report"
+  },
+  {
+    "metric_id": "energy_renewable_total",
+    "label": "Total energy consumed from renewable sources",
+    "unit": "GJ",
+    "statistic_type": "annual_total",
+    "frequency": "annual",
+    "reporting_scope": "gacl_standalone"
+  },
+  {
+    "metric_id": "energy_nonrenewable_total",
+    "label": "Total energy consumed from non-renewable sources",
+    "unit": "GJ",
+    "statistic_type": "annual_total",
+    "frequency": "annual",
+    "reporting_scope": "gacl_standalone"
+  },
+  {
+    "metric_id": "energy_total",
+    "label": "Total energy consumed",
+    "unit": "GJ",
+    "statistic_type": "annual_total",
+    "frequency": "annual",
+    "reporting_scope": "gacl_standalone"
+  },
+  {
+    "metric_id": "water_withdrawal_total",
+    "label": "Total volume of water withdrawal",
+    "unit": "KL",
+    "statistic_type": "annual_total",
+    "frequency": "annual",
+    "reporting_scope": "gacl_standalone"
+  },
+  {
+    "metric_id": "water_consumption_total",
+    "label": "Total volume of water consumption",
+    "unit": "KL",
+    "statistic_type": "annual_total",
+    "frequency": "annual",
+    "reporting_scope": "gacl_standalone"
+  },
+  {
+    "metric_id": "water_discharge_total",
+    "label": "Total water discharged",
+    "unit": "KL",
+    "statistic_type": "annual_total",
+    "frequency": "annual",
+    "reporting_scope": "gacl_standalone"
+  }
+]
+

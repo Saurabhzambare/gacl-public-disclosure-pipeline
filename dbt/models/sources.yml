@@ -1,0 +1,9 @@
+version: 2
+sources:
+  - name: gacl_raw
+    database: "{{ env_var('GCP_PROJECT_ID') }}"
+    schema: "{{ env_var('BQ_DATASET', 'gacl_public_disclosures') }}"
+    tables:
+      - name: observations
+        description: Validated disclosure observations loaded by the Python cloud loader.
+

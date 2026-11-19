@@ -1,0 +1,13 @@
+gacl_public_disclosures:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('GCP_PROJECT_ID') }}"
+      dataset: "{{ env_var('BQ_DATASET', 'gacl_public_disclosures') }}"
+      location: "{{ env_var('BQ_LOCATION', 'asia-south1') }}"
+      threads: 2
+      job_execution_timeout_seconds: 120
+      job_retries: 1
+
