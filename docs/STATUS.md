@@ -28,7 +28,8 @@ Updated: 19 November 2026. First-version target: 22 November 2026, 8:00 PM IST.
 - [ ] Power BI Desktop report and refresh validation.
 - [ ] Recorded 3–5 minute walkthrough.
 - [ ] Scheduled production-style execution.
-- [ ] CI remote run result: inspect GitHub Actions after the initial project commit.
+- [x] GitHub Actions unit-test workflow passed for the initial project commit.
+  Evidence: https://github.com/Saurabhzambare/gacl-public-disclosure-pipeline/actions/runs/44484974724
 
 The repository is private initially. Local files are prepared in the agent workspace; clone and run docs/SETUP.md on the intended Windows laptop to create that separate local installation.
 
