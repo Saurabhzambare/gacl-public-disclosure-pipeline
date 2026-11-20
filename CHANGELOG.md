@@ -1,5 +1,15 @@
 # Changelog
 
+## Billing-free cloud mode — 20 November 2026
+
+Add mandatory --mode snapshot or --mode merge selection. Snapshot validates both
+configured sources before cloud calls, uses one WRITE_TRUNCATE batch load with
+no DML, checks the resulting row count and records job/expiration evidence.
+Seven mocked SDK-boundary tests bring the cloud-enabled suite to 32 tests.
+Pin google-cloud-bigquery 3.47.0, matching the user's installed version. Update
+CI to exercise cloud tests on Windows/Linux; live upload remains unverified.
+Document replacement/history limits, sandbox expiration and Python 3.11 dbt setup.
+
 ## Update — 20 November 2026
 
 Use pinned truststore 0.10.5 and an explicit native Windows TLS context for PDF

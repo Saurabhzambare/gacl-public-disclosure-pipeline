@@ -12,3 +12,4 @@
 10. **Public portfolio.** The user made the repository public after initial setup. Source attribution and current feature status remain explicit.
 11. **Source licensing stays separate.** MIT applies only to original project code.
 
+12. **Billing-free cloud route.** On 20 November the user chose the BigQuery sandbox. An explicit --mode snapshot uses a full validated batch replacement; --mode merge remains an optional DML path. The snapshot is not described as an incremental upsert or independent historical archive.

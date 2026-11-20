@@ -1,58 +1,128 @@
-# BigQuery and dbt — next milestone
+# BigQuery and dbt
 
-Status: optional loader and model files are prepared. They have not been executed against a live BigQuery project. Local verification is separate.
+Status: the local pipeline works. The snapshot cloud loader is covered by mocked
+SDK-boundary tests; live BigQuery loading and dbt execution remain unverified.
 
-## Prerequisites
+## Chosen route: billing-free sandbox
 
-Choose your own Google Cloud project and confirm billing/sandbox constraints, dataset location and intended permissions before running. The loader creates the named dataset if absent, creates an observations table, uses a temporary staging table, and merges validated output. It does not delete the target dataset or its records.
+On 20 November 2026 the user confirmed Application Default Credentials (ADC),
+project instacart-analytics-practice, billingEnabled=false, and installation of
+google-cloud-bigquery 3.47.0. The user explicitly chose to keep billing disabled.
+No command in this guide links a billing account or enables billing.
 
-Use Application Default Credentials. Do not add a service-account key to Git.
+The sandbox does not support DML, so use --mode snapshot rather than MERGE.
+The loader validates the complete local data/processed/observations.json export,
+including coverage of both configured reports, before contacting Google Cloud.
+It then sends one batch load with WRITE_TRUNCATE to the observations table.
+A successful refresh replaces that table's contents with the validated export;
+it does not append a second copy. A rejected load does not first delete the old
+table. BigQuery applies batch load results atomically.
+
+This is a full refresh, not incremental upsert. Cloud-only rows absent from the
+local export are replaced. Source versions remain in local SQLite; uploading
+multiple conflicting document versions requires a reviewed selection policy and
+is currently rejected by validation. Keep local source and warehouse artifacts.
+
+Sandbox tables/views/partitions expire after 60 days and sandbox quotas apply.
+Reloading data is not a backup strategy. Inspect the reported table_expires_at.
+No paid capacity reservation, Cloud Storage bucket or streaming API is needed.
 
 Official references:
 - https://docs.cloud.google.com/bigquery/docs/authentication
+- https://docs.cloud.google.com/bigquery/docs/sandbox
+- https://docs.cloud.google.com/bigquery/docs/batch-loading-data
 - https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client
 - https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup
 
-## Windows setup
+## Windows setup and first load
 
-After installing the official Google Cloud CLI and selecting the intended account/project:
+Authentication and the cloud package are already installed on the user's laptop.
+For another machine, use gcloud auth application-default login and install the
+cloud extra. Never commit credential files.
+
+Run from the repository root, stopping if any command fails:
 
 ```powershell
-gcloud auth application-default login
-$env:GCP_PROJECT_ID = "replace-with-your-project"
+git pull --ff-only
+.\.venv\Scripts\python.exe -m pip install -e ".[cloud]"
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+$env:GCP_PROJECT_ID = "instacart-analytics-practice"
 $env:BQ_DATASET = "gacl_public_disclosures"
 $env:BQ_LOCATION = "asia-south1"
-.\.venv\Scripts\python.exe -m pip install -e ".[cloud]"
-.\.venv\Scripts\python.exe -m gacl_pipeline
-.\.venv\Scripts\python.exe -m gacl_pipeline.bigquery_load
+.\.venv\Scripts\python.exe -m gacl_pipeline.bigquery_load --mode snapshot
 ```
 
-Location is an example, not an assertion about GACL's hosting. It must match the actual dataset location.
+The chosen location is Mumbai for this portfolio dataset, not an assertion about
+GACL's hosting. An existing dataset must have the same location; a mismatch stops
+before upload. The loader creates only the named dataset if missing and loads its
+observations table. Other datasets, including Instacart tables, are not modified.
+It does not enable APIs automatically; if a missing-API error occurs, inspect that
+error and enable only the BigQuery API for the intended project as needed.
 
-## dbt setup
+Expected, not yet live-verified: load_mode=snapshot, loaded_rows=18,
+warehouse_rows=18, four passing checks and a real job_id. A success summary is
+written to logs/bigquery_latest_run.json, which is ignored by Git. This file
+records the latest successful snapshot load, not later failed attempts.
 
-Prefer a separate virtual environment for dbt to isolate optional dependencies:
+Run the same load command again and confirm 18 rows remain. These shell variables
+must be set again if a new PowerShell session is opened. .env.example is only a
+template and is not automatically loaded.
+
+## Inspect the data in BigQuery
+
+Open https://console.cloud.google.com/bigquery?project=instacart-analytics-practice
+and inspect gacl_public_disclosures.observations. The raw schema preserves dates
+and decimal values as strings; page fields are INT64. dbt will provide typed views.
+
+```sql
+SELECT frequency, COUNT(*) AS observation_count
+FROM `instacart-analytics-practice.gacl_public_disclosures.observations`
+GROUP BY frequency;
+-- Expected: annual 12, monthly 6.
+
+SELECT observation_id, source_id, document_sha256, COUNT(*) AS copies
+FROM `instacart-analytics-practice.gacl_public_disclosures.observations`
+GROUP BY observation_id, source_id, document_sha256
+HAVING COUNT(*) > 1;
+-- Expected: no rows, including after a second snapshot load.
+```
+
+The SELECT queries use sandbox query quota. The snapshot upload itself executes
+no SQL queries. Reconcile selected values, units, dates and source pages against
+SQLite, not only the row count. Record load job IDs, expiration and actual results.
+
+## Optional MERGE mode
+
+--mode merge retains the original staged SQL upsert, and requires DML support.
+It is outside the user's chosen billing-free route. There is no automatic
+fallback from snapshot to MERGE or from an error to a different write mode.
+Mode selection is mandatory to make replacement versus upsert explicit.
+
+## dbt setup — after the cloud load is verified
+
+Prefer a separate virtual environment; Python 3.11 is installed on the user's
+laptop. Keep the same environment variables and dataset location.
 
 ```powershell
-py -3.12 -m venv .venv-dbt
+py -3.11 -m venv .venv-dbt
 .\.venv-dbt\Scripts\python.exe -m pip install -e ".[dbt]"
 Copy-Item dbt/profiles.yml.example dbt/profiles.yml
 .\.venv-dbt\Scripts\dbt.exe debug --project-dir dbt --profiles-dir dbt
 .\.venv-dbt\Scripts\dbt.exe build --project-dir dbt --profiles-dir dbt
 ```
 
-Export the environment variables in the same PowerShell session. The profile uses OAuth/ADC. The raw source and model views use the chosen dataset; the loader writes observations, and dbt writes stg_observations plus monthly/annual views.
+Models are configured as views; do not switch to incremental/DML models in the
+sandbox. The source table is observations, and dbt creates stg_observations plus
+separate monthly/annual reporting views. Adapter execution is still unverified.
 
-Core dependency is pinned; optional dependency ranges still need a resolved cloud environment and verification before being called reproducible cloud deployment.
+## Acceptance checks
 
-## Cloud acceptance checks
+- Confirm the correct project, ADC account and dataset location.
+- Load all 18 observations and inspect the reported job and table count.
+- Rerun the snapshot; counts and observation/source/version keys remain unchanged.
+- Reconcile source, SQLite, BigQuery and dbt values; run dbt checks.
+- Record dependency versions, job results, expiration and query usage.
+- Update STATUS.md with actual results before claiming cloud deployment.
 
-- Confirm correct account, project and dataset location.
-- Load all 18 observations and run dbt checks.
-- Rerun the cloud load; observation/source/version keys remain unique.
-- Reconcile source, SQLite, BigQuery and dbt results.
-- Record adapter versions, job results and query costs.
-- Update STATUS.md only after successful execution.
-
-The staging table is cleaned up in a finally block. This loader does not implement a distributed transaction with local execution or an automatic preferred-revision policy.
-
+There is no distributed transaction across SQLite and BigQuery. Concurrent
+snapshot writers are unsupported; the last successful replacement wins.

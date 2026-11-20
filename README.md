@@ -16,6 +16,14 @@ This is independent work using public disclosures; it is not affiliated with or 
 - Duplicate-safe local loads and reloads of individual historical sources.
 - A credential-free local path, with optional BigQuery/dbt setup files.
 
+## Billing-free BigQuery route
+
+The optional loader now requires an explicit mode. `--mode snapshot` uploads the
+complete validated local export with one batch replacement job and executes no
+DML, so it is intended for the user's billing-free sandbox. The cloud table is a
+copy of the local export, not an independent history store. Live cloud execution
+is still pending. Follow [BigQuery setup](docs/BIGQUERY_DBT.md).
+
 ## The data
 
 | Dataset | Grain | Initial coverage |

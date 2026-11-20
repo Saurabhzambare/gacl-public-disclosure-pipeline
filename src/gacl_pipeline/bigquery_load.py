@@ -1,4 +1,4 @@
-"""Optional cloud loader. Prepared for the next milestone; requires ADC."""
+"""Validated BigQuery loads: billing-free snapshots or explicit SQL MERGE."""
 import argparse
 import json
 import os
@@ -16,17 +16,22 @@ def main(argv=None):
     parser.add_argument("--project", default=os.environ.get("GCP_PROJECT_ID"))
     parser.add_argument("--dataset", default=os.environ.get("BQ_DATASET", "gacl_public_disclosures"))
     parser.add_argument("--location", default=os.environ.get("BQ_LOCATION", "asia-south1"))
+    parser.add_argument("--mode", choices=("snapshot", "merge"), required=True,
+                        help="snapshot replaces the full table using a batch load; merge requires DML")
     args = parser.parse_args(argv)
     if not args.project or not re.fullmatch(r"[a-z][a-z0-9-]{4,61}[a-z0-9]", args.project) or args.project == "your-project-id":
         parser.error("Set a real GCP_PROJECT_ID or --project")
     if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]{0,1023}", args.dataset):
         parser.error("Invalid dataset identifier")
     root = args.root.resolve()
-    rows = json.loads((root / "data/processed/observations.json").read_text())
-    metrics = json.loads((root / "config/metrics.json").read_text())
-    sources = json.loads((root / "config/sources.json").read_text())["sources"]
+    rows = json.loads((root / "data/processed/observations.json").read_text(encoding="utf-8"))
+    metrics = json.loads((root / "config/metrics.json").read_text(encoding="utf-8"))
+    sources = json.loads((root / "config/sources.json").read_text(encoding="utf-8"))["sources"]
     valid, rejected = validate_rows(rows, metrics, sources)
-    checks = reconcile(valid, {r["source_id"] for r in valid})
+    # A snapshot must cover every configured source, including one absent entirely
+    # from an accidentally truncated local export. MERGE may load selected sources.
+    selected = {s["source_id"] for s in sources} if args.mode == "snapshot" else {r["source_id"] for r in valid}
+    checks = reconcile(valid, selected)
     if not valid or rejected or any(not c["passed"] for c in checks):
         raise ValueError("Refusing cloud load: local outputs failed validation")
     try:
@@ -43,6 +48,25 @@ def main(argv=None):
         raise ValueError("Existing dataset location differs from --location")
     schema = [bigquery.SchemaField(k, "INT64" if k in ("pdf_page", "printed_page") else "STRING", mode="REQUIRED") for k in COLUMNS]
     target = dataset_id + ".observations"
+    if args.mode == "snapshot":
+        # One atomic batch job: no DML, SQL query, streaming or delete-before-load.
+        job = client.load_table_from_json(valid, target, job_config=bigquery.LoadJobConfig(
+            schema=schema, write_disposition="WRITE_TRUNCATE",
+            create_disposition="CREATE_IF_NEEDED", max_bad_records=0,
+            ignore_unknown_values=False))
+        job.result()
+        table = client.get_table(target)
+        if table.num_rows != len(valid):
+            raise ValueError("Cloud row count differs from the validated snapshot; inspect the load job")
+        summary = {"target": target, "load_mode": "snapshot", "loaded_rows": len(valid),
+                   "warehouse_rows": table.num_rows, "location": actual.location,
+                   "job_id": job.job_id,
+                   "table_expires_at": table.expires.isoformat() if table.expires else None,
+                   "checks": checks}
+        from .pipeline import write_json
+        write_json(root / "logs/bigquery_latest_run.json", summary)
+        print(json.dumps(summary, indent=2))
+        return 0
     staging = dataset_id + "._load_" + uuid4().hex
     client.create_table(bigquery.Table(target, schema=schema), exists_ok=True)
     try:
@@ -60,7 +84,7 @@ def main(argv=None):
         client.query(query, job_config=bigquery.QueryJobConfig(maximum_bytes_billed=1_000_000_000)).result()
     finally:
         client.delete_table(staging, not_found_ok=True)
-    print(json.dumps({"target": target, "merged_rows": len(valid), "location": args.location}, indent=2))
+    print(json.dumps({"target": target, "load_mode": "merge", "merged_rows": len(valid), "location": args.location}, indent=2))
     return 0
 
 

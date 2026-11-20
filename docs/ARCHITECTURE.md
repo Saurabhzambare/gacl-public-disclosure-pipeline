@@ -42,7 +42,8 @@ Validation occurs before the observation transaction. CSV export happens afterwa
 
 ## Next milestones
 
-- Optional BigQuery loader stages rows and merges by observation/source/version.
+- BigQuery sandbox mode validates the complete export and replaces observations with one atomic batch load; it executes no DML.
+- Optional explicit MERGE mode preserves staged upsert behavior outside the billing-free route.
 - dbt creates typed, separate monthly/annual views and tests.
 - Power BI imports curated outputs.
 - Scheduling, RAG and industrial protocol demonstrations are separate future work.
@@ -50,4 +51,15 @@ Validation occurs before the observation transaction. CSV export happens afterwa
 
 ## Reviewed-extract input mode
 
-Use --from-examples when the report website is unavailable. It validates the pinned repository CSV snapshots, runs the normal data checks and loads the warehouse without downloading PDFs. Run history and data/processed/run_manifest.json record input_mode=reviewed_extracts and pdfs_verified_this_run=false. This is distinct from --offline, which verifies cached source PDFs. The 22-test suite includes no-network execution, duplicate-safe reruns, altered-snapshot rejection, Windows newline handling, certificate failure handling and migration of existing run history. See docs/HTTPS_TROUBLESHOOTING.md from the repository root.
+Use --from-examples when the report website is unavailable. It validates the pinned repository CSV snapshots, runs the normal data checks and loads the warehouse without downloading PDFs. Run history and data/processed/run_manifest.json record input_mode=reviewed_extracts and pdfs_verified_this_run=false. This is distinct from --offline, which verifies cached source PDFs. The local test suite includes no-network execution, duplicate-safe reruns, altered-snapshot rejection, Windows newline handling, certificate failure handling and migration of existing run history. See docs/HTTPS_TROUBLESHOOTING.md from the repository root.
+
+## Cloud snapshot boundary
+
+The user chose billing-free BigQuery sandbox operation. --mode snapshot replaces
+the cloud table with the complete accepted local export; it does not retain
+cloud-only history missing locally. Coverage of both configured sources must
+pass before any cloud call. One WRITE_TRUNCATE batch job avoids partial
+replacement; the loader checks the resulting row count and records the job ID.
+No SQL/DML, delete-before-load or change to billing settings occurs. Local SQLite
+remains the source of retained document-version history. Concurrent snapshot
+writers and multi-version conflict resolution are not supported.

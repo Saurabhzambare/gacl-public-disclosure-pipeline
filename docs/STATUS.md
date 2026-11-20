@@ -16,29 +16,35 @@ Updated: 20 November 2026. First-version target: 22 November 2026, 8:00 PM IST.
 - [x] Online refresh verifies pinned documents and creates retrieval sidecars.
 - [x] Run history, diagnostic logs and quarantine/check artifacts.
 - [x] Explicit reviewed-extract input mode works without PDFs or network access; records that PDFs were not verified in that run.
-- [x] 25 unit tests pass, including failure/retry and idempotency cases.
+- [x] 32 unit tests pass with the cloud extra (25 core plus 7 mocked cloud-boundary tests), including failure/retry and idempotency cases.
 - [x] Core installed into a fresh isolated Python 3.12 environment.
 - [x] Python modules compile; five YAML configuration files parse.
 - [x] Essential setup, source, data, architecture, testing and operations documentation.
 
 ## Prepared, not yet cloud-verified
 
-- [ ] BigQuery dataset and validated MERGE loader execution.
+- [ ] BigQuery sandbox snapshot load and rerun verified against the live project.
 - [ ] dbt debug/build and warehouse tests.
-- [ ] Cloud dependency versions resolved and recorded.
+- [x] User installed google-cloud-bigquery 3.47.0; pin recorded. Full transitive lock and dbt environment remain pending.
 - [ ] Power BI Desktop report and refresh validation.
 - [ ] Recorded 3–5 minute walkthrough.
 - [ ] Scheduled production-style execution.
 - [x] GitHub Actions unit-test workflow passed for the initial project commit.
   Evidence: https://github.com/Saurabhzambare/gacl-public-disclosure-pipeline/actions/runs/44484974724
 
-The repository is public and the Windows clone is installed. On 20 November,
-the user confirmed a full verified-PDF refresh using a one-process truststore
-0.10.5 launcher: run 4a949773-e15d-4b6a-a7fb-6cb83d55ee6f, 18 extracted,
-18 loaded, 18 stored, four passing aggregate checks. The integrated downloader
-now uses an explicit native Windows SSLContext and has 25 passing development
-tests. Confirmation of the ordinary command on the user's laptop is pending.
-BigQuery/dbt, Power BI and the walkthrough remain the next delivery milestones.
+The repository is public and the Windows clone is installed. The user confirmed
+the ordinary --refresh command on 20 November: run
+a027f1fa-4961-4cce-b2cd-bb976f54a860, input_mode=verified_pdfs,
+18 extracted/loaded/stored, four passing checks and 25 Windows tests passed.
+The downloader uses an explicit native Windows SSLContext.
+
+Cloud setup evidence from the user's terminal: ADC login succeeded for project
+instacart-analytics-practice; billingEnabled=false; BigQuery client 3.47.0
+installed. The user chose billing-free operation. Snapshot mode is implemented
+and tested with a mocked BigQuery client, including incomplete-export rejection,
+no DML, replacement on rerun, failure handling and cloud row-count verification.
+No live cloud upload has yet been observed. dbt, Power BI and the walkthrough
+remain pending.
 
 ## Known limitations
 
@@ -48,5 +54,6 @@ BigQuery/dbt, Power BI and the walkthrough remain the next delivery milestones.
 - Source revision detection fails closed; no automated preferred-version selection exists.
 - The aggregate tests demonstrate numerical consistency, not regulatory compliance.
 - Cloud/dbt/Power BI are not claimed as completed.
+- Snapshot mode replaces cloud-only rows absent from the local export; sandbox expiration applies.
 - No raw SAP, OPC UA or SCADA access, streaming pipeline or deployed AI service.
 

@@ -51,7 +51,7 @@ Current limitation: raw parsing errors stop before a row can be constructed, so 
 
 ## Reviewed-extract input mode
 
-Use --from-examples when the report website is unavailable. It validates the pinned repository CSV snapshots, runs the normal data checks and loads the warehouse without downloading PDFs. Run history and data/processed/run_manifest.json record input_mode=reviewed_extracts and pdfs_verified_this_run=false. This is distinct from --offline, which verifies cached source PDFs. The 25-test suite includes no-network execution, duplicate-safe reruns, altered-snapshot rejection, Windows newline handling, certificate failure handling and migration of existing run history. See docs/HTTPS_TROUBLESHOOTING.md from the repository root.
+Use --from-examples when the report website is unavailable. It validates the pinned repository CSV snapshots, runs the normal data checks and loads the warehouse without downloading PDFs. Run history and data/processed/run_manifest.json record input_mode=reviewed_extracts and pdfs_verified_this_run=false. This is distinct from --offline, which verifies cached source PDFs. The core test suite includes no-network execution, duplicate-safe reruns, altered-snapshot rejection, Windows newline handling, certificate failure handling and migration of existing run history. See docs/HTTPS_TROUBLESHOOTING.md from the repository root.
 
 ## Native HTTPS verification
 
@@ -62,3 +62,14 @@ certificate-error failure. CI covers Windows/Python 3.11 and Linux/Python 3.12
 without depending on the external report website. Native Windows download
 success was reported by the user with the temporary launcher; the integrated
 normal command still needs laptop confirmation.
+
+## BigQuery snapshot boundary tests
+
+Install the cloud extra to run all 32 tests; core-only installs run 25 and skip
+the seven cloud tests. CI installs the pinned BigQuery 3.47.0 SDK on Windows and
+Linux. The SDK types are real, but the client is mocked: no credentials or Google
+Cloud calls are used. Checks cover explicit mode selection, replacement on rerun
+without DML/deletion, empty/partial/malformed/duplicate export rejection before
+cloud access, location mismatch, job failure, post-load row-count mismatch and
+retention of explicit MERGE staging/cleanup behavior. These tests do not prove
+live sandbox permissions or deployment. Those require the user's cloud run.

@@ -3,7 +3,15 @@
 Prepared for Saurabh Zambare on 19 November 2026.
 Target completion: Sunday, 22 November 2026, by 8:00 PM IST.
 Application deadline discussed: Sunday, 29 November 2026.
-Status: planned; this document does not represent completed implementation.
+Status: implementation in progress. See STATUS.md for verified evidence.
+
+Checkpoint — 20 November: local PDF-to-SQLite execution is verified on the user's
+Windows laptop, with 18 observations and 25 passing core tests. The user has
+chosen billing-free BigQuery; replace the planned cloud MERGE step with an
+explicit full-snapshot batch load. Snapshot code and mocked SDK tests are
+prepared, but live cloud loading, dbt, Power BI and the walkthrough remain
+pending. The original daily checklists below are planning gates, not a live
+completion tracker.
 
 ## 1. Project objective
 
