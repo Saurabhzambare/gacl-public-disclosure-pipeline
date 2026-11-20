@@ -8,7 +8,10 @@ version = "0.1.0"
 description = "Traceable batch data engineering using GACL public disclosures"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["PyMuPDF==1.26.6"]
+dependencies = [
+    "PyMuPDF==1.26.6",
+    "truststore==0.10.5; sys_platform == 'win32'",
+]
 
 [project.optional-dependencies]
 cloud = ["google-cloud-bigquery>=3.38,<4"]

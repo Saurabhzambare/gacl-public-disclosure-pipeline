@@ -4,6 +4,7 @@ import hashlib
 import json
 import logging
 import ssl
+import sys
 import time
 import urllib.error
 import urllib.request
@@ -33,6 +34,14 @@ def sha256(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def create_https_context():
+    """Use Windows chain validation without changing process-wide SSL behavior."""
+    if sys.platform == "win32":
+        import truststore
+        return truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+    return ssl.create_default_context()
+
+
 def download(source, raw_dir, refresh=False):
     path = Path(raw_dir) / (source["source_id"] + ".pdf")
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -40,11 +49,12 @@ def download(source, raw_dir, refresh=False):
         if sha256(path) != source["sha256"]:
             raise ValueError(f"Checksum mismatch for cached {source['source_id']}")
         return path
+    context = create_https_context()
     # Bounded retry only for transient network failures. A changed document is not retried.
     for attempt in range(3):
         try:
             request = urllib.request.Request(source["url"], headers={"User-Agent": "GACL-Public-Disclosure-Portfolio/0.1"})
-            with urllib.request.urlopen(request, timeout=45) as response:
+            with urllib.request.urlopen(request, timeout=45, context=context) as response:
                 data = response.read(25 * 1024 * 1024 + 1)
             if len(data) > 25 * 1024 * 1024 or not data.startswith(b"%PDF"):
                 raise ValueError("Response is not an allowed PDF")

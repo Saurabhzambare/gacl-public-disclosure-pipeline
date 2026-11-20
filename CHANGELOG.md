@@ -1,5 +1,13 @@
 # Changelog
 
+## Update — 20 November 2026
+
+Use pinned truststore 0.10.5 and an explicit native Windows TLS context for PDF
+downloads, preserving certificate/hostname and source checksum checks. Other
+platforms retain the default verified SSL context. Add three tests (25 total)
+and Windows/Python 3.11 CI coverage. Record the user's successful full PDF run
+with the temporary launcher; normal-command laptop confirmation remains pending.
+
 ## Update — 19 November 2026
 
 Added an explicit --from-examples mode using checksum-pinned, reviewed repository CSVs. Run provenance distinguishes reviewed extracts from fresh PDF verification. Certificate errors fail immediately with actionable instructions. Added seven tests (22 total), a network-free CLI check in CI, HTTPS troubleshooting and Python 3.11 Windows instructions. Recorded the repository's public visibility.

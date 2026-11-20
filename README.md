@@ -57,6 +57,11 @@ python3 -m venv .venv
 
 The first run downloads approximately 14 MB of public PDFs. Later runs reuse checksum-verified cached files. No cloud credentials are needed.
 
+On Windows, the downloader uses native certificate validation through pinned
+`truststore`. After pulling this update into an existing clone, rerun
+`python -m pip install -e .` using that clone's virtual-environment interpreter.
+Certificate and document checksum verification remain enabled.
+
 If HTTPS certificate verification blocks the report download, explicitly use the
 reviewed extracts already included in the repository:
 

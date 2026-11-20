@@ -54,7 +54,7 @@ Run from the project directory. Alternatively pass `--root /absolute/path/to/pro
 
 ## Environments and versions
 
-Core runtime dependency: PyMuPDF 1.26.6. The package is pinned in pyproject.toml. The test suite uses Python's standard-library unittest. Optional cloud/dbt dependencies are declared separately and must be resolved in a separate environment or installed explicitly; they were not needed for local verification.
+Core runtime dependencies: PyMuPDF 1.26.6, plus truststore 0.10.5 on Windows only. Both are pinned in pyproject.toml. The Windows downloader uses an explicit native-verification SSLContext; it does not patch process-wide SSL settings. After pulling dependency changes, rerun the editable installation command. The test suite uses Python's standard-library unittest. Optional cloud/dbt dependencies are declared separately and must be resolved in a separate environment or installed explicitly; they were not needed for local verification.
 
 The .env.example file is documentation only: the application does not automatically load .env files.
 

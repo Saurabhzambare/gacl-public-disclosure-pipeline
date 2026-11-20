@@ -12,6 +12,38 @@ The report URLs were reachable with normal certificate verification from the
 development environment on 19 November 2026. That does not establish what
 certificate chain a different Windows network receives.
 
+## Verified Windows resolution — 20 November 2026
+
+The user's Windows Python 3.11/OpenSSL 1.1.1u rejected both gacl.com and
+www.gacl.com with verification code 10 (certificate has expired), while the
+browser opened the report normally. The diagnostic clock showed 20 November
+2026. This does not identify the particular certificate responsible.
+
+A one-process launcher using truststore 0.10.5 native Windows verification
+successfully refreshed both pinned PDFs, extracted and loaded 18 observations,
+retained 18 warehouse rows and passed all four aggregate checks. User-reported
+run ID: 4a949773-e15d-4b6a-a7fb-6cb83d55ee6f; input_mode=verified_pdfs;
+pdfs_verified_this_run=true. This is evidence from the user's terminal output.
+
+The downloader now supplies an explicit truststore.SSLContext with
+ssl.PROTOCOL_TLS_CLIENT on Windows. Other platforms use ssl.create_default_context.
+There is no global SSL injection or automatic switch to reviewed CSVs.
+Install the updated dependency metadata before using the normal command:
+
+```powershell
+git pull --ff-only
+.\.venv\Scripts\python.exe -m pip install -e .
+.\.venv\Scripts\python.exe -m gacl_pipeline --refresh
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+The integrated normal command still needs confirmation on the user's laptop.
+Certificate failures still stop immediately; source hashes remain required.
+Native validation does not renew expired certificates. If validation still
+fails, diagnose the received certificate chain rather than bypassing checks.
+
+Reference: https://truststore.readthedocs.io/en/latest/
+
 ## Continue with reviewed data
 
 Update the clone with git pull --ff-only, then run:
