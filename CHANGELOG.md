@@ -1,5 +1,15 @@
 # Changelog
 
+## Stable dbt setup — 20 November 2026
+
+Pin dbt-core 1.12.7 and dbt-bigquery 1.12.4 after the broad adapter range
+selected beta Core 1.13.0b1 on the user's Windows laptop. Record the user's
+successful BigQuery count/duplicate/rerun queries, and distinguish them from
+pending job-ID evidence, full value reconciliation and live dbt execution.
+Document all profile environment variables and preserve an existing local profile.
+Verified development parse with the stable pair: three models/seven SQL tests;
+32 Python tests pass. Live dbt connection/build is still pending.
+
 ## Billing-free cloud mode — 20 November 2026
 
 Add mandatory --mode snapshot or --mode merge selection. Snapshot validates both

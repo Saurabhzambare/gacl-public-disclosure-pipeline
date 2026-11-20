@@ -9,8 +9,9 @@ Checkpoint — 20 November: local PDF-to-SQLite execution is verified on the use
 Windows laptop, with 18 observations and 25 passing core tests. The user has
 chosen billing-free BigQuery; replace the planned cloud MERGE step with an
 explicit full-snapshot batch load. Snapshot code and mocked SDK tests are
-prepared, but live cloud loading, dbt, Power BI and the walkthrough remain
-pending. The original daily checklists below are planning gates, not a live
+prepared. The user has since verified live BigQuery counts (12 annual,
+6 monthly), no duplicate keys, and 18 rows after the rerun check. Full value
+reconciliation, dbt, Power BI and the walkthrough remain pending. The original daily checklists below are planning gates, not a live
 completion tracker.
 
 ## 1. Project objective

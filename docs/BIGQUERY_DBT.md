@@ -1,7 +1,9 @@
 # BigQuery and dbt
 
-Status: the local pipeline works. The snapshot cloud loader is covered by mocked
-SDK-boundary tests; live BigQuery loading and dbt execution remain unverified.
+Status: local PDF processing works. The user has verified the live BigQuery
+table contains 12 annual and 6 monthly rows, no duplicate version keys, and
+18 total rows after the requested rerun check. dbt connection/build and full
+cloud value reconciliation remain unverified. Load job IDs were not supplied.
 
 ## Chosen route: billing-free sandbox
 
@@ -59,8 +61,9 @@ observations table. Other datasets, including Instacart tables, are not modified
 It does not enable APIs automatically; if a missing-API error occurs, inspect that
 error and enable only the BigQuery API for the intended project as needed.
 
-Expected, not yet live-verified: load_mode=snapshot, loaded_rows=18,
-warehouse_rows=18, four passing checks and a real job_id. A success summary is
+Expected loader summary: load_mode=snapshot, loaded_rows=18,
+warehouse_rows=18, four passing checks and a real job_id. The user has verified
+the live table counts; retain the actual job ID from the terminal. A success summary is
 written to logs/bigquery_latest_run.json, which is ignored by Git. This file
 records the latest successful snapshot load, not later failed attempts.
 
@@ -101,19 +104,29 @@ Mode selection is mandatory to make replacement versus upsert explicit.
 ## dbt setup — after the cloud load is verified
 
 Prefer a separate virtual environment; Python 3.11 is installed on the user's
-laptop. Keep the same environment variables and dataset location.
+laptop. Core 1.12.7 and adapter 1.12.4 are pinned. The previous broad adapter
+range selected beta Core 1.13.0b1 on the user's laptop. Pull the updated metadata
+and reinstall the dbt extra to use the stable pair. Keep the environment variables
+and dataset location in the same PowerShell session.
 
 ```powershell
 py -3.11 -m venv .venv-dbt
 .\.venv-dbt\Scripts\python.exe -m pip install -e ".[dbt]"
-Copy-Item dbt/profiles.yml.example dbt/profiles.yml
+$env:GCP_PROJECT_ID = "instacart-analytics-practice"
+$env:BQ_DATASET = "gacl_public_disclosures"
+$env:BQ_LOCATION = "asia-south1"
+if (!(Test-Path dbt/profiles.yml)) { Copy-Item dbt/profiles.yml.example dbt/profiles.yml }
+.\.venv-dbt\Scripts\dbt.exe --version
 .\.venv-dbt\Scripts\dbt.exe debug --project-dir dbt --profiles-dir dbt
 .\.venv-dbt\Scripts\dbt.exe build --project-dir dbt --profiles-dir dbt
 ```
 
 Models are configured as views; do not switch to incremental/DML models in the
 sandbox. The source table is observations, and dbt creates stg_observations plus
-separate monthly/annual reporting views. Adapter execution is still unverified.
+separate monthly/annual reporting views. Live debug/build remains unverified.
+Development parse succeeded on Linux/Python 3.12 with the pinned pair, finding
+three models and seven SQL tests. A successful parse checks project structure and references without querying
+BigQuery; it is not a successful database connection or build.
 
 ## Acceptance checks
 

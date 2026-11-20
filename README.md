@@ -2,7 +2,7 @@
 
 A data engineering portfolio project by **Saurabh Zambare** that turns GACL's public water and energy disclosures into traceable, validated observations.
 
-**Current status:** the local Python → SQLite → CSV pipeline works with **18 real observations** from two official reports. BigQuery/dbt deployment and the Power BI report are next milestones, not completed claims.
+**Current status:** the local Python → SQLite → CSV pipeline works with **18 real observations** from two official reports. The user has verified the BigQuery raw table has 12 annual and 6 monthly rows, with no duplicate keys. Full cloud reconciliation, dbt views/tests and the Power BI report remain pending.
 
 This is independent work using public disclosures; it is not affiliated with or commissioned by GACL.
 
@@ -21,8 +21,8 @@ This is independent work using public disclosures; it is not affiliated with or 
 The optional loader now requires an explicit mode. `--mode snapshot` uploads the
 complete validated local export with one batch replacement job and executes no
 DML, so it is intended for the user's billing-free sandbox. The cloud table is a
-copy of the local export, not an independent history store. Live cloud execution
-is still pending. Follow [BigQuery setup](docs/BIGQUERY_DBT.md).
+copy of the local export, not an independent history store. The user has verified live table counts and absence of duplicate keys; full
+value reconciliation and dbt execution remain pending. Follow [BigQuery setup](docs/BIGQUERY_DBT.md).
 
 ## The data
 
