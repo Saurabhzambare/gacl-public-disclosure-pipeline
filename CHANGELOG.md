@@ -1,5 +1,13 @@
 # Changelog
 
+## Reference verification — 22 November 2026
+
+Record the user's screenshot showing all eight BigQuery reference checks passed:
+18 raw, 18 staged, 6 monthly and 12 annual rows, with zero differing facts in
+each relation. Ignore generated dbt/.user.yml local metadata. Document Power BI
+Import connection to the validated views with UseStorageApi=false and the exact
+project, plus a manual cloud-view CSV fallback. Power BI remains unverified.
+
 ## Live dbt milestone — 22 November 2026
 
 Record user-verified connection/build: 3 views created and 7 SQL data tests

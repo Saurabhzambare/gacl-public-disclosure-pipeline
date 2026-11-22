@@ -4,8 +4,8 @@ Status: local PDF processing works. The user has verified the live BigQuery
 table contains 12 annual and 6 monthly rows, no duplicate version keys, and
 18 total rows after the requested rerun check. On 22 November, dbt debug passed
 and the live build created 3 views with 7 passing SQL tests, no warnings/errors
-or skipped resources. Full cloud reference reconciliation and load job-ID evidence
-remain pending.
+or skipped resources. All eight live reference checks passed, as shown in the user's screenshot.
+Cloud load job-ID and expiration evidence remain pending.
 
 ## Chosen route: billing-free sandbox
 
@@ -150,7 +150,8 @@ The query does not change tables or settings and consumes only normal SELECT
 query quota. It is tied to the current project and approved 18 facts; review it
 when adding reports or changing the source manifest. It does not compare every
 provenance column, certify regulatory compliance or prove operational causes.
-Actual execution results have not yet been supplied.
+On 22 November the user supplied a screenshot of all eight results with
+passed=true, the expected counts and zero differing facts.
 
 ## Acceptance checks
 

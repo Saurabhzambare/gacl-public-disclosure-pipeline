@@ -85,5 +85,6 @@ read-only checks: count and bidirectional reference comparison for the raw
 table and each dbt view. It embeds the 18 genuine reviewed facts from pinned
 CSV snapshots (not synthetic test input). Source date/value/unit/scope facts
 were validated before generating the script; its syntax parsed with sqlglot.
-A live result with all eight passed=true remains required. The manual script
+On 22 November the user screenshot confirmed all eight passed=true,
+with 18/18/6/12 rows and zero differing facts for all four relations. The manual script
 does not add eight Python tests or change the seven dbt tests.

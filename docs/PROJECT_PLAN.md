@@ -16,8 +16,8 @@ completion tracker.
 
 Checkpoint — 22 November: live dbt debug succeeded and build created three
 reporting views with seven passing SQL tests (10 total successful resources,
-no warnings/errors/skips). Final reference comparison is prepared in
-sql/bigquery_verification.sql and awaits live results. Power BI and the recorded
+no warnings/errors/skips). All eight checks in sql/bigquery_verification.sql subsequently passed in
+BigQuery (user screenshot): expected counts and zero differing facts. Power BI and the recorded
 walkthrough remain outstanding; the entire project is not yet complete.
 
 ## 1. Project objective

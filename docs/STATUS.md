@@ -24,7 +24,8 @@ Updated: 22 November 2026. First-version target: 22 November 2026, 8:00 PM IST.
 ## Cloud checks and remaining milestones
 
 - [x] User-reported live BigQuery counts: annual 12, monthly 6, duplicate-key query empty, total 18 after rerun check.
-- [ ] Complete value-by-value cloud reconciliation and recorded load job IDs.
+- [x] User screenshot verifies all eight reference checks passed: 18 raw, 18 staged, 6 monthly, 12 annual, zero differing facts.
+- [ ] Record actual cloud load job IDs and table expiration evidence.
 - [x] User-verified dbt debug and build: 3 views created, 7 SQL tests passed; PASS=10 WARN=0 ERROR=0 SKIP=0.
 - [x] User installed google-cloud-bigquery 3.47.0; pin recorded. Full transitive lock remains pending; stable dbt Core/adapter pins are recorded below.
 - [ ] Power BI Desktop report and refresh validation.
@@ -46,8 +47,8 @@ and tested with a mocked BigQuery client, including incomplete-export rejection,
 no DML, replacement on rerun, failure handling and cloud row-count verification.
 The user has now queried the live BigQuery table: 12 annual and 6 monthly rows,
 no duplicate observation/source/version keys, and 18 rows after the requested
-repeat-load check. This evidence is user-reported query output; load job IDs and
-a full value comparison have not been supplied.
+repeat-load check. This evidence is user-reported query output; load job IDs have not been
+supplied. The later reference-comparison screenshot verifies the core facts.
 
 The user installed dbt-bigquery 1.12.4; the unpinned Core resolved to beta
 1.13.0b1. Pin Core 1.12.7 and adapter 1.12.4 for reproducible installation.
@@ -65,8 +66,12 @@ A read-only reference comparison is prepared in sql/bigquery_verification.sql:
 eight checks compare all 18 reviewed fact values, units, dates and scopes across
 the raw table and dbt views. The expected facts were loaded through the pinned
 CSV checksum reader, validated, and the generated GoogleSQL was syntax-parsed.
-Its actual BigQuery results are pending. Power BI and the walkthrough remain
-pending.
+The user supplied a BigQuery screenshot on 22 November with all eight checks
+passed=true: annual 12 and zero differences, monthly 6 and zero differences,
+raw 18 and zero differences, staging 18 and zero differences. This verifies the
+selected values, periods, units and scopes against the reviewed reference;
+it does not independently verify every provenance column. Power BI connection,
+report construction/refresh and the walkthrough remain pending.
 
 ## Known limitations
 
@@ -75,7 +80,7 @@ pending.
 - FY 2024–25 comparison figures are recalculated disclosures in the latest BRSR, not necessarily equal to earlier publications.
 - Source revision detection fails closed; no automated preferred-version selection exists.
 - The aggregate tests demonstrate numerical consistency, not regulatory compliance.
-- Raw BigQuery count/duplicate checks are verified; dbt views/tests are verified; full reference reconciliation and Power BI remain pending.
+- Raw BigQuery count/duplicate checks are verified; dbt views/tests are verified; core reference reconciliation is verified; Power BI remains pending.
 - Snapshot mode replaces cloud-only rows absent from the local export; sandbox expiration applies.
 - No raw SAP, OPC UA or SCADA access, streaming pipeline or deployed AI service.
 
