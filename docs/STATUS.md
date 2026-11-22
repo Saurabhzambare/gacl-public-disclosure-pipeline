@@ -1,6 +1,6 @@
 # Project status
 
-Updated: 20 November 2026. First-version target: 22 November 2026, 8:00 PM IST.
+Updated: 22 November 2026. First-version target: 22 November 2026, 8:00 PM IST.
 
 ## Implemented and verified locally
 
@@ -25,7 +25,7 @@ Updated: 20 November 2026. First-version target: 22 November 2026, 8:00 PM IST.
 
 - [x] User-reported live BigQuery counts: annual 12, monthly 6, duplicate-key query empty, total 18 after rerun check.
 - [ ] Complete value-by-value cloud reconciliation and recorded load job IDs.
-- [ ] dbt debug/build and warehouse tests.
+- [x] User-verified dbt debug and build: 3 views created, 7 SQL tests passed; PASS=10 WARN=0 ERROR=0 SKIP=0.
 - [x] User installed google-cloud-bigquery 3.47.0; pin recorded. Full transitive lock remains pending; stable dbt Core/adapter pins are recorded below.
 - [ ] Power BI Desktop report and refresh validation.
 - [ ] Recorded 3–5 minute walkthrough.
@@ -53,8 +53,20 @@ The user installed dbt-bigquery 1.12.4; the unpinned Core resolved to beta
 1.13.0b1. Pin Core 1.12.7 and adapter 1.12.4 for reproducible installation.
 Development verification on Linux/Python 3.12: dbt parse succeeded with the
 pinned Core 1.12.7 and BigQuery adapter 1.12.4 (three models and seven SQL tests).
-All 32 Python tests still pass. Live dbt debug/build on the user's Windows
-installation, Power BI and the walkthrough remain pending.
+All 32 Python tests still pass. On 22 November the user confirmed live dbt debug
+(Connection test OK; All checks passed) and build on Windows/Python 3.11.4,
+Core 1.12.7, adapter 1.12.4. Three views were created and seven SQL tests passed;
+PASS=10 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=10. The reported build
+included an interactive dbt State sign-in; this is separate from the Google ADC
+setup. Anonymous usage-event flushing failed after debug succeeded; the user
+then disabled usage stats for the build.
+
+A read-only reference comparison is prepared in sql/bigquery_verification.sql:
+eight checks compare all 18 reviewed fact values, units, dates and scopes across
+the raw table and dbt views. The expected facts were loaded through the pinned
+CSV checksum reader, validated, and the generated GoogleSQL was syntax-parsed.
+Its actual BigQuery results are pending. Power BI and the walkthrough remain
+pending.
 
 ## Known limitations
 
@@ -63,7 +75,7 @@ installation, Power BI and the walkthrough remain pending.
 - FY 2024–25 comparison figures are recalculated disclosures in the latest BRSR, not necessarily equal to earlier publications.
 - Source revision detection fails closed; no automated preferred-version selection exists.
 - The aggregate tests demonstrate numerical consistency, not regulatory compliance.
-- Raw BigQuery count/duplicate checks are verified; full reconciliation, dbt and Power BI remain pending.
+- Raw BigQuery count/duplicate checks are verified; dbt views/tests are verified; full reference reconciliation and Power BI remain pending.
 - Snapshot mode replaces cloud-only rows absent from the local export; sandbox expiration applies.
 - No raw SAP, OPC UA or SCADA access, streaming pipeline or deployed AI service.
 

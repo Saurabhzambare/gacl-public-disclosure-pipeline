@@ -2,8 +2,10 @@
 
 Status: local PDF processing works. The user has verified the live BigQuery
 table contains 12 annual and 6 monthly rows, no duplicate version keys, and
-18 total rows after the requested rerun check. dbt connection/build and full
-cloud value reconciliation remain unverified. Load job IDs were not supplied.
+18 total rows after the requested rerun check. On 22 November, dbt debug passed
+and the live build created 3 views with 7 passing SQL tests, no warnings/errors
+or skipped resources. Full cloud reference reconciliation and load job-ID evidence
+remain pending.
 
 ## Chosen route: billing-free sandbox
 
@@ -123,10 +125,32 @@ if (!(Test-Path dbt/profiles.yml)) { Copy-Item dbt/profiles.yml.example dbt/prof
 
 Models are configured as views; do not switch to incremental/DML models in the
 sandbox. The source table is observations, and dbt creates stg_observations plus
-separate monthly/annual reporting views. Live debug/build remains unverified.
+separate monthly/annual reporting views. On 22 November the user verified
+Connection test OK and a completed build: 3 views, 7 passing data tests,
+PASS=10 WARN=0 ERROR=0 SKIP=0. This is actual user terminal evidence with
+Core 1.12.7, adapter 1.12.4 and Windows/Python 3.11.4.
 Development parse succeeded on Linux/Python 3.12 with the pinned pair, finding
 three models and seven SQL tests. A successful parse checks project structure and references without querying
 BigQuery; it is not a successful database connection or build.
+
+## Final read-only reference comparison
+
+Open sql/bigquery_verification.sql and run its entire SELECT query in BigQuery.
+It embeds the 18 reviewed facts from the checksum-pinned repository extracts
+and compares each relation in both directions using EXCEPT DISTINCT. It checks
+values, periods, units and reporting scopes, not just record counts.
+
+Expected eight result rows, all passed=true:
+- observations: 18 rows, 0 differing facts.
+- stg_observations: 18 rows, 0 differing facts.
+- monthly_site_observations: 6 rows, 0 differing facts.
+- annual_company_observations: 12 rows, 0 differing facts.
+
+The query does not change tables or settings and consumes only normal SELECT
+query quota. It is tied to the current project and approved 18 facts; review it
+when adding reports or changing the source manifest. It does not compare every
+provenance column, certify regulatory compliance or prove operational causes.
+Actual execution results have not yet been supplied.
 
 ## Acceptance checks
 

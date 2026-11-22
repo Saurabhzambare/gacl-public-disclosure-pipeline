@@ -1,5 +1,15 @@
 # Changelog
 
+## Live dbt milestone — 22 November 2026
+
+Record user-verified connection/build: 3 views created and 7 SQL data tests
+passed, with no warnings, errors or skips. Add a read-only BigQuery reference
+script with eight checks covering all 18 reviewed values, dates, units and
+scopes across raw/staged/monthly/annual relations. Expected reference facts
+passed snapshot checksum/contract checks; GoogleSQL syntax parsed locally.
+Live execution of the reference script, Power BI and the walkthrough remain
+pending. No additional Python or dbt test count is claimed for the manual SQL.
+
 ## Stable dbt setup — 20 November 2026
 
 Pin dbt-core 1.12.7 and dbt-bigquery 1.12.4 after the broad adapter range

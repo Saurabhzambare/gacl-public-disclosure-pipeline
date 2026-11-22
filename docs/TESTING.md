@@ -73,3 +73,17 @@ without DML/deletion, empty/partial/malformed/duplicate export rejection before
 cloud access, location mismatch, job failure, post-load row-count mismatch and
 retention of explicit MERGE staging/cleanup behavior. These tests do not prove
 live sandbox permissions or deployment. Those require the user's cloud run.
+
+## Live dbt and final reference check
+
+On 22 November the user supplied a successful Windows dbt build: three views,
+seven passing SQL tests, PASS=10 WARN=0 ERROR=0 SKIP=0. These are separate
+from the 32 Python software tests.
+
+The manual GoogleSQL script sql/bigquery_verification.sql provides eight
+read-only checks: count and bidirectional reference comparison for the raw
+table and each dbt view. It embeds the 18 genuine reviewed facts from pinned
+CSV snapshots (not synthetic test input). Source date/value/unit/scope facts
+were validated before generating the script; its syntax parsed with sqlglot.
+A live result with all eight passed=true remains required. The manual script
+does not add eight Python tests or change the seven dbt tests.

@@ -14,6 +14,12 @@ prepared. The user has since verified live BigQuery counts (12 annual,
 reconciliation, dbt, Power BI and the walkthrough remain pending. The original daily checklists below are planning gates, not a live
 completion tracker.
 
+Checkpoint — 22 November: live dbt debug succeeded and build created three
+reporting views with seven passing SQL tests (10 total successful resources,
+no warnings/errors/skips). Final reference comparison is prepared in
+sql/bigquery_verification.sql and awaits live results. Power BI and the recorded
+walkthrough remain outstanding; the entire project is not yet complete.
+
 ## 1. Project objective
 
 Build a reproducible batch data pipeline that converts GACL's public environmental and sustainability disclosures into validated BigQuery tables and Power BI reports. Demonstrate source traceability, careful interpretation, repeatable loading, failure handling and clear technical communication.
