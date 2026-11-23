@@ -6,6 +6,27 @@ A data engineering portfolio project by **Saurabh Zambare** that turns GACL's pu
 
 This is independent work using public disclosures; it is not affiliated with or commissioned by GACL.
 
+## Pipeline preview
+
+```mermaid
+flowchart TD
+    P["Two pinned public PDFs"] --> E["Python extraction with page lineage"]
+    E --> V{"Validation and reconciliation"}
+    V -->|Pass| S["Duplicate-safe SQLite warehouse"]
+    V -->|Fail| Q["Quarantine and diagnostic log"]
+    S --> C["Validated CSV exports"]
+    C --> B["BigQuery snapshot load"]
+    B --> D["Three dbt views and seven SQL tests"]
+```
+
+| Inspectable output | Recorded scope |
+|---|---|
+| Monthly site observations | **6** monthly daily-average water rates |
+| Annual company observations | **12** annual water and energy totals |
+| Cloud reference reconciliation | **8** checks passed for the selected facts |
+
+This is an architecture/output preview of the implemented project, not a live plant dashboard. Monthly site rates and annual company totals retain their separate grains and units. [Reviewed sample exports](data/examples/) · [Current verification and pending work](docs/STATUS.md)
+
 ## What the project demonstrates
 
 - Downloaded PDFs verified against pinned SHA-256 checksums.
