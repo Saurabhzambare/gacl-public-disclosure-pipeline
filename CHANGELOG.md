@@ -1,5 +1,16 @@
 # Changelog
 
+## Power BI report and portfolio evidence — 24 November 2026
+
+Add the author-supplied two-page Power BI PDF and page previews rendered from it.
+Record successful Desktop refresh reported by the user and review of displayed
+values, counts, units, source pages and four link annotations. Replace the
+planned-dashboard description with the actual pages, DAX measures, formatting
+and refresh guidance; update README/status/build-plan checkpoints and add a
+walkthrough script. The PDF is unchanged, including the retained cosmetic
+heading marks. Editable PBIX, a recorded video and a captured end-to-end rerun
+remain pending. No pipeline code or test-count claims changed.
+
 ## Reference verification — 22 November 2026
 
 Record the user's screenshot showing all eight BigQuery reference checks passed:

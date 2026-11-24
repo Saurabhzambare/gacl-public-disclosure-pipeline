@@ -60,8 +60,8 @@ urlopen. Other platforms retain required certificate and hostname checks.
 Tests verify context selection/forwarding, document hashing and immediate
 certificate-error failure. CI covers Windows/Python 3.11 and Linux/Python 3.12
 without depending on the external report website. Native Windows download
-success was reported by the user with the temporary launcher; the integrated
-normal command still needs laptop confirmation.
+success was reported with the temporary launcher and then confirmed with the
+integrated normal --refresh command on 20 November; see STATUS.md.
 
 ## BigQuery snapshot boundary tests
 
@@ -88,3 +88,13 @@ were validated before generating the script; its syntax parsed with sqlglot.
 On 22 November the user screenshot confirmed all eight passed=true,
 with 18/18/6/12 rows and zero differing facts for all four relations. The manual script
 does not add eight Python tests or change the seven dbt tests.
+
+## Power BI report evidence
+
+The user confirmed a successful Desktop refresh. On 24 November the supplied
+two-page PDF was visually reviewed and checked against the selected reference
+facts: six monthly points, rounded annual labels, 6/12/18 observation counts,
+source pages and units. All four source-link annotations retain the intended
+URLs. These are report review checks, not additional Python or dbt tests.
+A complete captured run from extraction through cloud/dbt to Desktop refresh
+remains pending. See dashboard/README.md from the repository root.

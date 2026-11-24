@@ -2,7 +2,7 @@
 
 A data engineering portfolio project by **Saurabh Zambare** that turns GACL's public water and energy disclosures into traceable, validated observations.
 
-**Current status:** the local Python → SQLite → CSV pipeline works with **18 real observations** from two official reports. The user has verified the BigQuery raw table has 12 annual and 6 monthly rows, with no duplicate keys. The live dbt build created 3 views and passed 7 SQL tests. All eight reference checks passed for values, dates, units, scopes and row counts across raw and dbt views. The Power BI report remains pending.
+**Current status:** the local Python → SQLite → CSV pipeline works with **18 real observations** from two official reports. The user has verified the BigQuery raw table has 12 annual and 6 monthly rows, with no duplicate keys. The live dbt build created 3 views and passed 7 SQL tests. All eight reference checks passed for values, dates, units, scopes and row counts across raw and dbt views. The two-page Power BI report is built, the user confirmed a successful Desktop refresh, and the exported PDF was reviewed on 24 November 2026.
 
 This is independent work using public disclosures; it is not affiliated with or commissioned by GACL.
 
@@ -17,6 +17,7 @@ flowchart TD
     S --> C["Validated CSV exports"]
     C --> B["BigQuery snapshot load"]
     B --> D["Three dbt views and seven SQL tests"]
+    D --> R["Two-page Power BI report"]
 ```
 
 | Inspectable output | Recorded scope |
@@ -27,6 +28,20 @@ flowchart TD
 
 This is an architecture/output preview of the implemented project, not a live plant dashboard. Monthly site rates and annual company totals retain their separate grains and units. [Reviewed sample exports](data/examples/) · [Current verification and pending work](docs/STATUS.md)
 
+## Power BI report
+
+[View the two-page report PDF](dashboard/GACL_Public_Disclosure_Report.pdf) · [Report setup, measures and refresh](dashboard/README.md)
+
+**Water & Energy Overview** keeps monthly Dahej Plot 3 freshwater rates separate from annual GACL standalone energy and water totals.
+
+![Water and Energy Overview exported from the actual Power BI report](dashboard/screenshots/water-energy-overview.png)
+
+**Sources & Coverage** shows 6 monthly and 12 annual observations, source page references, units and reading notes. Counts describe observations, not validation-test results.
+
+![Sources and Coverage exported from the actual Power BI report](dashboard/screenshots/sources-coverage.png)
+
+The PDF and previews are static exports, not an interactive hosted report. The editable PBIX remains on the author's laptop and is not included in this repository. A recorded walkthrough is still pending; [the demonstration script](docs/WALKTHROUGH.md) is ready.
+
 ## What the project demonstrates
 
 - Downloaded PDFs verified against pinned SHA-256 checksums.
@@ -35,7 +50,8 @@ This is an architecture/output preview of the implemented project, not a live pl
 - Separate monthly site rates and annual company totals.
 - Validation, quarantine files, bounded download retries and run history.
 - Duplicate-safe local loads and reloads of individual historical sources.
-- A credential-free local path, with optional BigQuery/dbt setup files.
+- A credential-free local path, plus a verified BigQuery/dbt reporting route.
+- A refreshed two-page Power BI report with units, reporting boundaries and source references.
 
 ## Billing-free BigQuery route
 
@@ -43,7 +59,7 @@ The optional loader now requires an explicit mode. `--mode snapshot` uploads the
 complete validated local export with one batch replacement job and executes no
 DML, so it is intended for the user's billing-free sandbox. The cloud table is a
 copy of the local export, not an independent history store. The user has verified live table counts and absence of duplicate keys; full
-reference reconciliation and live dbt views/tests are verified. Power BI is next. Follow [BigQuery setup](docs/BIGQUERY_DBT.md).
+reference reconciliation and live dbt views/tests are verified. The Power BI report and successful Desktop refresh are now evidenced by the exported report and user confirmation. Follow [BigQuery setup](docs/BIGQUERY_DBT.md).
 
 ## The data
 
@@ -125,7 +141,7 @@ Use `--refresh` to re-download against the pinned checksum. A changed source sto
 - `logs/latest_run.json`: latest outcome.
 - `logs/<run_id>.checks.json`, `.quarantine.json` and `.log`: quality and diagnostic evidence.
 
-Generated PDFs, databases, exports, environments and logs are ignored by Git. A reviewed, generated snapshot in [data/examples](data/examples/) provides an inspectable example; it is not a replacement for the extraction pipeline.
+Raw source PDFs, databases, working exports, environments and logs are ignored by Git. The reviewed Power BI report PDF and page previews are intentionally included under `dashboard/`. A reviewed, generated snapshot in [data/examples](data/examples/) provides an inspectable example; it is not a replacement for the extraction pipeline.
 
 ## Documentation
 
@@ -138,7 +154,8 @@ Generated PDFs, databases, exports, environments and logs are ignored by Git. A 
 | [Quality and testing](docs/TESTING.md) | Checks, failure cases and commands |
 | [Operations runbook](docs/RUNBOOK.md) | Reruns, failures and source changes |
 | [Cloud setup](docs/BIGQUERY_DBT.md) | Optional BigQuery loader and dbt configuration |
-| [Power BI specification](dashboard/README.md) | Two-page dashboard plan |
+| [Power BI report](dashboard/README.md) | Actual report, measures, evidence and refresh instructions |
+| [Walkthrough script](docs/WALKTHROUGH.md) | Recording outline; video not yet recorded |
 | [Build plan](docs/PROJECT_PLAN.md) | Target: 22 November 2026 |
 | [Status](docs/STATUS.md) | Verified work and remaining tasks |
 | [Decisions](docs/DECISIONS.md) | Scope, precision and provenance choices |

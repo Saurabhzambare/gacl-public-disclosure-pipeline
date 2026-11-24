@@ -20,6 +20,16 @@ no warnings/errors/skips). All eight checks in sql/bigquery_verification.sql sub
 BigQuery (user screenshot): expected counts and zero differing facts. Power BI and the recorded
 walkthrough remain outstanding; the entire project is not yet complete.
 
+Checkpoint — 24 November: both Power BI pages are built, and the user confirmed
+Desktop refresh success. The actual two-page PDF was reviewed for chart values,
+counts, units, source pages and all four exported source-link destinations.
+PDF/previews and report documentation are now packaged in dashboard/. The actual
+second page is Sources & Coverage; live run-status/check/rejection visuals from
+the original specification were not implemented. A walkthrough script is ready,
+but the video, shared editable PBIX and captured end-to-end rerun remain pending.
+The original dated checklists below are preserved as the plan; docs/STATUS.md is
+the current evidence tracker.
+
 ## 1. Project objective
 
 Build a reproducible batch data pipeline that converts GACL's public environmental and sustainability disclosures into validated BigQuery tables and Power BI reports. Demonstrate source traceability, careful interpretation, repeatable loading, failure handling and clear technical communication.
