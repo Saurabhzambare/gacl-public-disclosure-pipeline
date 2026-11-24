@@ -26,7 +26,11 @@ counts, units, source pages and all four exported source-link destinations.
 PDF/previews and report documentation are now packaged in dashboard/. The actual
 second page is Sources & Coverage; live run-status/check/rejection visuals from
 the original specification were not implemented. A walkthrough script is ready,
-but the video, shared editable PBIX and captured end-to-end rerun remain pending.
+but the video and shared editable PBIX remain pending. A subsequent manual
+end-to-end rerun on 24 November passed local extraction (run
+686d38a0-30d6-4551-b6a9-25c7d89307e1), BigQuery snapshot loading (job
+2bfa8593-f4e7-4bd4-bd1b-6426ff209e18), dbt, all eight reference checks and
+Desktop refresh. See VERIFICATION_2026-11-24.md for the actual evidence.
 The original dated checklists below are preserved as the plan; docs/STATUS.md is
 the current evidence tracker.
 

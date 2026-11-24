@@ -3,6 +3,9 @@
 Status: script prepared on 24 November 2026; video not yet recorded.
 Target length: about 3–5 minutes. Demonstrate the actual project and distinguish
 previously verified evidence from commands you successfully run during recording.
+The [24 November manual verification](VERIFICATION_2026-11-24.md) provides the
+actual local run ID, cloud job/expiration, dbt and query results, and Desktop
+refresh confirmation for preparation.
 
 ## 0:00–0:30 — Problem and scope
 
@@ -73,8 +76,9 @@ Open a source footer link if it is available.
 
 > The parsers deliberately support two known documents. A changed checksum stops
 > processing for review. Scheduling, broader document coverage and a hosted
-> interactive report are future work. A complete captured run through extraction,
-> cloud loading, dbt and dashboard refresh is still an outstanding evidence task.
+> interactive report are future work. I completed the manual sequence through
+> extraction, cloud loading, dbt, reference checks and Desktop refresh on
+> 24 November. The documented evidence includes the local run and cloud job IDs.
 
 Close with the repository URL. Keep the recording understandable without private
 setup explanations; the README, source register and dashboard guide provide them.

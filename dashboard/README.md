@@ -156,8 +156,10 @@ annual label, source reference and 6/12/18 count was checked in the supplied exp
 5. Save the PBIX, export both pages to PDF, and review every label, reference and
    footer. Update the repository PDF and previews together when the report changes.
 
-Individual cloud/dbt checks and Desktop refresh are evidenced; the complete
-sequence above has not yet been captured as one end-to-end run. Automated
+The author completed this sequence manually on 24 November; see the
+[verification record](../docs/VERIFICATION_2026-11-24.md) for the local run ID,
+cloud job/expiration, dbt output, eight reference checks and Desktop refresh
+confirmation. The evidence is not a recorded video or automated cross-stage log. Automated
 scheduling, Power BI Service deployment and scheduled Service refresh are not
 implemented. The source PDFs and selected history change only through a reviewed
 manifest/parser update; refreshing does not discover new reports automatically.

@@ -2,7 +2,7 @@
 
 A data engineering portfolio project by **Saurabh Zambare** that turns GACL's public water and energy disclosures into traceable, validated observations.
 
-**Current status:** the local Python → SQLite → CSV pipeline works with **18 real observations** from two official reports. The user has verified the BigQuery raw table has 12 annual and 6 monthly rows, with no duplicate keys. The live dbt build created 3 views and passed 7 SQL tests. All eight reference checks passed for values, dates, units, scopes and row counts across raw and dbt views. The two-page Power BI report is built, the user confirmed a successful Desktop refresh, and the exported PDF was reviewed on 24 November 2026.
+**Current status:** the local Python → SQLite → CSV pipeline works with **18 real observations** from two official reports. The user has verified the BigQuery raw table has 12 annual and 6 monthly rows, with no duplicate keys. The live dbt build created 3 views and passed 7 SQL tests. All eight reference checks passed for values, dates, units, scopes and row counts across raw and dbt views. The two-page Power BI report is built, the user confirmed a successful Desktop refresh, and the exported PDF was reviewed on 24 November 2026. A subsequent [manual end-to-end verification](docs/VERIFICATION_2026-11-24.md) passed from cached PDF extraction through BigQuery, dbt, reference comparison and Desktop refresh.
 
 This is independent work using public disclosures; it is not affiliated with or commissioned by GACL.
 
@@ -158,6 +158,7 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 | [Walkthrough script](docs/WALKTHROUGH.md) | Recording outline; video not yet recorded |
 | [Build plan](docs/PROJECT_PLAN.md) | Target: 22 November 2026 |
 | [Status](docs/STATUS.md) | Verified work and remaining tasks |
+| [24 November verification](docs/VERIFICATION_2026-11-24.md) | Actual local run, cloud job/expiration, dbt, query and Desktop refresh evidence |
 | [Decisions](docs/DECISIONS.md) | Scope, precision and provenance choices |
 | [Security](SECURITY.md) | Credentials and data handling |
 | [Contributing](CONTRIBUTING.md) | Development and review checklist |

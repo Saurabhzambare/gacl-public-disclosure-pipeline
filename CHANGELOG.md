@@ -1,5 +1,15 @@
 # Changelog
 
+## Manual end-to-end verification — 24 November 2026
+
+Record author-supplied evidence for cached PDF extraction (18 rows, four
+passing checks), BigQuery snapshot job and actual expiration, dbt success
+(three model resources, seven passing tests), eight passing reference checks
+and confirmed Desktop refresh. Add a curated verification record and update
+current status, cloud/dashboard/testing guides and walkthrough wording. This
+was a manual sequence, not an automated job or recorded video; no pipeline
+code, source facts, report exports or test counts changed.
+
 ## Power BI report and portfolio evidence — 24 November 2026
 
 Add the author-supplied two-page Power BI PDF and page previews rendered from it.

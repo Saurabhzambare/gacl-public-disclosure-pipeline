@@ -25,14 +25,14 @@ Updated: 24 November 2026. Original first-version target: 22 November 2026, 8:00
 
 - [x] User-reported live BigQuery counts: annual 12, monthly 6, duplicate-key query empty, total 18 after rerun check.
 - [x] User screenshot verifies all eight reference checks passed: 18 raw, 18 staged, 6 monthly, 12 annual, zero differing facts.
-- [ ] Record actual cloud load job IDs and table expiration evidence.
+- [x] Record actual cloud load job ID and table expiration: see [24 November verification](VERIFICATION_2026-11-24.md).
 - [x] User-verified dbt debug and build: 3 views created, 7 SQL tests passed; PASS=10 WARN=0 ERROR=0 SKIP=0.
 - [x] User installed google-cloud-bigquery 3.47.0; pin recorded. Full transitive lock remains pending; stable dbt Core/adapter pins are recorded below.
 - [x] Power BI Desktop: two report pages built; user confirmed a successful refresh.
 - [x] Actual two-page PDF reviewed on 24 November; displayed values, units, counts, page references and all four source-link annotations checked. PDF and previews are included under dashboard/.
 - [x] Dashboard documentation and a 3–5 minute walkthrough script prepared.
 - [ ] Editable PBIX shared or reproducible PBIP source supplied; PBIX remains on the author's laptop.
-- [ ] Full local extraction → cloud load → dbt build → Desktop refresh sequence captured as one run.
+- [x] Manually executed extraction → BigQuery snapshot → dbt build → eight reference checks → Desktop refresh verified in sequence on 24 November; terminal output, screenshots and explicit refresh confirmation recorded in [verification evidence](VERIFICATION_2026-11-24.md). This was not a single orchestrated job or video recording.
 - [ ] Recorded 3–5 minute walkthrough.
 - [ ] Scheduled production-style execution.
 - [x] GitHub Actions unit-test workflow passed for the initial project commit.
@@ -51,8 +51,10 @@ and tested with a mocked BigQuery client, including incomplete-export rejection,
 no DML, replacement on rerun, failure handling and cloud row-count verification.
 The user has now queried the live BigQuery table: 12 annual and 6 monthly rows,
 no duplicate observation/source/version keys, and 18 rows after the requested
-repeat-load check. This evidence is user-reported query output; load job IDs have not been
-supplied. The later reference-comparison screenshot verifies the core facts.
+repeat-load check. The initial evidence was user-reported query output. The
+24 November rerun supplied job_id 2bfa8593-f4e7-4bd4-bd1b-6426ff209e18 and
+table_expires_at 2027-01-19T06:05:47.607000+00:00. Reference-comparison
+screenshots verify the selected core facts.
 
 The user installed dbt-bigquery 1.12.4; the unpinned Core resolved to beta
 1.13.0b1. Pin Core 1.12.7 and adapter 1.12.4 for reproducible installation.
@@ -79,7 +81,7 @@ it does not independently verify every provenance column. The subsequent Power B
 ## Power BI evidence — 24 November 2026
 
 - Direct Google BigQuery navigation and the two reporting tables were shown in the user's Desktop workflow; the exact connection options and Import/DirectQuery mode have not been independently inspected from PBIX source.
-- The user confirmed a successful Desktop refresh. A single captured rerun across every upstream stage and the dashboard has not been supplied.
+- The user confirmed a successful Desktop refresh after the 24 November local/cloud/dbt/reference-check sequence; see [verification evidence](VERIFICATION_2026-11-24.md). Evidence is terminal output, screenshots and explicit confirmation, not a video or automated cross-stage log.
 - Water & Energy Overview: six monthly daily-average rates (April–September 2025), two annual energy stacks and annual water comparison by financial year.
 - Sources & Coverage: 6 monthly, 12 annual and 18 total observations; three annual reference rows and one monthly reference row; coverage, units and interpretation notes.
 - Monthly values and rounded annual chart labels agree with the reviewed reference facts. Source references show annual PDF pages 36/37/38 (printed 78/79/80) and monthly PDF page 5 (printed 4).
@@ -95,7 +97,7 @@ it does not independently verify every provenance column. The subsequent Power B
 - FY 2024–25 comparison figures are recalculated disclosures in the latest BRSR, not necessarily equal to earlier publications.
 - Source revision detection fails closed; no automated preferred-version selection exists.
 - The aggregate tests demonstrate numerical consistency, not regulatory compliance.
-- Raw BigQuery count/duplicate checks are verified; dbt views/tests are verified; core reference reconciliation is verified; Power BI report/refresh is verified as described above; a captured end-to-end rerun remains pending.
+- Raw BigQuery count/duplicate checks are verified; dbt views/tests are verified; core reference reconciliation is verified; Power BI report/refresh is verified as described above; the manual end-to-end verification sequence is recorded; the walkthrough video and scheduled execution remain pending.
 - Snapshot mode replaces cloud-only rows absent from the local export; sandbox expiration applies.
 - No raw SAP, OPC UA or SCADA access, streaming pipeline or deployed AI service.
 

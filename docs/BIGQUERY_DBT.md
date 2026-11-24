@@ -5,7 +5,8 @@ table contains 12 annual and 6 monthly rows, no duplicate version keys, and
 18 total rows after the requested rerun check. On 22 November, dbt debug passed
 and the live build created 3 views with 7 passing SQL tests, no warnings/errors
 or skipped resources. All eight live reference checks passed, as shown in the user's screenshot.
-Cloud load job-ID and expiration evidence remain pending.
+The 24 November rerun supplied actual load job ID and expiration evidence:
+see [verification record](VERIFICATION_2026-11-24.md).
 
 ## Chosen route: billing-free sandbox
 

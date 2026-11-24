@@ -96,5 +96,7 @@ two-page PDF was visually reviewed and checked against the selected reference
 facts: six monthly points, rounded annual labels, 6/12/18 observation counts,
 source pages and units. All four source-link annotations retain the intended
 URLs. These are report review checks, not additional Python or dbt tests.
-A complete captured run from extraction through cloud/dbt to Desktop refresh
-remains pending. See dashboard/README.md from the repository root.
+The subsequent manual sequence from cached PDF extraction through BigQuery/dbt,
+reference checks and Desktop refresh completed on 24 November. The author supplied
+terminal output, screenshots and refresh confirmation; see
+[verification evidence](VERIFICATION_2026-11-24.md). The video remains pending.
