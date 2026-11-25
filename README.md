@@ -50,8 +50,7 @@ custom forecasting is deferred until suitable data exists.
 
 Saurabh will implement one step at a time; the assistant maintains documentation.
 The [Phase 2 Master Build Order](docs/PHASE_2_BUILD_ORDER.md) defines 30 stable
-steps in eight stages. **Readiness check: passed on Windows, 25 November. Next: Step 2,
-baseline and implementation branch; execution pending.** Existing prototype work does not mark learner steps complete.
+steps in eight stages. **Windows readiness and Step 2 baseline execution passed on 25 November.\nNext: Step 3, personally implement the verified-page inspector; pending.** Existing prototype work does not mark learner steps complete.
 
 ### Existing retrieval reference
 
@@ -193,7 +192,8 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 | [Documentation map](docs/README.md) | Reading order and current versus historical records |
 | [Phase 2 build order](docs/PHASE_2_BUILD_ORDER.md) | 30 learner-implemented steps, dependencies and acceptance gates |
 | [Step 1 lesson](docs/PHASE_2_STEP_01.md) | Readiness check; Windows execution verified on 25 November |
-| [Step 2 lesson](docs/PHASE_2_STEP_02.md) | Baseline, personal branch, existing tests and offline run |
+| [Step 2 lesson](docs/PHASE_2_STEP_02.md) | Windows baseline verified: 32 tests, 18 records, four checks |
+| [Step 3 lesson](docs/PHASE_2_STEP_03.md) | Commented inspector code to implement personally; pending |
 | [AI scope](docs/AI_EXTENSION_PLAN.md) | Research assistant goals, boundaries and delivery milestones |
 | [Learning log](docs/AI_LEARNING_LOG.md) | Current step, learner evidence and next action |
 | [AI concepts](docs/AI_CONCEPTS.md) | Technical and ELI5 explanations |

@@ -4,7 +4,8 @@ Started: 25 November 2026 (India).
 
 Build-order reference: [Master Build Order](PHASE_2_BUILD_ORDER.md), version 1.0,
 30 stable steps in eight stages. Step 1 readiness execution: **passed**.
-Next: **Step 2, instructions prepared; learner execution pending**. Existing
+Step 2 baseline execution: **passed**.
+Next: **Step 3, inspector code/instructions prepared; learner implementation pending**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -98,17 +99,41 @@ above. Explain the opening/closing delimiters as one complete block. No file
 presence check proves checksum integrity, and no model or retrieval feature was
 executed by this lesson. No installation or code-file change was required.
 
-## Next lesson — Step 2: baseline and personal implementation branch
+## Step 2 — baseline execution verified on 25 November
 
-Follow [Step 2](PHASE_2_STEP_02.md): inspect the checkout, receive the documentation
-update while clean/on main, create a personal branch, inventory prototype-file
-presence, run existing tests and the original offline pipeline. All Step 2
-results remain pending. Do not skip directly to PDF code: the inspector is
-**Step 3** in the stable build order.
+| Check | Author-supplied evidence |
+|---|---|
+| Starting main commit | eb7e18b |
+| Personal implementation branch | feature/phase2-guided |
+| Retrieval module / configuration / tests | All three Test-Path probes False |
+| Existing unit tests | 32 passed in 1.278 seconds; no skips |
+| Offline run ID | 0516c23e-efac-4775-9f42-1fdc4464d1ab |
+| Input / source verification | cached_pdfs; pdfs_verified_this_run=true |
+| Extracted / loaded / stored | 18 / 18 / 18 |
+| Dataset checks | Four passed: monthly coverage, annual coverage, two energy reconciliations |
+| Energy differences | 0.002 GJ and 0.00 GJ, each within 0.01 GJ |
+| Final working tree | Clean on feature/phase2-guided |
 
-Understanding check to discuss with the Step 2 results: why does PRESENT not
-prove that a PDF has the approved content, and why do we use the project's
-virtual-environment interpreter rather than a generic python command?
+This is author-supplied local Windows execution evidence, not an independently
+executed audit or a new cloud/dbt/Power BI verification. Cloud-boundary unit tests
+use a mocked client. The offline run verifies actual cached PDF hashes and
+re-extracts facts; it establishes more than Step 1 file presence alone.
+Understanding discussion remains open; do not invent the author's explanation.
+
+## Next lesson — Step 3: verify and inspect one known PDF page
+
+Follow [Step 3](PHASE_2_STEP_03.md) and personally create
+scripts/inspect_source_page.py. Read the approved source configuration, hash and
+parse the same cached PDF bytes, distinguish physical page 5 from library index
+4, and print text with explicit printed-page metadata. No new dependency or
+model is required. The assistant publishes documentation/code examples only,
+not the application file. Learner implementation and execution are pending.
+
+Before editing, receive the new documentation into the still-clean personal
+branch using the lesson's Git instructions. Subsequent synchronization after
+code commits must be reviewed rather than blindly assuming fast-forward.
+Share results and explain why presence is weaker than hash verification,
+why identical bytes are hashed/parsed, and why page numbering is converted.
 
 ## Evidence to record after each lesson
 
@@ -131,4 +156,5 @@ change does not advance the learner automatically.
 | 25 November 2026 | Windows readiness check | Python 3.11.4; venv True; PyMuPDF 1.26.6; FTS5 available; two configured sources; both PDFs PRESENT | Execution passed; understanding discussion open |
 | 25 November 2026 | Phase 2 documentation | Master Build Order v1.0, concept/contracts/evaluation guides and cross-guide scope updates prepared; no source implementation | Documentation prepared; learner still at Step 1 |
 | 25 November 2026 | Documentation validation | 31 Markdown files / 184 local links checked; 30 sequential step IDs and eight stages verified; Step 1 sample syntax parsed without execution; whitespace checks passed | Passed; no new runtime or learner completion claimed |
-| 25 November 2026 | Step 2 | Baseline/branch lesson prepared; no learner test, pipeline or branch output supplied yet | Pending execution |
+| 25 November 2026 | Step 2 | Clean personal branch; 32 tests passed; run 0516c23e-efac-4775-9f42-1fdc4464d1ab verified PDFs, 18 records and four checks | Execution passed; understanding discussion open |
+| 25 November 2026 | Step 3 | Commented PDF-inspector lesson prepared; no application file created or executed by the assistant | Pending learner implementation |

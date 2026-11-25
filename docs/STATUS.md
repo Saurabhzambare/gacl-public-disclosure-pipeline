@@ -16,10 +16,15 @@ and both PDFs present. File presence is not source hash verification. See the
 dependency or test changes are part of this documentation checkpoint.
 
 The [Phase 2 Master Build Order](PHASE_2_BUILD_ORDER.md) version 1.0 records
-30 stable steps in eight stages. Step 1 readiness execution passed; Step 2
-(baseline and implementation branch) is prepared with execution pending.
-The learner's understanding discussion is tracked separately. Steps 3–30 remain
-pending. Supporting
+30 stable steps in eight stages. Step 1 readiness and Step 2 baseline execution
+passed on Windows. Step 2 evidence: clean feature/phase2-guided branch, three
+absent prototype files, 32 tests passing in 1.278 seconds with no skips, and
+offline run 0516c23e-efac-4775-9f42-1fdc4464d1ab with verified cached PDFs,
+18 extracted/loaded/stored observations and four passing checks. No new cloud,
+dbt or Desktop refresh is implied.
+Step 3 inspector instructions/code are prepared for personal implementation;
+execution is pending. Understanding discussion is tracked separately. Steps 4–30
+remain pending. Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming
 implementation. The first-version dated evidence below remains unchanged.

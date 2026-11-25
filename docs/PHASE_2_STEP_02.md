@@ -1,7 +1,13 @@
 # Phase 2 — Step 2: Record a baseline and isolate personal implementation
 
 Build-order version: 1.0. Prepared: 25 November 2026 (India).
-Status: **instructions prepared; learner execution pending**.
+Execution: **passed on the author's Windows laptop, 25 November 2026**.
+Branch feature/phase2-guided is clean; three prototype-file probes returned False;
+all 32 tests passed in 1.278 seconds without skips. Offline run
+0516c23e-efac-4775-9f42-1fdc4464d1ab verified cached PDFs, extracted/loaded/stored
+18 observations and passed all four dataset checks. This is not a new cloud or
+Power BI run. Understanding discussion remains recorded separately.
+The reusable instructions below describe that baseline procedure.
 Prerequisite: Step 1 readiness execution passed on Windows. Review its short
 understanding questions alongside this lesson's output.
 

@@ -5,7 +5,8 @@ Owner/implementer: Saurabh Zambare. Assistant responsibility: explanation,
 review, troubleshooting and documentation maintenance.
 Controlled steps: **30**, grouped into **8 stages**.
 Readiness execution: **Step 1 passed on Windows, 25 November 2026**.
-Next step: **Step 2 — baseline and implementation branch; pending execution**.
+Baseline execution: **Step 2 passed on Windows, 25 November 2026**.
+Next step: **Step 3 — verified source-page inspector; implementation pending**.
 Learner understanding discussion is recorded separately in the learning log.
 
 ## Purpose and finished behavior
@@ -121,8 +122,9 @@ update. Exact future commands are introduced only when their modules exist.
 - **Files / installation:** **planned** `scripts/inspect_source_page.py`; read
   `config/sources.json` and the cached monthly PDF. Reuse PyMuPDF and standard
   library hashing; no model or OCR dependency.
-- **Action / output:** implement a small commented inspector, verify SHA-256
-  before reading, and print PDF page 5 text and known printed-page metadata.
+- **Action / output:** follow [the Step 3 lesson](PHASE_2_STEP_03.md), implement a
+  small commented inspector, verify SHA-256 before reading, and print PDF page 5
+  text and known printed-page metadata.
 - **Gate / understanding:** find April's disclosed 12,540.8 KL/day and distinguish
   human page 5 from zero-based library index 4. A wrong hash must stop extraction.
   This is a learning inspector, not a replacement for the existing fact parser.
@@ -516,8 +518,9 @@ update. Exact future commands are introduced only when their modules exist.
 
 ## Progress and resumption
 
-Step 1 readiness execution passed on Windows. Step 2 is prepared and pending;
-Steps 3–30 remain pending. Understanding discussion remains recorded separately. Do not pre-check the roadmap
+Step 1 readiness and Step 2 baseline execution passed on Windows. Step 3 is
+prepared for personal implementation and remains pending; Steps 4–30 remain
+pending. Understanding discussion remains recorded separately. Do not pre-check the roadmap
 because a reference module exists. In [AI_LEARNING_LOG.md](AI_LEARNING_LOG.md),
 record current step ID, actual files changed, commands/results, explanation in
 the learner's words, errors/fixes and next step. [STATUS.md](STATUS.md) tracks
