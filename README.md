@@ -50,9 +50,9 @@ custom forecasting is deferred until suitable data exists.
 
 Saurabh will implement one step at a time; the assistant maintains documentation.
 The [Phase 2 Master Build Order](docs/PHASE_2_BUILD_ORDER.md) defines 30 stable
-steps in eight stages. **Windows readiness, baseline and Step 3 inspector execution checks passed on
-25 November. Current checkpoint: review local files before the Step 3 commit;
-Step 4 has not started.** Existing prototype work does not mark learner steps complete.
+steps in eight stages. **Steps 1–3 execution and the Step 3 local commit checkpoint are verified.
+The inspector is committed locally as 39ceacb on feature/phase2-guided.
+Next: synchronize documentation before Step 4; no Step 4 code is implemented.** Existing prototype work does not mark learner steps complete.
 
 ### Existing retrieval reference
 

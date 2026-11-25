@@ -6,8 +6,8 @@ Build-order reference: [Master Build Order](PHASE_2_BUILD_ORDER.md), version 1.0
 30 stable steps in eight stages. Step 1 readiness execution: **passed**.
 Step 2 baseline execution: **passed**.
 Step 3 inspector execution checks: **passed**.
-Current checkpoint: **review local files before the Step 3 commit**.
-Step 4 has not started. Existing
+Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
+Next: **synchronize documentation before Step 4; no Step 4 code started**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -153,17 +153,39 @@ Understanding: the assistant explained zero-based library indexing when asked.
 Do not mark an independent learner explanation as supplied. Physical page 5,
 library index 4 and the report's printed page 4 are distinct concepts.
 
-## Current checkpoint — inspect local files before committing
+## Step 3 — file review, cleanup and local commit verified
 
-Ask for a filename/size listing of scripts/ and .github/scripts/. The latter was
-not a target of this lesson, so inspect its purpose/content before staging or
-deleting anything. Review the actual inspector content before committing it.
-Do not use a blanket git add, discard unknown work, publish the inspector on
-the author's behalf, or start Step 4 before this checkpoint is resolved.
+The author listed two 4,179-byte files: scripts/inspect_source_page.py and
+.github/scripts/inspect_source_page.py. Displayed hash prefixes were truncated,
+so the full hashes were compared in variables before deletion. The guard passed;
+only the extra copy was removed. The submitted script matches the intended
+103-line lesson implementation. No assistant application-code edit was made.
 
-Once reviewed, guide an explicit-path local commit for the intended file.
-Any later documentation synchronization must account for the personal branch's
-new code commits rather than assume it can always fast-forward from main.
+Only scripts/inspect_source_page.py was staged. The author supplied the resulting
+local commit 39ceacb, message "feat: add verified PDF page inspection script",
+one new file/103 inserted lines. Final git status shows a clean
+feature/phase2-guided branch. This closes the local commit checkpoint; there
+is no evidence of a source-code push or merge into public main.
+
+Git's CRLF-to-LF message describes normalizing this Python script's line endings.
+It does not change the report PDFs or invalidate their source hashes. No new
+test execution is invented after cleanup; the last supplied suite remains
+32 passing tests in 0.987 seconds.
+
+## Next checkpoint — synchronize documentation before Step 4
+
+The author's personal branch now has its own code commit, while public main
+has newer documentation. A fast-forward-only pull is no longer the appropriate
+assumed operation. On the clean feature/phase2-guided branch, the author should
+fetch origin, then merge origin/main with --no-edit. This preserves both lines
+of work and may create a local merge commit. Stop and inspect any conflict;
+do not use reset, force or blind replacement.
+
+Inspect final branch/status and a short graph log after the merge. No push,
+source-code publication or extra installation is required for this checkpoint.
+Step 4 implementation has not started. Its purpose is to turn extracted text
+into reusable page-evidence records carrying source/version/page/unit context
+where explicitly established; model inference and chunking are later steps.
 
 ## Evidence to record after each lesson
 
@@ -187,4 +209,5 @@ change does not advance the learner automatically.
 | 25 November 2026 | Phase 2 documentation | Master Build Order v1.0, concept/contracts/evaluation guides and cross-guide scope updates prepared; no source implementation | Documentation prepared; learner still at Step 1 |
 | 25 November 2026 | Documentation validation | 31 Markdown files / 184 local links checked; 30 sequential step IDs and eight stages verified; Step 1 sample syntax parsed without execution; whitespace checks passed | Passed; no new runtime or learner completion claimed |
 | 25 November 2026 | Step 2 | Clean personal branch; 32 tests passed; run 0516c23e-efac-4775-9f42-1fdc4464d1ab verified PDFs, 18 records and four checks | Execution passed; understanding discussion open |
-| 25 November 2026 | Step 3 | Monthly page/hash/values verified; page zero exit 1; 32 tests pass in 0.987 seconds; two untracked folders shown | Execution checks passed; file review/commit pending |
+| 25 November 2026 | Step 3 | Inspector reviewed; full duplicate hashes matched; extra copy removed; only intended 103-line script committed as 39ceacb; clean personal branch | Local commit checkpoint complete; code not evidenced as uploaded |
+| 25 November 2026 | Before Step 4 | Fetch/merge newer documentation while preserving local code commit | Pending author execution |

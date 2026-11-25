@@ -25,10 +25,13 @@ dbt or Desktop refresh is implied.
 Step 3 inspector execution checks passed on the author's Windows laptop:
 monthly source hash matched; PDF page 5 / printed page 4 returned all six
 freshwater rows; invalid page zero was rejected with exit code 1. All 32 existing
-tests passed in 0.987 seconds. Git lists untracked scripts/ and .github/scripts/;
-the latter's contents/purpose remain unreviewed. The Step 3 commit checkpoint
-therefore awaits file-list/content review; no source-code commit or publication
-is claimed. Understanding discussion remains recorded separately. Steps 4–30
+tests passed in 0.987 seconds. The author subsequently supplied the inspector for review, verified complete
+duplicate hashes, removed only the extra .github/scripts/ copy, staged only
+scripts/inspect_source_page.py and created local commit 39ceacb (103 lines).
+Final working tree is clean on feature/phase2-guided. The Step 3 local commit
+checkpoint is closed; source-code upload/merge into public main is not evidenced.
+Before Step 4, fetch/merge the newer documentation into the personal branch;
+this synchronization remains pending. Understanding discussion remains recorded separately. Steps 4–30
 remain pending. Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming

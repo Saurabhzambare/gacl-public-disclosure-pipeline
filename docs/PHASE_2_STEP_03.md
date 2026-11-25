@@ -4,9 +4,13 @@ Build-order version: 1.0. Prepared: 25 November 2026 (India).
 Execution checks: **passed on the author's Windows laptop, 25 November 2026**.
 The supplied terminal output shows the approved monthly hash, PDF page 5 /
 printed page 4, six freshwater rows, rejection of page zero with exit code 1,
-and 32 existing tests passing in 0.987 seconds. Git lists untracked scripts/
-and .github/scripts/. File-content review and the Step 3 commit checkpoint are
-pending; no source-code commit/publication is claimed. The reusable lesson and
+and 32 existing tests passing in 0.987 seconds. Subsequent file review found the
+intended script matched this lesson. The author verified complete duplicate hashes,
+removed only the extra .github/scripts/ copy and committed the single intended
+103-line file locally as 39ceacb. Final branch feature/phase2-guided is clean.
+The Step 3 local commit checkpoint is complete; no code upload/public merge is
+claimed. The CRLF-to-LF warning is ordinary script line-ending normalization,
+not a Python failure or a change to the verified source PDF. The reusable lesson and
 sample below remain for reference.
 Step 2 baseline execution passed on the author's Windows laptop. Understanding
 discussion remains recorded separately in the learning log.
