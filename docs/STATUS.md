@@ -30,8 +30,12 @@ duplicate hashes, removed only the extra .github/scripts/ copy, staged only
 scripts/inspect_source_page.py and created local commit 39ceacb (103 lines).
 Final working tree is clean on feature/phase2-guided. The Step 3 local commit
 checkpoint is closed; source-code upload/merge into public main is not evidenced.
-Before Step 4, fetch/merge the newer documentation into the personal branch;
-this synchronization remains pending. Understanding discussion remains recorded separately. Steps 4–30
+The author then fetched/merged origin/main into the personal branch at a5001c0;
+the supplied graph retains 39ceacb and documentation through 3df36db, with clean
+status. This is local branch synchronization, not source upload to public main.
+Step 4A's structured-page lesson is prepared for personal implementation. 4B
+will cover all usable pages/configuration/tests. Neither exercise is claimed
+implemented or executed; Step 4 remains open until both pass. Understanding discussion remains recorded separately. Steps 4–30
 remain pending. Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming

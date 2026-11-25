@@ -15,6 +15,16 @@ GJ/KL totals remain distinct. No source expansion, implicit preferred revision,
 synthetic GACL measurement, live reading, compliance certification or unsupported
 causal explanation is introduced by these contracts.
 
+## Guided implementation versus the reference prototype
+
+The learner is beginning Step 4A after verified local merge a5001c0. Its proposed
+extract_page(root, source_id, pdf_page) returns one page dictionary with PDF/text
+hashes, explicit page/scope metadata, extraction/library versions and a citation
+URL. It has no chunks, index, reviewed-note configuration or search API yet.
+Those return layouts below describe the earlier local prototype, not automatic
+availability in the learner's checkout. [Step 4](PHASE_2_STEP_04.md) introduces
+all-page metadata and focused tests in 4B before the full gate closes.
+
 ## Current page and chunk evidence
 
 | Field / concept | Meaning and rule |

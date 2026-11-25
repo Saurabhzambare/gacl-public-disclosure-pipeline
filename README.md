@@ -52,7 +52,8 @@ Saurabh will implement one step at a time; the assistant maintains documentation
 The [Phase 2 Master Build Order](docs/PHASE_2_BUILD_ORDER.md) defines 30 stable
 steps in eight stages. **Steps 1–3 execution and the Step 3 local commit checkpoint are verified.
 The inspector is committed locally as 39ceacb on feature/phase2-guided.
-Next: synchronize documentation before Step 4; no Step 4 code is implemented.** Existing prototype work does not mark learner steps complete.
+Documentation synchronization is verified at local merge a5001c0.
+Current lesson: Step 4A, structured single-page evidence; learner implementation pending.** Existing prototype work does not mark learner steps complete.
 
 ### Existing retrieval reference
 
@@ -195,7 +196,8 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 | [Phase 2 build order](docs/PHASE_2_BUILD_ORDER.md) | 30 learner-implemented steps, dependencies and acceptance gates |
 | [Step 1 lesson](docs/PHASE_2_STEP_01.md) | Readiness check; Windows execution verified on 25 November |
 | [Step 2 lesson](docs/PHASE_2_STEP_02.md) | Windows baseline verified: 32 tests, 18 records, four checks |
-| [Step 3 lesson](docs/PHASE_2_STEP_03.md) | Commented inspector code to implement personally; pending |
+| [Step 3 lesson](docs/PHASE_2_STEP_03.md) | Verified inspector and local commit checkpoint |
+| [Step 4 lesson](docs/PHASE_2_STEP_04.md) | 4A structured page record now; 4B all-page extraction/tests later |
 | [AI scope](docs/AI_EXTENSION_PLAN.md) | Research assistant goals, boundaries and delivery milestones |
 | [Learning log](docs/AI_LEARNING_LOG.md) | Current step, learner evidence and next action |
 | [AI concepts](docs/AI_CONCEPTS.md) | Technical and ELI5 explanations |

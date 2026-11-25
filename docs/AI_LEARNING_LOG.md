@@ -7,7 +7,8 @@ Build-order reference: [Master Build Order](PHASE_2_BUILD_ORDER.md), version 1.0
 Step 2 baseline execution: **passed**.
 Step 3 inspector execution checks: **passed**.
 Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
-Next: **synchronize documentation before Step 4; no Step 4 code started**. Existing
+Documentation merge: **verified, local merge a5001c0; clean branch**.
+Current lesson: **Step 4A, structured page record; implementation pending**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -172,20 +173,32 @@ It does not change the report PDFs or invalidate their source hashes. No new
 test execution is invented after cleanup; the last supplied suite remains
 32 passing tests in 0.987 seconds.
 
-## Next checkpoint — synchronize documentation before Step 4
+## Documentation synchronization — verified local merge a5001c0
 
-The author's personal branch now has its own code commit, while public main
-has newer documentation. A fast-forward-only pull is no longer the appropriate
-assumed operation. On the clean feature/phase2-guided branch, the author should
-fetch origin, then merge origin/main with --no-edit. This preserves both lines
-of work and may create a local merge commit. Stop and inspect any conflict;
-do not use reset, force or blind replacement.
+The author supplied fetch/merge output using the ort strategy, clean status on
+feature/phase2-guided and a graph with a5001c0 combining local inspector commit
+39ceacb and origin/main documentation through 3df36db. No conflict, code push or
+merge into public main is evidenced. Both lines of work were preserved.
+The source branch remains personal and the latest verified software suite is
+still 32 tests in 0.987 seconds; this docs merge is not a new runtime test.
 
-Inspect final branch/status and a short graph log after the merge. No push,
-source-code publication or extra installation is required for this checkpoint.
-Step 4 implementation has not started. Its purpose is to turn extracted text
-into reusable page-evidence records carrying source/version/page/unit context
-where explicitly established; model inference and chunking are later steps.
+## Current lesson — Step 4A: return one structured page record
+
+[Step 4](PHASE_2_STEP_04.md) is taught in two exercises without changing the
+30-step order: 4A returns one page dictionary; 4B adds all-page extraction,
+reviewed metadata configuration, skipped-page rules and focused tests. Both
+must pass before Step 5. The learner creates src/gacl_pipeline/retrieval.py
+personally, keeping the existing inspector unchanged. No installation is needed.
+
+The code/commands are supplied as documentation only. No new module, config,
+test or index is created by the assistant. Learner implementation/output remain
+pending; no model or generated-answer claim is made. A page is not a numerical
+observation, and document-level scope does not classify every sentence's period.
+
+The author can use the online lesson/conversation without another immediate
+documentation merge. Batch documentation synchronization at the Step 4 commit
+checkpoint after inspecting actual history; do not require a merge for every
+minor progress note.
 
 ## Evidence to record after each lesson
 
@@ -210,4 +223,5 @@ change does not advance the learner automatically.
 | 25 November 2026 | Documentation validation | 31 Markdown files / 184 local links checked; 30 sequential step IDs and eight stages verified; Step 1 sample syntax parsed without execution; whitespace checks passed | Passed; no new runtime or learner completion claimed |
 | 25 November 2026 | Step 2 | Clean personal branch; 32 tests passed; run 0516c23e-efac-4775-9f42-1fdc4464d1ab verified PDFs, 18 records and four checks | Execution passed; understanding discussion open |
 | 25 November 2026 | Step 3 | Inspector reviewed; full duplicate hashes matched; extra copy removed; only intended 103-line script committed as 39ceacb; clean personal branch | Local commit checkpoint complete; code not evidenced as uploaded |
-| 25 November 2026 | Before Step 4 | Fetch/merge newer documentation while preserving local code commit | Pending author execution |
+| 25 November 2026 | Before Step 4 | Local merge a5001c0 combines 39ceacb and documentation through 3df36db; clean feature branch | Verified |
+| 25 November 2026 | Step 4A | Single-page dictionary lesson prepared; 4B required before Step 4 completion | Pending learner implementation |
