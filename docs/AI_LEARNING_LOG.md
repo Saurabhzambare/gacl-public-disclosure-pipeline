@@ -5,7 +5,9 @@ Started: 25 November 2026 (India).
 Build-order reference: [Master Build Order](PHASE_2_BUILD_ORDER.md), version 1.0,
 30 stable steps in eight stages. Step 1 readiness execution: **passed**.
 Step 2 baseline execution: **passed**.
-Next: **Step 3, inspector code/instructions prepared; learner implementation pending**. Existing
+Step 3 inspector execution checks: **passed**.
+Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
+Next: **synchronize documentation before Step 4; no Step 4 code started**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -120,20 +122,70 @@ use a mocked client. The offline run verifies actual cached PDF hashes and
 re-extracts facts; it establishes more than Step 1 file presence alone.
 Understanding discussion remains open; do not invent the author's explanation.
 
-## Next lesson — Step 3: verify and inspect one known PDF page
+## Step 3 — inspector execution checks verified on 25 November
 
-Follow [Step 3](PHASE_2_STEP_03.md) and personally create
-scripts/inspect_source_page.py. Read the approved source configuration, hash and
-parse the same cached PDF bytes, distinguish physical page 5 from library index
-4, and print text with explicit printed-page metadata. No new dependency or
-model is required. The assistant publishes documentation/code examples only,
-not the application file. Learner implementation and execution are pending.
+Evidence: author-uploaded terminal output, Pasted text(20261125-072102).txt.
+This is author execution evidence, not an assistant-run test or a source-code review.
 
-Before editing, receive the new documentation into the still-clean personal
-branch using the lesson's Git instructions. Subsequent synchronization after
-code commits must be reviewed rather than blindly assuming fast-forward.
-Share results and explain why presence is weaker than hash verification,
-why identical bytes are hashed/parsed, and why page numbering is converted.
+| Check | Observed result |
+|---|---|
+| Branch | feature/phase2-guided |
+| Monthly source hash | 4882f4e453a78fe956850944d9df2b636c74d225eab2331e7d8873fe4050c9c1 — MATCH |
+| Scope / physical pages | dahej_plot3_report / 21 |
+| Requested PDF / printed page | 5 / 4 |
+| Monthly values, April–September | 12540.8, 12621.3, 12452.7, 11818.3, 11865.5, 11738.1; KL/day |
+| Invalid page zero | Error: PDF page must be 1 or greater; exit code 1 |
+| Existing software suite | 32 passed in 0.987 seconds, no skips |
+| Untracked paths | scripts/ and .github/scripts/ |
+| Commit / publication | No source-code commit or push evidenced |
+
+The first bare path command failed before the inspector file existed. The author
+then created the folder/file and successfully invoked it with the project's
+Python executable. Teach the distinction between a file location and an execution
+command; no package reinstall is needed for that initial shell error.
+
+The extracted page is visibly imperfect in whitespace/column order, but contains
+the six reported rates and unit context. This is embedded-text inspection, not
+general table reconstruction, OCR or AI generation. Existing unit tests protect
+the original system; direct page/error runs check this new inspector's behavior.
+
+Understanding: the assistant explained zero-based library indexing when asked.
+Do not mark an independent learner explanation as supplied. Physical page 5,
+library index 4 and the report's printed page 4 are distinct concepts.
+
+## Step 3 — file review, cleanup and local commit verified
+
+The author listed two 4,179-byte files: scripts/inspect_source_page.py and
+.github/scripts/inspect_source_page.py. Displayed hash prefixes were truncated,
+so the full hashes were compared in variables before deletion. The guard passed;
+only the extra copy was removed. The submitted script matches the intended
+103-line lesson implementation. No assistant application-code edit was made.
+
+Only scripts/inspect_source_page.py was staged. The author supplied the resulting
+local commit 39ceacb, message "feat: add verified PDF page inspection script",
+one new file/103 inserted lines. Final git status shows a clean
+feature/phase2-guided branch. This closes the local commit checkpoint; there
+is no evidence of a source-code push or merge into public main.
+
+Git's CRLF-to-LF message describes normalizing this Python script's line endings.
+It does not change the report PDFs or invalidate their source hashes. No new
+test execution is invented after cleanup; the last supplied suite remains
+32 passing tests in 0.987 seconds.
+
+## Next checkpoint — synchronize documentation before Step 4
+
+The author's personal branch now has its own code commit, while public main
+has newer documentation. A fast-forward-only pull is no longer the appropriate
+assumed operation. On the clean feature/phase2-guided branch, the author should
+fetch origin, then merge origin/main with --no-edit. This preserves both lines
+of work and may create a local merge commit. Stop and inspect any conflict;
+do not use reset, force or blind replacement.
+
+Inspect final branch/status and a short graph log after the merge. No push,
+source-code publication or extra installation is required for this checkpoint.
+Step 4 implementation has not started. Its purpose is to turn extracted text
+into reusable page-evidence records carrying source/version/page/unit context
+where explicitly established; model inference and chunking are later steps.
 
 ## Evidence to record after each lesson
 
@@ -157,4 +209,5 @@ change does not advance the learner automatically.
 | 25 November 2026 | Phase 2 documentation | Master Build Order v1.0, concept/contracts/evaluation guides and cross-guide scope updates prepared; no source implementation | Documentation prepared; learner still at Step 1 |
 | 25 November 2026 | Documentation validation | 31 Markdown files / 184 local links checked; 30 sequential step IDs and eight stages verified; Step 1 sample syntax parsed without execution; whitespace checks passed | Passed; no new runtime or learner completion claimed |
 | 25 November 2026 | Step 2 | Clean personal branch; 32 tests passed; run 0516c23e-efac-4775-9f42-1fdc4464d1ab verified PDFs, 18 records and four checks | Execution passed; understanding discussion open |
-| 25 November 2026 | Step 3 | Commented PDF-inspector lesson prepared; no application file created or executed by the assistant | Pending learner implementation |
+| 25 November 2026 | Step 3 | Inspector reviewed; full duplicate hashes matched; extra copy removed; only intended 103-line script committed as 39ceacb; clean personal branch | Local commit checkpoint complete; code not evidenced as uploaded |
+| 25 November 2026 | Before Step 4 | Fetch/merge newer documentation while preserving local code commit | Pending author execution |
