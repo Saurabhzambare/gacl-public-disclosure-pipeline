@@ -7,8 +7,7 @@ existing observation pipeline, cloud load and Power BI report remain separate.
 
 Learning context, 25 November: this is the earlier reference implementation,
 not proof of learner implementation. Follow [Master Build Order](PHASE_2_BUILD_ORDER.md)
-Steps 1–10 to inspect/build/test the same responsibilities personally. Current
-learner Step 1 is pending. Do not overwrite existing files or run commands from
+Steps 1–10 to inspect/build/test the same responsibilities personally. Use the learning log for current learner progress. Do not overwrite existing files or run commands from
 an unpublished feature that is absent from the actual checkout.
 
 [Concepts](AI_CONCEPTS.md) explain methods; [contracts](AI_CONTRACTS.md) distinguish

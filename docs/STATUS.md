@@ -9,13 +9,17 @@ commented code, exact file instructions and execution checks supplied in the
 conversation. The assistant independently maintains documentation. The earlier
 local retrieval prototype remains reference material; it is not evidence of
 author implementation or Windows execution. The first lesson checks the existing
-Windows environment and cached source files; its results are pending. See the
+Windows environment and cached source files; it passed on the author's laptop
+on 25 November with Python 3.11.4, PyMuPDF 1.26.6, FTS5 available, two sources
+and both PDFs present. File presence is not source hash verification. See the
 [guided implementation log](AI_LEARNING_LOG.md). No code, configuration,
 dependency or test changes are part of this documentation checkpoint.
 
 The [Phase 2 Master Build Order](PHASE_2_BUILD_ORDER.md) version 1.0 records
-30 stable steps in eight stages. Current learner position: Step 1, pending
-Windows readiness output; all learner steps remain pending. Supporting
+30 stable steps in eight stages. Step 1 readiness execution passed; Step 2
+(baseline and implementation branch) is prepared with execution pending.
+The learner's understanding discussion is tracked separately. Steps 3–30 remain
+pending. Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming
 implementation. The first-version dated evidence below remains unchanged.

@@ -36,8 +36,8 @@ execution logs. Full per-case diagnostic outputs remain under ignored
 
 ## Phase 2 learning and later evaluation
 
-This pilot is reference material. Learner Step 1 is pending; personal case review
-and Windows baseline execution are Steps 9–10 in the
+This pilot is reference material. Current learner progress is in the learning log; personal case review
+and Windows retrieval-baseline execution are Steps 9–10 in the
 [Master Build Order](../docs/PHASE_2_BUILD_ORDER.md). Do not mark those lessons
 complete because this file exists. Preserve the dated historical results.
 

@@ -3,7 +3,7 @@
 Prepared: 24 November 2026.
 Updated: 25 November 2026. This is the Phase 2 product/architecture scope. Execute
 the [Master Build Order](PHASE_2_BUILD_ORDER.md) version 1.0: 30 stable steps,
-eight stages, learner Step 1 pending. Saurabh implements code/configuration/tests;
+eight stages; current learner evidence is recorded in AI_LEARNING_LOG.md. Saurabh implements code/configuration/tests;
 the assistant maintains documentation and teaches one step at a time. The
 earlier prototype remains reference material, not learner completion evidence.
 Status: Milestone 1 lexical retrieval is implemented and locally verified on

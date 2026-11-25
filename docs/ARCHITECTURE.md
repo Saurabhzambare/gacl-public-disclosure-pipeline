@@ -109,5 +109,5 @@ external messaging tool is included. [Contracts](AI_CONTRACTS.md) define these
 boundaries; [evaluation](AI_EVALUATION_PLAN.md) defines the separate checks.
 
 Saurabh implements the [30-step build order](PHASE_2_BUILD_ORDER.md), starting
-with pending Step 1. Future modules named there are design targets, not created
+with current progress recorded in the learning log. Future modules named there are design targets, not created
 files or completed features. Existing storage and reporting behavior are retained.

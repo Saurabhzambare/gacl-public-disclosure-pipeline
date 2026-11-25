@@ -20,7 +20,8 @@
 13. **Learner implements.** Saurabh writes code/configuration/tests; the assistant
     maintains documentation, explains and reviews one step at a time. The
     [30-step build order](PHASE_2_BUILD_ORDER.md) version 1.0 has stable IDs;
-    learner Step 1 remains pending. Prototype results are separate evidence.
+    current learner progress is recorded in AI_LEARNING_LOG.md. Prototype
+    results are separate evidence.
 14. **Two evidence routes.** Search cited pages for text; read validated facts
     and calculate with Decimal for numbers. A model explains but cannot become
     the authoritative source of operands, scope or arithmetic.

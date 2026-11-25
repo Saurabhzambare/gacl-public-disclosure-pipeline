@@ -10,7 +10,8 @@ that a planned feature has been implemented.
 |---|---|
 | [Current status](STATUS.md) | Authoritative summary of verified work, environment and outstanding checks |
 | [Phase 2 build order](PHASE_2_BUILD_ORDER.md) | Versioned sequence of 30 learner-implemented steps; start at Step 1 |
-| [Step 1 lesson](PHASE_2_STEP_01.md) | Exact commented PowerShell/Python readiness check and expected output |
+| [Step 1 lesson](PHASE_2_STEP_01.md) | Readiness check; Windows execution passed on 25 November |
+| [Step 2 lesson](PHASE_2_STEP_02.md) | Baseline, implementation branch and original pipeline checks; pending |
 | [AI scope](AI_EXTENSION_PLAN.md) | Product objective, architecture, boundaries and milestones |
 | [Learning log](AI_LEARNING_LOG.md) | Current lesson, learner evidence, errors, decisions and next step |
 | [Concept guide](AI_CONCEPTS.md) | Technical explanations with ELI5 examples |

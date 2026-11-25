@@ -14,7 +14,7 @@ the validated local facts; they do not require a cloud query/load or another
 dbt environment for each question. No billing or cloud AI service is enabled by
 the [Phase 2 build order](PHASE_2_BUILD_ORDER.md). Preserve the cloud snapshot and
 data-grain rules below; any future cloud-backed assistant tool requires its own
-review and actual verification. Learner readiness Step 1 is pending.
+review and actual verification. Learner readiness Step 1 passed on 25 November; this is not a new cloud run.
 
 ## Chosen route: billing-free sandbox
 

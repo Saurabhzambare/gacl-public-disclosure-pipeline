@@ -96,8 +96,8 @@ working link exists.
 ## Phase 2 demonstration — record only after implementation
 
 Follow [Master Build Order](PHASE_2_BUILD_ORDER.md) Steps 28–30 after the
-retrieval, numerical, answer, agent and local interface gates pass. Current
-learner position remains Step 1; no AI demonstration recording exists.
+retrieval, numerical, answer, agent and local interface gates pass. Current learner progress is recorded in the learning log; no AI demonstration
+recording exists.
 
 1. Identify historical public data, approved sources and actual model/index
    versions. Separate completed Phase 1 reporting from the new local assistant.

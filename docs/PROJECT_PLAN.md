@@ -8,7 +8,7 @@ checkpoints, not the active task list. The core local/cloud/reporting sequence
 was verified on 24 November; recording, scheduling and other remaining work are
 tracked in [STATUS.md](STATUS.md). The original target is not a completed release
 date. Phase 2 now has its own [scope](AI_EXTENSION_PLAN.md) and
-[Master Build Order](PHASE_2_BUILD_ORDER.md), starting at learner Step 1.
+[Master Build Order](PHASE_2_BUILD_ORDER.md), with current learner progress in AI_LEARNING_LOG.md.
 Historical statements below describe the checkpoint date, not current status.
 
 Checkpoint — 20 November: local PDF-to-SQLite execution is verified on the user's

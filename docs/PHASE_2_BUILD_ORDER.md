@@ -4,7 +4,9 @@ Version: 1.0. Prepared: 25 November 2026 (India).
 Owner/implementer: Saurabh Zambare. Assistant responsibility: explanation,
 review, troubleshooting and documentation maintenance.
 Controlled steps: **30**, grouped into **8 stages**.
-Current step: **Step 1 — pending learner execution**.
+Readiness execution: **Step 1 passed on Windows, 25 November 2026**.
+Next step: **Step 2 — baseline and implementation branch; pending execution**.
+Learner understanding discussion is recorded separately in the learning log.
 
 ## Purpose and finished behavior
 
@@ -105,8 +107,8 @@ update. Exact future commands are introduced only when their modules exist.
 - **Files / installation:** inspect Git changes, existing retrieval modules,
   `tests/` and core outputs. No new package. Branch choice follows inventory;
   never switch with unexplained changes or copy the entire prototype blindly.
-- **Action / output:** run the existing unit suite; inspect an offline core run
-  only when both verified PDFs are present; retain counts and actual failures.
+- **Action / output:** follow [the Step 2 lesson](PHASE_2_STEP_02.md), run the
+  existing unit suite and an offline core run; retain counts and actual failures.
 - **Gate / understanding:** identify 18 observations versus software-test count;
   explain the difference between the assistant's local prototype and your work.
   Checkpoint suggestion: `docs: record guided AI implementation baseline`.
@@ -514,7 +516,8 @@ update. Exact future commands are introduced only when their modules exist.
 
 ## Progress and resumption
 
-Every learner step currently has status **pending**. Do not pre-check the roadmap
+Step 1 readiness execution passed on Windows. Step 2 is prepared and pending;
+Steps 3–30 remain pending. Understanding discussion remains recorded separately. Do not pre-check the roadmap
 because a reference module exists. In [AI_LEARNING_LOG.md](AI_LEARNING_LOG.md),
 record current step ID, actual files changed, commands/results, explanation in
 the learner's words, errors/fixes and next step. [STATUS.md](STATUS.md) tracks

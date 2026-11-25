@@ -4,7 +4,8 @@ Context added 25 November: this remains a dated reference-prototype evaluation,
 not learner Windows evidence or a new evaluation run. [Phase 2 build order](PHASE_2_BUILD_ORDER.md)
 Steps 9–10 cover personal review and a Windows baseline; Step 15 compares semantic
 retrieval. Later answer/agent criteria are in [the evaluation plan](AI_EVALUATION_PLAN.md).
-The original measurements below are preserved; learner Step 1 is still pending.
+The original measurements below are preserved; current learner progress is
+recorded in AI_LEARNING_LOG.md and is separate from this pilot.
 
 Implemented and tested on the local feature/document-retrieval branch. Runtime:
 Python 3.12.14, PyMuPDF 1.26.6 and SQLite 3.53.1. No model/API/cloud calls were

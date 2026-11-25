@@ -1,8 +1,12 @@
 # Phase 2 — Step 1: Check the existing Windows environment
 
 Build-order version: 1.0. Lesson prepared: 25 November 2026 (India).
-State: **pending learner execution**. This is a runnable lesson, not a record
-that these commands succeeded on the learner's laptop.
+Execution: **passed on the learner's Windows laptop, 25 November 2026**.
+The author supplied Python 3.11.4, virtual environment True, PyMuPDF 1.26.6,
+FTS5 available, two configured sources and both PDFs PRESENT. No source hash
+verification or AI index/model run is established by this readiness result.
+The understanding discussion is recorded separately in the learning log.
+The reusable instructions below remain available for another environment.
 
 ## Purpose
 

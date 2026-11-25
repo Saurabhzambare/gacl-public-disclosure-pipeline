@@ -55,8 +55,8 @@ test counts and [HTTPS troubleshooting](HTTPS_TROUBLESHOOTING.md) for recovery.
 
 Only run prototype commands when those modules exist in the checkout; see
 [retrieval commands](RETRIEVAL.md). No public feature branch or learner Windows
-run is implied. The current guided step remains Step 1 in the
-[build order](PHASE_2_BUILD_ORDER.md).
+run is implied. Follow the stable [build order](PHASE_2_BUILD_ORDER.md) and consult the
+learning log for the current step.
 
 | Symptom | Handling |
 |---|---|

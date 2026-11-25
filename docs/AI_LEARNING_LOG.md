@@ -3,7 +3,8 @@
 Started: 25 November 2026 (India).
 
 Build-order reference: [Master Build Order](PHASE_2_BUILD_ORDER.md), version 1.0,
-30 stable steps in eight stages. Current step: **Step 1, pending**. Existing
+30 stable steps in eight stages. Step 1 readiness execution: **passed**.
+Next: **Step 2, instructions prepared; learner execution pending**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -38,9 +39,10 @@ where appropriate.
 - Embeddings, generated RAG answers, numerical assistant tools and agentic tool
   selection remain planned, not implemented.
 
-## Current lesson — Step 1: inspect the Windows environment
+## Step 1 — readiness execution verified on 25 November
 
-Status: instructions prepared; author execution and results pending.
+Status: author-supplied Windows terminal output confirms the readiness checks.
+Understanding discussion: still to be answered in the learner's own words.
 
 Exact instructions, commented readiness code and expected output:
 [Step 1 lesson](PHASE_2_STEP_01.md). Later code lessons will be documented when
@@ -76,17 +78,37 @@ the actual environment output is reviewed.
 Stop after collecting these results. Report missing prerequisites and errors
 honestly; do not mark this lesson passed without the author's output.
 
-## Next lesson, conditional on Step 1
+## Verified Step 1 output
 
-Create a small, commented PDF inspection file personally. Learn how to locate a
-configured source, verify its hash, distinguish PDF page numbers from zero-based
-library indexes, and inspect extracted text from a known reference page. Exact
-filename, code and commands will be supplied after the environment check.
+| Check | Author-supplied result |
+|---|---|
+| Local checkout after pull | main/origin/main at 23634b2 |
+| Project interpreter exists | True |
+| Python | 3.11.4 |
+| Virtual environment | True |
+| PyMuPDF | 1.26.6 |
+| SQLite FTS5 | Available; temporary in-memory table |
+| Configured sources | 2 |
+| Monthly cached PDF | PRESENT |
+| Annual cached PDF | PRESENT |
 
-Later lessons will introduce page metadata, chunking, lexical retrieval,
-evaluation, embeddings, numerical tools, cited generation and bounded agent
-behavior individually. Their completion requires the corresponding execution
-evidence; this list is a teaching sequence, not a completion claim.
+The author initially pasted only the closing here-string line and cancelled it
+with Ctrl+C, then pasted the full block and obtained the successful results
+above. Explain the opening/closing delimiters as one complete block. No file
+presence check proves checksum integrity, and no model or retrieval feature was
+executed by this lesson. No installation or code-file change was required.
+
+## Next lesson — Step 2: baseline and personal implementation branch
+
+Follow [Step 2](PHASE_2_STEP_02.md): inspect the checkout, receive the documentation
+update while clean/on main, create a personal branch, inventory prototype-file
+presence, run existing tests and the original offline pipeline. All Step 2
+results remain pending. Do not skip directly to PDF code: the inspector is
+**Step 3** in the stable build order.
+
+Understanding check to discuss with the Step 2 results: why does PRESENT not
+prove that a PDF has the approved content, and why do we use the project's
+virtual-environment interpreter rather than a generic python command?
 
 ## Evidence to record after each lesson
 
@@ -106,6 +128,7 @@ change does not advance the learner automatically.
 | Date (India) | Step | Evidence | State |
 |---|---|---|---|
 | 25 November 2026 | Guided implementation agreement | Author requests personal implementation and independent documentation maintenance | Recorded |
-| 25 November 2026 | Windows readiness check | Instructions prepared; laptop output not yet supplied | Pending |
+| 25 November 2026 | Windows readiness check | Python 3.11.4; venv True; PyMuPDF 1.26.6; FTS5 available; two configured sources; both PDFs PRESENT | Execution passed; understanding discussion open |
 | 25 November 2026 | Phase 2 documentation | Master Build Order v1.0, concept/contracts/evaluation guides and cross-guide scope updates prepared; no source implementation | Documentation prepared; learner still at Step 1 |
 | 25 November 2026 | Documentation validation | 31 Markdown files / 184 local links checked; 30 sequential step IDs and eight stages verified; Step 1 sample syntax parsed without execution; whitespace checks passed | Passed; no new runtime or learner completion claimed |
+| 25 November 2026 | Step 2 | Baseline/branch lesson prepared; no learner test, pipeline or branch output supplied yet | Pending execution |
