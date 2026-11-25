@@ -42,4 +42,47 @@ Do not publish logs that expose credentials. The current logs contain source ide
 
 ## Reviewed-extract input mode
 
-Use --from-examples when the report website is unavailable. It validates the pinned repository CSV snapshots, runs the normal data checks and loads the warehouse without downloading PDFs. Run history and data/processed/run_manifest.json record input_mode=reviewed_extracts and pdfs_verified_this_run=false. This is distinct from --offline, which verifies cached source PDFs. The 22-test suite includes no-network execution, duplicate-safe reruns, altered-snapshot rejection, Windows newline handling, certificate failure handling and migration of existing run history. See docs/HTTPS_TROUBLESHOOTING.md from the repository root.
+Use --from-examples when the report website is unavailable. It validates the
+pinned repository CSV snapshots, runs the normal data checks and loads the
+warehouse without downloading PDFs. Run history and the processed run manifest
+record input_mode=reviewed_extracts and pdfs_verified_this_run=false. This differs
+from --offline, which verifies cached source PDFs. Tests cover no-network
+execution, duplicate-safe reruns, altered snapshots, Windows newline handling,
+certificate failures and run-history migration. Use [status](STATUS.md) for dated
+test counts and [HTTPS troubleshooting](HTTPS_TROUBLESHOOTING.md) for recovery.
+
+## Phase 2 — local retrieval operations
+
+Only run prototype commands when those modules exist in the checkout; see
+[retrieval commands](RETRIEVAL.md). No public feature branch or learner Windows
+run is implied. The current guided step remains Step 1 in the
+[build order](PHASE_2_BUILD_ORDER.md).
+
+| Symptom | Handling |
+|---|---|
+| Missing cached PDF | Obtain the approved verified PDF through the original pipeline; reviewed CSVs cannot supply document pages |
+| Missing retrieval index | Build it after source verification; do not create a substitute empty warehouse |
+| Changed source/configuration | Inspect versions and rebuild only from approved inputs; do not disable checks or silently update pins |
+| Image-only or incomplete text | Record limitations; mapped required evidence must not be silently skipped or reconstructed |
+| Locked index on Windows | Close readers/inspection tools and retry; retain the previous good index if replacement fails |
+| Related search hit, unclear answer | Inspect full-page year/unit context; search does not assess answerability |
+
+The index lives separately under ignored `data/retrieval/`; it can be regenerated
+from approved inputs. Rebuilding must preserve authoritative observations. Build
+timestamps do not become new PDF retrieval timestamps. Keep curated evaluation
+results separate from raw local diagnostics.
+
+## Planned model and answer recovery
+
+The following policies are requirements for later implementation, not available
+commands today: reject model/index dimension or revision mismatch; bound provider
+and tool calls; return explicit missing-model, timeout, insufficient-evidence or
+clarification states; never silently switch models, paid providers or sources.
+Generation failure must not produce an invented result. A deterministic fact
+fallback, if implemented, must be labelled as such.
+
+No cloud load or Power BI refresh is needed for each local AI question. Preserve
+the original refresh sequence when the reporting facts actually change. Actual
+model/runtime operations and UI launch commands will be documented only after
+the learner implements and verifies them. See [contracts](AI_CONTRACTS.md) and
+[security](../SECURITY.md).

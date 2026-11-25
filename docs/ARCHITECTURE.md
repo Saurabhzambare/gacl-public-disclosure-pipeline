@@ -8,7 +8,7 @@ flowchart TD
     B --> C["Contracts, coverage and reconciliation"]
     C -->|Accepted| D["SQLite warehouse and CSV exports"]
     C -->|Rejected| E["Quarantine and failed run"]
-    D --> F["Power BI / BigQuery milestones"]
+    D --> F["Verified BigQuery/dbt and Power BI reporting"]
 ```
 
 - config/sources.json defines the only supported reports and expected document hashes.
@@ -40,13 +40,16 @@ Download retries: at most three attempts; retryable HTTP statuses are 408, 429 a
 
 Validation occurs before the observation transaction. CSV export happens afterward; if export fails, the run fails but already committed observations remain safe to rerun. This is not a distributed transaction across SQLite, CSV and cloud storage.
 
-## Next milestones
+## Verified reporting route and optional paths
 
 - BigQuery sandbox mode validates the complete export and replaces observations with one atomic batch load; it executes no DML.
 - Optional explicit MERGE mode preserves staged upsert behavior outside the billing-free route.
 - dbt creates typed, separate monthly/annual views and tests.
 - Power BI imports curated outputs.
-- Scheduling, RAG and industrial protocol demonstrations are separate future work.
+- The reporting route has dated manual verification; see
+  [the evidence record](VERIFICATION_2026-11-24.md).
+- Scheduling remains pending. Phase 2 RAG follows the separate build order;
+  industrial protocol demonstrations are outside that scope.
 
 
 ## Reviewed-extract input mode
@@ -63,3 +66,48 @@ replacement; the loader checks the resulting row count and records the job ID.
 No SQL/DML, delete-before-load or change to billing settings occurs. Local SQLite
 remains the source of retained document-version history. Concurrent snapshot
 writers and multi-version conflict resolution are not supported.
+
+## Local document retrieval extension
+
+The feature/document-retrieval branch adds a separate data/retrieval/index.sqlite
+for text pages, exact-span chunks, explicit page metadata, source versions and a
+build manifest. Builds use only checksum-verified cached PDFs and atomically
+replace the index after success. Read-only FTS5 queries return cited candidate
+passages, not generated answers; the observation warehouse is not modified.
+A 40-case pilot measures page retrieval separately from future answer and agent
+evaluation. See [retrieval](RETRIEVAL.md) and [measured results](RETRIEVAL_EVALUATION.md).
+
+## Planned Phase 2 answer architecture
+
+```mermaid
+flowchart TD
+    P["Approved pinned PDFs"] --> T["Page text and exact chunks: local prototype"]
+    P --> O["Validated observations: verified Phase 1"]
+    T --> R["Planned semantic retrieval with page evidence"]
+    O --> N["Planned read-only metric and comparison tools"]
+    R --> A["Planned cited answer workflow"]
+    N --> A
+    A --> G["Later bounded model-selected tools"]
+    G --> U["Planned local demonstration interface"]
+```
+
+Document evidence and numerical facts remain separate routes. An LLM can explain
+the deterministic calculator result, but cannot provide authoritative input
+values or silently reinterpret units/periods. Scope ambiguity requires explicit
+clarification. Full-page context and known annotations remain inspectable.
+
+Vectors must resolve to canonical chunk IDs and pin model/revision, dimensions,
+preprocessing and index fingerprints. Start with exact similarity for this small
+corpus; no hosted vector database is required. The generator/provider and UI
+framework are not yet selected. Model memory, runtime, rights and optional API
+costs are reviewed at their numbered steps before installation/use.
+
+A fixed answer workflow precedes the agent. Agentic behavior requires actual
+dynamic model-selected read tools, validated arguments, application-enforced
+budgets and inspectable observable traces. No arbitrary shell, write-SQL or
+external messaging tool is included. [Contracts](AI_CONTRACTS.md) define these
+boundaries; [evaluation](AI_EVALUATION_PLAN.md) defines the separate checks.
+
+Saurabh implements the [30-step build order](PHASE_2_BUILD_ORDER.md), starting
+with pending Step 1. Future modules named there are design targets, not created
+files or completed features. Existing storage and reporting behavior are retained.

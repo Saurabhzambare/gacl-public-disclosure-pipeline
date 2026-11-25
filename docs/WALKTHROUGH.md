@@ -1,6 +1,8 @@
 # Project walkthrough script
 
 Status: script prepared on 24 November 2026; video not yet recorded.
+The timed script below demonstrates Phase 1. The Phase 2 section at the end is
+a conditional future recording outline, not evidence of a completed assistant.
 Target length: about 3–5 minutes. Demonstrate the actual project and distinguish
 previously verified evidence from commands you successfully run during recording.
 The [24 November manual verification](VERIFICATION_2026-11-24.md) provides the
@@ -90,3 +92,29 @@ pages and recent successful outputs. Close login prompts and unrelated tabs.
 Save the recording outside the repository initially; add its link only after
 reviewing the actual video. Do not claim the recording is published until a
 working link exists.
+
+## Phase 2 demonstration — record only after implementation
+
+Follow [Master Build Order](PHASE_2_BUILD_ORDER.md) Steps 28–30 after the
+retrieval, numerical, answer, agent and local interface gates pass. Current
+learner position remains Step 1; no AI demonstration recording exists.
+
+1. Identify historical public data, approved sources and actual model/index
+   versions. Separate completed Phase 1 reporting from the new local assistant.
+2. Ask a supported fact question and open its returned page evidence. Explain
+   why PDF and printed page numbers differ.
+3. Compare April and September daily-average freshwater rates through the
+   validated tools. Show -802.7 KL/day and approximately -6.40%, not a saved volume.
+4. Ask a reporting-boundary question; inspect text and separately labelled
+   reviewed notes. Show real retrieval results and acknowledge incomplete text.
+5. Ask an unsupported cause/live-reading question and show insufficient evidence
+   or clarification. An explicit annual source explanation must not be transferred
+   to an unrelated monthly trend.
+6. Demonstrate a question that actually triggers dynamic model-selected read
+   tools. Show observable calls/results and stop reason, not hidden reasoning.
+7. Present measured retrieval/answer/citation/agent results separately, including
+   sample sizes, a failure and the small-corpus limitation. Explain pretrained
+   inference versus training a custom predictive model.
+
+Record only actual outputs. A local recording is not public hosting or a posted
+video. Update status and links after the corresponding actions really occur.

@@ -1,6 +1,9 @@
-# GACL Public-Disclosure Data Pipeline
+# GACL Public-Disclosure Pipeline and Research Assistant
 
-A data engineering portfolio project by **Saurabh Zambare** that turns GACL's public water and energy disclosures into traceable, validated observations.
+A portfolio project by **Saurabh Zambare** that turns GACL's public water and
+energy disclosures into traceable, validated observations and is being extended
+into an evidence-grounded research assistant. The data pipeline is verified;
+the AI extension is a guided implementation, not a completed AI service.
 
 **Current status:** the local Python → SQLite → CSV pipeline works with **18 real observations** from two official reports. The user has verified the BigQuery raw table has 12 annual and 6 monthly rows, with no duplicate keys. The live dbt build created 3 views and passed 7 SQL tests. All eight reference checks passed for values, dates, units, scopes and row counts across raw and dbt views. The two-page Power BI report is built, the user confirmed a successful Desktop refresh, and the exported PDF was reviewed on 24 November 2026. A subsequent [manual end-to-end verification](docs/VERIFICATION_2026-11-24.md) passed from cached PDF extraction through BigQuery, dbt, reference comparison and Desktop refresh.
 
@@ -27,6 +30,46 @@ flowchart TD
 | Cloud reference reconciliation | **8** checks passed for the selected facts |
 
 This is an architecture/output preview of the implemented project, not a live plant dashboard. Monthly site rates and annual company totals retain their separate grains and units. [Reviewed sample exports](data/examples/) · [Current verification and pending work](docs/STATUS.md)
+
+## Phase 2 — AI-assisted public-disclosure research
+
+The planned assistant will retrieve report evidence, read validated measurements,
+calculate compatible comparisons and generate cited explanations. A later
+bounded agent will select approved read tools dynamically. Pretrained semantic
+retrieval applies ML without claiming a model trained on the 18 observations;
+custom forecasting is deferred until suitable data exists.
+
+| Capability | Evidence/status |
+|---|---|
+| Python → SQLite → BigQuery/dbt → Power BI | Verified Phase 1; dated evidence linked above |
+| Page/chunk indexing and keyword search | Local reference prototype; Windows feature verification/publication pending |
+| Pretrained embeddings and semantic search | Planned; model/runtime not yet selected |
+| Validated numerical assistant tools | Planned; existing observations remain authoritative |
+| Cited RAG answers and GenAI explanations | Planned; no generator/provider selected |
+| Dynamic bounded tool use and local interface | Planned; no agent or hosted service claimed |
+
+Saurabh will implement one step at a time; the assistant maintains documentation.
+The [Phase 2 Master Build Order](docs/PHASE_2_BUILD_ORDER.md) defines 30 stable
+steps in eight stages. **Current learner position: Step 1, environment check
+pending.** Existing prototype work does not mark learner steps complete.
+
+### Existing retrieval reference
+
+The first retrieval milestone is implemented on the local `feature/document-retrieval`
+branch: verified PDF-page indexing, keyword search with citations, and a 40-case
+pilot evaluation set. It indexes **70 text pages / 136 chunks** from the two
+pinned documents. Expected pages appeared in the top five results for **26 of 28**
+answerable cases; 12 unsupported/adversarial cases are diagnostic only.
+Embeddings, generated answers and agents are still planned. This feature's
+Windows verification and public branch publication are pending. The prototype's
+runtime, configuration, tests and case JSON files are not included in this
+documentation-only update; follow the build order to implement them personally.
+
+[Search commands and limitations](docs/RETRIEVAL.md) ·
+[Evaluation evidence](docs/RETRIEVAL_EVALUATION.md) ·
+[AI extension scope](docs/AI_EXTENSION_PLAN.md) ·
+[Build order](docs/PHASE_2_BUILD_ORDER.md) ·
+[Concepts and ELI5 guide](docs/AI_CONCEPTS.md)
 
 ## Power BI report
 
@@ -147,6 +190,14 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 
 | Guide | Purpose |
 |---|---|
+| [Documentation map](docs/README.md) | Reading order and current versus historical records |
+| [Phase 2 build order](docs/PHASE_2_BUILD_ORDER.md) | 30 learner-implemented steps, dependencies and acceptance gates |
+| [Step 1 lesson](docs/PHASE_2_STEP_01.md) | Commented readiness check, prerequisites and expected output |
+| [AI scope](docs/AI_EXTENSION_PLAN.md) | Research assistant goals, boundaries and delivery milestones |
+| [Learning log](docs/AI_LEARNING_LOG.md) | Current step, learner evidence and next action |
+| [AI concepts](docs/AI_CONCEPTS.md) | Technical and ELI5 explanations |
+| [AI contracts](docs/AI_CONTRACTS.md) | Evidence, proposed numerical/answer tools and boundaries |
+| [AI evaluation plan](docs/AI_EVALUATION_PLAN.md) | Retrieval, answer, citation, numerical and agent checks |
 | [Setup](docs/SETUP.md) | Windows/GitHub Desktop and Linux setup |
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline stages and storage decisions |
 | [Data dictionary](docs/DATA_DICTIONARY.md) | Field definitions, grains and units |
@@ -156,7 +207,7 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 | [Cloud setup](docs/BIGQUERY_DBT.md) | Optional BigQuery loader and dbt configuration |
 | [Power BI report](dashboard/README.md) | Actual report, measures, evidence and refresh instructions |
 | [Walkthrough script](docs/WALKTHROUGH.md) | Recording outline; video not yet recorded |
-| [Build plan](docs/PROJECT_PLAN.md) | Target: 22 November 2026 |
+| [Phase 1 plan](docs/PROJECT_PLAN.md) | Historical 22 November target and dated checkpoints |
 | [Status](docs/STATUS.md) | Verified work and remaining tasks |
 | [24 November verification](docs/VERIFICATION_2026-11-24.md) | Actual local run, cloud job/expiration, dbt, query and Desktop refresh evidence |
 | [Decisions](docs/DECISIONS.md) | Scope, precision and provenance choices |
@@ -167,7 +218,12 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 
 The parsers support the two pinned documents, not arbitrary PDFs. Missing months are not synthesized. Annual totals are not distributed across plants or months. Source changes require manual review before a manifest update. A changed document is detected but not automatically accepted.
 
-The dataset is deliberately small; the case study is about engineering correctness, not throughput or forecasting. See [status](docs/STATUS.md) before making resume claims.
+The dataset is deliberately small; the case study is about engineering correctness,
+evidence-grounded retrieval and evaluated answers, not throughput or forecasting.
+The AI extension starts from the same two approved PDFs. It does not imply live
+SAP/OT access, source expansion, OCR, custom training, paid APIs, a hosted vector
+database, new cloud billing or public deployment. See [status](docs/STATUS.md)
+before making resume claims.
 
 Original project code is MIT licensed. GACL reports, branding and source material retain their owners' rights; they are not covered by that license.
 

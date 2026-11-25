@@ -37,7 +37,10 @@ git pull --ff-only
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-The integrated normal command still needs confirmation on the user's laptop.
+The integrated normal `--refresh` command was subsequently confirmed on the
+user's Windows laptop on 20 November (run
+a027f1fa-4961-4cce-b2cd-bb976f54a860); see [status](STATUS.md). This historical
+success does not guarantee the current website/network certificate chain.
 Certificate failures still stop immediately; source hashes remain required.
 Native validation does not renew expired certificates. If validation still
 fails, diagnose the received certificate chain rather than bypassing checks.
@@ -87,5 +90,15 @@ run_manifest.json record it. Repeated loads are duplicate-safe.
 The code does not disable TLS verification, use an unverified SSL context, or
 switch to HTTP. Certificate errors fail immediately instead of wasting retries.
 Source checksum validation is preserved.
+
+## Phase 2 distinction
+
+The assistant's document index needs actual checksum-verified cached PDF bytes.
+`--from-examples` can preserve access to the 18 structured observations but does
+not supply document text, pages or an embedding corpus. Do not bypass TLS or
+silently substitute generated passages when a source is unavailable. Model
+downloads, if later selected, need their own trusted distribution/license review;
+they are not part of this report-download fix. Follow
+[build-order Step 1](PHASE_2_BUILD_ORDER.md) before making environment changes.
 
 Python reference: https://docs.python.org/3.11/library/ssl.html

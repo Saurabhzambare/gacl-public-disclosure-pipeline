@@ -14,4 +14,18 @@ No raw PDF is committed. Download official reports through the pipeline.
 
 ## Reviewed-extract input mode
 
-Use --from-examples when the report website is unavailable. It validates the pinned repository CSV snapshots, runs the normal data checks and loads the warehouse without downloading PDFs. Run history and data/processed/run_manifest.json record input_mode=reviewed_extracts and pdfs_verified_this_run=false. This is distinct from --offline, which verifies cached source PDFs. The 22-test suite includes no-network execution, duplicate-safe reruns, altered-snapshot rejection, Windows newline handling, certificate failure handling and migration of existing run history. See docs/HTTPS_TROUBLESHOOTING.md from the repository root.
+Use --from-examples when the report website is unavailable. It validates the
+pinned repository CSV snapshots, runs normal checks and loads the warehouse
+without downloading PDFs. Run history and the processed manifest record
+input_mode=reviewed_extracts and pdfs_verified_this_run=false. This differs from
+--offline, which verifies cached PDFs. See [HTTPS troubleshooting](../../docs/HTTPS_TROUBLESHOOTING.md)
+and [current test evidence](../../docs/STATUS.md).
+
+## Phase 2 use
+
+These remain the same 18 reviewed numerical observations. They can provide
+reference values for planned metric-tool evaluation; they are not a forecasting
+training set or a substitute for PDF text/chunks. `--from-examples` cannot create
+the document retrieval corpus. No CSV content is changed by the extended scope.
+See [AI contracts](../../docs/AI_CONTRACTS.md) and
+[build order](../../docs/PHASE_2_BUILD_ORDER.md).

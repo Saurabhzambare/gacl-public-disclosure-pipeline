@@ -8,6 +8,14 @@ or skipped resources. All eight live reference checks passed, as shown in the us
 The 24 November rerun supplied actual load job ID and expiration evidence:
 see [verification record](VERIFICATION_2026-11-24.md).
 
+Phase 2 context, 25 November: this is the existing verified reporting route.
+Local document retrieval and the planned assistant start from cached PDFs and
+the validated local facts; they do not require a cloud query/load or another
+dbt environment for each question. No billing or cloud AI service is enabled by
+the [Phase 2 build order](PHASE_2_BUILD_ORDER.md). Preserve the cloud snapshot and
+data-grain rules below; any future cloud-backed assistant tool requires its own
+review and actual verification. Learner readiness Step 1 is pending.
+
 ## Chosen route: billing-free sandbox
 
 On 20 November 2026 the user confirmed Application Default Credentials (ADC),

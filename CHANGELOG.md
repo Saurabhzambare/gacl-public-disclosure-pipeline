@@ -1,5 +1,36 @@
 # Changelog
 
+## Guided Phase 2 scope and documentation — 25 November 2026
+
+Document the extended Public-Disclosure Research Assistant scope: pretrained
+semantic retrieval, validated numerical tools, cited RAG generation, bounded
+model-selected read tools and a local demonstration interface. Add a versioned
+Master Build Order with 30 steps in eight stages, a technical/ELI5 concept guide,
+evidence/tool contracts, AI evaluation protocol and documentation map. Record
+that Saurabh implements code one step at a time while the assistant maintains
+documentation; learner Step 1 remains pending.
+
+Align setup, architecture, sources, data definitions, operations, testing,
+security, contribution, status and report/evaluation guides. Preserve the dated
+Phase 1 execution record and local retrieval pilot as historical evidence;
+correct stale current-status wording without rewriting old milestone results.
+No application/configuration/dependency/test/report files, source facts or model
+artifacts are changed. No model installed, service enabled, branch published or
+new runtime-verification result claimed by this documentation checkpoint.
+
+## Local document-retrieval milestone — 24 November 2026
+
+Implement a separate atomic, checksum-pinned PDF page/chunk index and read-only
+SQLite FTS5 keyword search with physical page citations, explicit printed-page
+mappings and clearly separated reviewed annotations. Add CLI build/info/search/
+page/evaluate commands and 40 source-checked pilot cases. The real index covers
+70 text pages and 136 chunks; top-five page recall is 26/28 across answerable
+cases. Twelve negative/adversarial cases are diagnostics, not refusal tests.
+All 60 local tests pass (32 existing plus 28 retrieval), and real extraction
+still reconciles all 18 records to the reviewed snapshots. This is a local
+feature branch; Windows verification, public publication, independent annotation
+review, embeddings, generation and agent tools remain pending.
+
 ## Manual end-to-end verification — 24 November 2026
 
 Record author-supplied evidence for cached PDF extraction (18 rows, four

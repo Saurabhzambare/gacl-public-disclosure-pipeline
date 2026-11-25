@@ -1,6 +1,30 @@
 # Project status
 
-Updated: 24 November 2026. Original first-version target: 22 November 2026, 8:00 PM IST; this was a target, not a completed release date.
+Updated: 25 November 2026. Original first-version target: 22 November 2026, 8:00 PM IST; this was a target, not a completed release date.
+
+## Guided AI implementation — 25 November 2026
+
+The author will personally implement each new AI step, with explanations,
+commented code, exact file instructions and execution checks supplied in the
+conversation. The assistant independently maintains documentation. The earlier
+local retrieval prototype remains reference material; it is not evidence of
+author implementation or Windows execution. The first lesson checks the existing
+Windows environment and cached source files; its results are pending. See the
+[guided implementation log](AI_LEARNING_LOG.md). No code, configuration,
+dependency or test changes are part of this documentation checkpoint.
+
+The [Phase 2 Master Build Order](PHASE_2_BUILD_ORDER.md) version 1.0 records
+30 stable steps in eight stages. Current learner position: Step 1, pending
+Windows readiness output; all learner steps remain pending. Supporting
+[concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
+[evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming
+implementation. The first-version dated evidence below remains unchanged.
+
+Documentation checkpoint in the reference checkout: 31 Markdown files and
+184 local links checked; build
+order has 30 sequential steps/eight stages; the standalone Step 1 sample parses
+without execution. Markdown-only changes and whitespace checks verified. These
+are documentation checks, not a new software/model/cloud/Windows run.
 
 ## Implemented and verified locally
 
@@ -89,6 +113,20 @@ it does not independently verify every provenance column. The subsequent Power B
 - The PDF is preserved as supplied. A small grey mark beside each page heading remains; the author chose to retain it. No chart, table or source note is obscured.
 - Page previews are rendered from the actual PDF, not design mockups. PBIX is not included; repository ignore rules still exclude it.
 - Page 2 implements coverage and provenance. Latest-run status, check results, rejected-row counts and extraction-method fields are available elsewhere in the pipeline and documentation; they are not displayed as live dashboard visuals.
+
+## AI extension — local feature branch, 24 November 2026
+
+- [x] Separate checksum-verified page/chunk index and read-only lexical search implemented on feature/document-retrieval.
+- [x] Real-source index: 2 PDFs, 71 physical pages, 70 indexed text pages, 136 chunks; monthly cover skipped without OCR.
+- [x] Explicit PDF/known printed-page citations and two separately labelled visual-review annotations.
+- [x] 40 assistant-authored/source-checked evaluation cases (24 development, 16 holdout partition). Independent human annotation review is pending.
+- [x] Baseline top-five reference-page hits: 15/16 development, 11/12 holdout; 26/28 combined answerable questions. Twelve unsupported/adversarial cases are diagnostic only; no answer/refusal accuracy claim.
+- [x] 60 local Linux/Python 3.12 tests passed: 32 existing plus 28 retrieval tests. Real extraction still matches all 18 reviewed records, including provenance.
+- [ ] Feature execution on the user's Windows laptop / Windows CI.
+- [ ] Publish the local feature branch to GitHub; no publication is implied by this development checkpoint.
+- [ ] Embeddings, RAG generation, validated numerical answer tools, agentic tool selection and an interactive interface.
+
+Details and commands: [retrieval guide](RETRIEVAL.md), [evaluation results](RETRIEVAL_EVALUATION.md), and [AI scope plan](AI_EXTENSION_PLAN.md).
 
 ## Known limitations
 

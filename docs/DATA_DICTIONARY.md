@@ -49,3 +49,26 @@ The two-year BRSR comparison is as disclosed in the latest report, not a guarant
 
 
 Comparative-basis note: printed BRSR pages 79–80 state that FY 2024–25 disclosures were recalculated for reporting-boundary and methodology alignment. Water consumption for that year was revised using withdrawal minus discharge. The project retains the latest report's disclosed figures and does not overwrite earlier-source history.
+
+## Phase 2 evidence is separate from observations
+
+The 18 selected observation records remain the authoritative numerical facts.
+Document pages/chunks are evidence objects, not additional GACL measurements.
+Seventy indexed pages and 136 chunks in the local prototype do not change the
+observation count or enlarge the forecasting time series.
+
+The observation contract above uses known printed-page references. In the wider
+document-search corpus, `printed_page` can be null when not explicitly mapped.
+Source/version, physical page, exact text offsets/hash and separately labelled
+reviewed annotations are described in [AI contracts](AI_CONTRACTS.md).
+Document-level scope is not automatic sentence/year classification. Source
+reporting year, upload directory year, retrieval date and index build date have
+different meanings and must not be substituted for each other.
+
+Planned vectors, retrieval ranks, generated answers and tool traces belong to
+separate versioned artifacts, not these factual tables. Model similarity is not
+confidence. Planned metric tools must return exact values and provenance;
+comparison tools use compatible inputs and Decimal, with display rounding
+separate. Unsupported values, causes and scope conversions are never filled in
+by a model. See [evaluation](AI_EVALUATION_PLAN.md) and
+[build order](PHASE_2_BUILD_ORDER.md).

@@ -1,9 +1,15 @@
-# GACL Operations and Sustainability Data Pipeline — Build Plan
+# Phase 1 — Public-Disclosure Data Pipeline: Historical Build Plan
 
 Prepared for Saurabh Zambare on 19 November 2026.
 Target completion: Sunday, 22 November 2026, by 8:00 PM IST.
 Application deadline discussed: Sunday, 29 November 2026.
-Status: implementation in progress. See STATUS.md for verified evidence.
+Current context, 25 November 2026: this is the original Phase 1 plan with dated
+checkpoints, not the active task list. The core local/cloud/reporting sequence
+was verified on 24 November; recording, scheduling and other remaining work are
+tracked in [STATUS.md](STATUS.md). The original target is not a completed release
+date. Phase 2 now has its own [scope](AI_EXTENSION_PLAN.md) and
+[Master Build Order](PHASE_2_BUILD_ORDER.md), starting at learner Step 1.
+Historical statements below describe the checkpoint date, not current status.
 
 Checkpoint — 20 November: local PDF-to-SQLite execution is verified on the user's
 Windows laptop, with 18 observations and 25 passing core tests. The user has
@@ -65,10 +71,15 @@ Add only after the core works:
 - Scheduled execution using an already available runner.
 - Additional annual reports and production history.
 
-After the 22 November release:
-- RAG with embeddings, a vector store, document versioning and page citations.
-- Industrial connectivity in a separate, explicitly simulated environment.
-- Additional cloud platforms, NoSQL systems or deployment services only if they address an actual need.
+Separate later work (not a claim that a release occurred on 22 November):
+
+- Phase 2: cited retrieval, pretrained embeddings, validated numerical tools,
+  generated answers, bounded agents and a local interface; follow the new build
+  order. A hosted vector database is optional, not mandatory.
+- Industrial connectivity remains outside Phase 2; any simulation would need a
+  separate scope and must not be presented as live GACL access.
+- Additional cloud platforms, NoSQL systems or deployment services only if they
+  address an actual demonstrated need.
 
 Do not add synthetic measurements to the GACL dataset, invent timestamps, or describe historical report ingestion as live streaming.
 

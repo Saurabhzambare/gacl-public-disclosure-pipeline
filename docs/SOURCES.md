@@ -38,5 +38,31 @@ A changed checksum stops execution before the cached report is overwritten. Revi
 
 The original reports and GACL branding belong to their respective owners. The code license does not relicense the source documents. Link to official reports and download them locally instead of committing the PDFs.
 
+## Phase 2 — same approved corpus, broader text retrieval
+
+No new source is authorized or added by the AI extension. The local reference
+index reads usable embedded text across these same two pinned PDFs: 71 physical
+pages, 70 indexed text pages and 136 chunks. The monthly cover is image-only and
+is recorded as skipped; OCR is not implemented. Indexing more text does not
+mean every table, label or topic was extracted or evaluated correctly.
+
+Physical and printed page numbers remain distinct. `config/retrieval.json`
+contains additional version-pinned reviewed metadata for annual PDF pages 1 and
+37, including the known printed mapping for page 1. Reviewed notes are exposed
+separately from extracted text and must not be presented as automatic OCR or
+freshly inferred source claims. Unknown mappings stay null.
+
+The annual water-consumption note attributes an increase to production; that
+annual statement does not establish a cause for the monthly site's decline.
+The assistant may attribute explicit source explanations but must not infer
+unreported operational causes. The existing 18 validated observations remain
+the numerical route for answers. Adding another report, source version or
+training dataset requires its own rights/provenance/boundary review.
+
+The original source retrieval/inspection date above is historical. A new local
+index build does not claim a fresh PDF download or source re-verification run
+on the learner's laptop. Follow [build order](PHASE_2_BUILD_ORDER.md),
+[contracts](AI_CONTRACTS.md) and [security](../SECURITY.md).
+
 
 Comparative-basis note: printed BRSR pages 79–80 state that FY 2024–25 disclosures were recalculated for reporting-boundary and methodology alignment. Water consumption for that year was revised using withdrawal minus discharge. The project retains the latest report's disclosed figures and does not overwrite earlier-source history.

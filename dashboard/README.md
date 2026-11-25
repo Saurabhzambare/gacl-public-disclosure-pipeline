@@ -163,3 +163,17 @@ confirmation. The evidence is not a recorded video or automated cross-stage log.
 scheduling, Power BI Service deployment and scheduled Service refresh are not
 implemented. The source PDFs and selected history change only through a reviewed
 manifest/parser update; refreshing does not discover new reports automatically.
+
+## Relationship to the Phase 2 research assistant
+
+This remains the verified Phase 1 quantitative report. The planned research
+assistant adds cited questions, validated calculations and eventually bounded
+tool selection in a separate local interface. It does not alter the report PDF,
+PBIX, DAX measures, source records or refresh behavior through documentation.
+
+The same unit/scope rules apply to generated answers: monthly KL/day rates are
+not annual KL totals; chart rounding is not source precision; observation counts
+are not test outcomes. Keep report and assistant verification evidence separate.
+The AI extension is not a Power BI Service deployment or a completed AI visual.
+See the [Phase 2 build order](../docs/PHASE_2_BUILD_ORDER.md),
+[contracts](../docs/AI_CONTRACTS.md) and [status](../docs/STATUS.md).

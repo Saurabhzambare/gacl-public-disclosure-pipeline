@@ -64,3 +64,37 @@ Use feature branches for further work and keep generated PDFs, credentials and l
 
 The workspace setup does not automatically install anything on another computer. Clone the repository and run these commands on the intended Windows machine.
 
+## Phase 2 — guided AI setup
+
+Start at [build-order Step 1](PHASE_2_BUILD_ORDER.md). Inspect the existing
+checkout and changes before installing, pulling or switching branches. On the
+author's laptop the project is `D:\gacl-public-disclosure-pipeline`.
+
+```powershell
+Set-Location "D:\gacl-public-disclosure-pipeline"
+git status --short --branch
+git log -1 --oneline
+Test-Path ".\.venv\Scripts\python.exe"
+```
+
+If the interpreter path is missing, stop and diagnose before dependent commands.
+The current lesson also checks Python version, importing PyMuPDF, SQLite FTS5
+using an in-memory database and the configured PDFs under `data/raw`. File
+presence is not hash verification. Reuse the existing environment; activation
+is unnecessary when invoking its executable directly.
+
+Keyword retrieval uses the existing dependencies and SQLite FTS5. It requires
+actual approved cached PDF bytes: `--from-examples` supplies structured facts,
+not PDF pages, and cannot build the document index. The earlier prototype may
+not exist in the learner's checkout; [its commands](RETRIEVAL.md) are conditional
+on feature files being present, not instructions to pull an unpublished branch.
+
+Embeddings, generation and UI packages are not installed or pinned by this
+documentation. Exact model/runtime/license/revision and Python/device behavior
+will be reviewed at Steps 11, 19 and 26. No API key, CUDA installation, hosted
+vector database, new billing or BigQuery credentials are needed for readiness or
+local lexical retrieval. Do not install a large AI stack in advance.
+
+The learner creates code/configuration/test files at the relevant lesson; the
+assistant maintains documentation. See [learning log](AI_LEARNING_LOG.md).
+

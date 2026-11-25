@@ -40,7 +40,9 @@ The download/extraction integration is not part of the default offline CI suite 
 - Twelve selected annual records.
 - Renewable + non-renewable energy equals total within 0.01 GJ, separately for each financial year.
 
-Monthly and annual tables are small enough for every selected value to be manually reconciled to the source. See examples/README and STATUS.md for actual evidence.
+Monthly and annual tables are small enough for every selected value to be manually
+reconciled to the source. See [reviewed examples](../data/examples/README.md) and
+[status](STATUS.md) for actual evidence.
 
 ## Failure behavior
 
@@ -100,3 +102,34 @@ The subsequent manual sequence from cached PDF extraction through BigQuery/dbt,
 reference checks and Desktop refresh completed on 24 November. The author supplied
 terminal output, screenshots and refresh confirmation; see
 [verification evidence](VERIFICATION_2026-11-24.md). The video remains pending.
+
+## Phase 2 software and AI evaluation
+
+The local retrieval prototype has 28 additional tests; its verified Linux suite
+had 60 total with the cloud extra: 25 core + 7 mocked cloud + 28 retrieval.
+Cloud-only optional tests can be skipped without that extra; report the actual
+executed/skipped counts rather than assuming 60 on every checkout. Feature
+Windows verification and learner execution are pending. Previous core Windows CI
+does not establish that the new feature passed there.
+
+Retrieval tests cover provenance/offset integrity, explicit mappings, separately
+labelled annotations, source changes, stale configuration, atomic replacement,
+read-only isolation, safe queries, filters and evaluation-reference consistency.
+Synthetic PDFs remain temporary fixtures, not additions to the real corpus.
+
+The existing 40-case pilot measures expected page relevance: 28 answerable cases
+are scored; 12 unsupported/adversarial questions are diagnostic only. It does not
+measure LLM answer correctness, refusal or prompt-injection resistance. Keep
+software tests, page metrics, numeric checks, generated-claim/citation review and
+agent tool behavior separate. See [measured pilot](RETRIEVAL_EVALUATION.md) and
+the [full AI evaluation protocol](AI_EVALUATION_PLAN.md).
+
+Future semantic tests use controlled model substitutes plus a distinct real-model
+smoke test; real inference needs reviewed installations. Numerical tools require
+exact Decimal/source/unit tests. Generation needs faithful citations and useful
+abstention evaluation, and agents need dynamic-routing/limit tests. These future
+tests are not created or claimed as passing by this documentation update.
+
+Follow [build order](PHASE_2_BUILD_ORDER.md). The learner writes and runs relevant
+tests at each code step. Documentation-only updates use link/consistency/diff
+checks; they are not a new pipeline, cloud, model or Windows verification run.
