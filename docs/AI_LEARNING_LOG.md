@@ -5,7 +5,9 @@ Started: 25 November 2026 (India).
 Build-order reference: [Master Build Order](PHASE_2_BUILD_ORDER.md), version 1.0,
 30 stable steps in eight stages. Step 1 readiness execution: **passed**.
 Step 2 baseline execution: **passed**.
-Next: **Step 3, inspector code/instructions prepared; learner implementation pending**. Existing
+Step 3 inspector execution checks: **passed**.
+Current checkpoint: **review local files before the Step 3 commit**.
+Step 4 has not started. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -120,20 +122,48 @@ use a mocked client. The offline run verifies actual cached PDF hashes and
 re-extracts facts; it establishes more than Step 1 file presence alone.
 Understanding discussion remains open; do not invent the author's explanation.
 
-## Next lesson — Step 3: verify and inspect one known PDF page
+## Step 3 — inspector execution checks verified on 25 November
 
-Follow [Step 3](PHASE_2_STEP_03.md) and personally create
-scripts/inspect_source_page.py. Read the approved source configuration, hash and
-parse the same cached PDF bytes, distinguish physical page 5 from library index
-4, and print text with explicit printed-page metadata. No new dependency or
-model is required. The assistant publishes documentation/code examples only,
-not the application file. Learner implementation and execution are pending.
+Evidence: author-uploaded terminal output, Pasted text(20261125-072102).txt.
+This is author execution evidence, not an assistant-run test or a source-code review.
 
-Before editing, receive the new documentation into the still-clean personal
-branch using the lesson's Git instructions. Subsequent synchronization after
-code commits must be reviewed rather than blindly assuming fast-forward.
-Share results and explain why presence is weaker than hash verification,
-why identical bytes are hashed/parsed, and why page numbering is converted.
+| Check | Observed result |
+|---|---|
+| Branch | feature/phase2-guided |
+| Monthly source hash | 4882f4e453a78fe956850944d9df2b636c74d225eab2331e7d8873fe4050c9c1 — MATCH |
+| Scope / physical pages | dahej_plot3_report / 21 |
+| Requested PDF / printed page | 5 / 4 |
+| Monthly values, April–September | 12540.8, 12621.3, 12452.7, 11818.3, 11865.5, 11738.1; KL/day |
+| Invalid page zero | Error: PDF page must be 1 or greater; exit code 1 |
+| Existing software suite | 32 passed in 0.987 seconds, no skips |
+| Untracked paths | scripts/ and .github/scripts/ |
+| Commit / publication | No source-code commit or push evidenced |
+
+The first bare path command failed before the inspector file existed. The author
+then created the folder/file and successfully invoked it with the project's
+Python executable. Teach the distinction between a file location and an execution
+command; no package reinstall is needed for that initial shell error.
+
+The extracted page is visibly imperfect in whitespace/column order, but contains
+the six reported rates and unit context. This is embedded-text inspection, not
+general table reconstruction, OCR or AI generation. Existing unit tests protect
+the original system; direct page/error runs check this new inspector's behavior.
+
+Understanding: the assistant explained zero-based library indexing when asked.
+Do not mark an independent learner explanation as supplied. Physical page 5,
+library index 4 and the report's printed page 4 are distinct concepts.
+
+## Current checkpoint — inspect local files before committing
+
+Ask for a filename/size listing of scripts/ and .github/scripts/. The latter was
+not a target of this lesson, so inspect its purpose/content before staging or
+deleting anything. Review the actual inspector content before committing it.
+Do not use a blanket git add, discard unknown work, publish the inspector on
+the author's behalf, or start Step 4 before this checkpoint is resolved.
+
+Once reviewed, guide an explicit-path local commit for the intended file.
+Any later documentation synchronization must account for the personal branch's
+new code commits rather than assume it can always fast-forward from main.
 
 ## Evidence to record after each lesson
 
@@ -157,4 +187,4 @@ change does not advance the learner automatically.
 | 25 November 2026 | Phase 2 documentation | Master Build Order v1.0, concept/contracts/evaluation guides and cross-guide scope updates prepared; no source implementation | Documentation prepared; learner still at Step 1 |
 | 25 November 2026 | Documentation validation | 31 Markdown files / 184 local links checked; 30 sequential step IDs and eight stages verified; Step 1 sample syntax parsed without execution; whitespace checks passed | Passed; no new runtime or learner completion claimed |
 | 25 November 2026 | Step 2 | Clean personal branch; 32 tests passed; run 0516c23e-efac-4775-9f42-1fdc4464d1ab verified PDFs, 18 records and four checks | Execution passed; understanding discussion open |
-| 25 November 2026 | Step 3 | Commented PDF-inspector lesson prepared; no application file created or executed by the assistant | Pending learner implementation |
+| 25 November 2026 | Step 3 | Monthly page/hash/values verified; page zero exit 1; 32 tests pass in 0.987 seconds; two untracked folders shown | Execution checks passed; file review/commit pending |

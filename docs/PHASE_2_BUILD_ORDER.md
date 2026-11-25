@@ -6,7 +6,8 @@ review, troubleshooting and documentation maintenance.
 Controlled steps: **30**, grouped into **8 stages**.
 Readiness execution: **Step 1 passed on Windows, 25 November 2026**.
 Baseline execution: **Step 2 passed on Windows, 25 November 2026**.
-Next step: **Step 3 — verified source-page inspector; implementation pending**.
+Current checkpoint: **Step 3 execution checks passed; local file review/commit pending**.
+Next numbered lesson: **Step 4 — not started**.
 Learner understanding discussion is recorded separately in the learning log.
 
 ## Purpose and finished behavior
@@ -518,9 +519,9 @@ update. Exact future commands are introduced only when their modules exist.
 
 ## Progress and resumption
 
-Step 1 readiness and Step 2 baseline execution passed on Windows. Step 3 is
-prepared for personal implementation and remains pending; Steps 4–30 remain
-pending. Understanding discussion remains recorded separately. Do not pre-check the roadmap
+Step 1 readiness, Step 2 baseline and Step 3 inspector execution checks passed
+on Windows. Step 3 still needs local-file review and its commit checkpoint;
+Steps 4–30 remain pending. Understanding discussion remains recorded separately. Do not pre-check the roadmap
 because a reference module exists. In [AI_LEARNING_LOG.md](AI_LEARNING_LOG.md),
 record current step ID, actual files changed, commands/results, explanation in
 the learner's words, errors/fixes and next step. [STATUS.md](STATUS.md) tracks
