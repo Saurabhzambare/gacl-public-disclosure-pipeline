@@ -1,6 +1,6 @@
 # Project status
 
-Updated: 25 November 2026. Original first-version target: 22 November 2026, 8:00 PM IST; this was a target, not a completed release date.
+Updated: 27 November 2026. Original first-version target: 22 November 2026, 8:00 PM IST; this was a target, not a completed release date.
 
 ## Guided AI implementation — 25 November 2026
 
@@ -30,9 +30,60 @@ duplicate hashes, removed only the extra .github/scripts/ copy, staged only
 scripts/inspect_source_page.py and created local commit 39ceacb (103 lines).
 Final working tree is clean on feature/phase2-guided. The Step 3 local commit
 checkpoint is closed; source-code upload/merge into public main is not evidenced.
-Before Step 4, fetch/merge the newer documentation into the personal branch;
-this synchronization remains pending. Understanding discussion remains recorded separately. Steps 4–30
-remain pending. Supporting
+The author then fetched/merged origin/main into the personal branch at a5001c0;
+the supplied graph retains 39ceacb and documentation through 3df36db, with clean
+status. This is local branch synchronization, not source upload to public main.
+Step 4A execution checks passed in author-supplied Windows output on 27 November:
+physical page 5 returned the approved monthly source hash, printed page 4 and
+the six freshwater rows; page 6 retained printed_page=null despite a printed
+footer in the extracted text. Page zero was rejected with exit code 1. The
+existing suite reported 32 tests passing in 1.233 seconds; duplicated pasted
+lines are not extra tests or verified separate runs. Git shows only untracked
+src/gacl_pipeline/retrieval.py. The author then supplied the complete 122-line
+module, which matches Step 4A. The [Step 4B lesson](PHASE_2_STEP_04B.md) now supplies
+exact commented configuration, the reviewed module's replacement, focused tests
+and real-source verification instructions. No application/configuration/test file
+was changed by this documentation update. Syntax checks passed for the lesson's
+JSON and both Python blocks. Subsequent author-supplied Windows execution passed
+13 focused tests in 0.634 seconds and all 45 tests in 1.620 seconds, with no
+failures/errors/skips shown. The full count includes the same 13 new retrieval
+tests plus 32 existing tests; mocked cloud boundaries are not a live cloud rerun.
+The author subsequently supplied the real batch summary: two approved PDF hashes
+match the register, 71 physical pages yield 70 usable pages (monthly 20/21;
+annual 50/50), and monthly physical page 1 is skipped with zero alphanumeric
+characters and reason insufficient_embedded_text_no_ocr. Offline run
+a8998693-ba1f-4044-b3b5-169b84456ca8 succeeds with cached PDFs verified,
+18 extracted/loaded/stored and four passing dataset checks; energy differences
+remain 0.002/0.00 GJ within 0.01 GJ. Git shows exactly the three intended
+untracked paths on feature/phase2-guided; an empty tracked diff is expected.
+
+The author subsequently supplied all four detailed page records. Monthly page 5
+retains printed label 4; page 6 retains null. Both monthly text hashes match the
+reported 4A hashes. Annual physical pages 1/37 retain printed labels 43/79 and
+the two separate labelled review notes. Annual text hashes are recorded in the
+learning log as reported extraction output. This verifies the metadata display,
+not an independent visual source review. The learner has not yet confirmed that
+the two notes agree with the visible PDF pages.
+
+The author subsequently committed the three intended Step 4B files as 29795de,
+feat: add verified PDF page evidence extraction, and published feature/phase2-guided.
+Supplied status/log show a clean branch tracking origin/feature/phase2-guided;
+the Desktop screenshot shows zero changed files. GitHub readback confirms
+29795de7be220373bd0a3ffbe779a44841b4a66a. The assistant read the uploaded
+extractor, tests, retrieval settings and earlier inspector. The extractor/tests
+match the lesson after final-newline normalization and the JSON matches
+semantically. This is source review, not a fresh runtime execution.
+
+Main still contains newer documentation and no merged learner implementation.
+The compared feature changes are the four intended application paths; newer
+main changes are documentation only. Refresh and merge origin/main into the
+clean feature branch using the Step 4B instructions, then push the resulting
+feature merge. That synchronization is not yet evidenced. The complete Step 4
+gate remains open pending learner visual comparison/understanding and this
+checkpoint synchronization; Step 5 has not started.
+The unavailable earlier text attachment was not read; evidence here comes from
+the actual subsequently pasted commands/results and visible Desktop screenshot.
+Steps 4–30 remain pending. Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming
 implementation. The first-version dated evidence below remains unchanged.

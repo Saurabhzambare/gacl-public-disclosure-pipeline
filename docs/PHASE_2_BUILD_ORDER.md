@@ -7,7 +7,10 @@ Controlled steps: **30**, grouped into **8 stages**.
 Readiness execution: **Step 1 passed on Windows, 25 November 2026**.
 Baseline execution: **Step 2 passed on Windows, 25 November 2026**.
 Step 3 checkpoint: **reviewed, duplicate removed, local commit 39ceacb; clean branch**.
-Next numbered lesson: **Step 4 — documentation synchronization pending; no code started**.
+Documentation synchronization: **local merge a5001c0 verified; clean personal branch**.
+Step 4A: **execution checks passed on Windows, 27 November 2026**.
+Current checkpoint: **Step 4B committed/published as 29795de; clean tracking branch verified; documentation merge and learner visual confirmation pending**.
+Step 4B completes all-page extraction/configuration/tests before Step 5.
 Learner understanding discussion is recorded separately in the learning log.
 
 ## Purpose and finished behavior
@@ -143,6 +146,10 @@ update. Exact future commands are introduced only when their modules exist.
 - **Gate / understanding:** explain extraction versus OCR and unknown printed
   pages; reject missing required evidence instead of inventing text or labels.
   Gate A: source/version/page metadata is inspectable and correct.
+- **Teaching subdivisions:** [4A](PHASE_2_STEP_04.md) returns one structured page;
+  [4B](PHASE_2_STEP_04B.md) supplies all-page extraction, metadata configuration
+  and focused tests after review of the learner's actual 4A module. These
+  preserve the same 30 numbered steps. Do not mark Step 4 complete after 4A alone.
 
 ## Stage B — Keyword retrieval and baseline
 
@@ -520,8 +527,8 @@ update. Exact future commands are introduced only when their modules exist.
 ## Progress and resumption
 
 Steps 1–3 execution checks passed on Windows, and Step 3's local-file review and
-commit checkpoint closed with 39ceacb on a clean personal branch. Synchronize
-newer documentation before Step 4; Steps 4–30 implementation remains pending. Understanding discussion remains recorded separately. Do not pre-check the roadmap
+commit checkpoint closed with 39ceacb on a clean personal branch. Documentation
+synchronization at merge a5001c0 is also verified. Step 4A execution checks passed on 27 November. Review the learner's actual\nmodule before 4B edits; 4B and the overall Step 4 gate remain pending. Steps 5–30 remain pending. Understanding discussion remains recorded separately. Do not pre-check the roadmap
 because a reference module exists. In [AI_LEARNING_LOG.md](AI_LEARNING_LOG.md),
 record current step ID, actual files changed, commands/results, explanation in
 the learner's words, errors/fixes and next step. [STATUS.md](STATUS.md) tracks

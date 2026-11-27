@@ -15,6 +15,34 @@ GJ/KL totals remain distinct. No source expansion, implicit preferred revision,
 synthetic GACL measurement, live reading, compliance certification or unsupported
 causal explanation is introduced by these contracts.
 
+## Guided implementation versus the reference prototype
+
+The learner's Step 4A execution passed on Windows and the supplied module has
+been reviewed. extract_page(root, source_id, pdf_page) returns one page dictionary
+with PDF/text hashes, explicit page/scope metadata, extraction/library versions
+and a citation URL. It has no chunks, index or search API.
+
+[Step 4B](PHASE_2_STEP_04B.md) is implemented on the published
+[feature/phase2-guided branch](https://github.com/Saurabhzambare/gacl-public-disclosure-pipeline/tree/feature/phase2-guided)
+at 29795de and verified by author-supplied Windows tests and real-source checks.
+It retains extract_page, adds extract_documents, keeps exact text separate from
+reviewed_note, leaves section null, and returns explicit skip reasons plus
+per-document/aggregate page counts. Reviews are pinned to approved PDF hashes.
+The published module/tests match the lesson; the configuration matches
+semantically. The implementation is not yet merged into main.
+The schema-version-1 retrieval settings introduce a 30-alphanumeric-character
+filter. Required mapped/reviewed pages must pass; optional insufficient pages may
+be skipped. Unknown labels stay null; conflicting labels and stale reviews fail.
+A text hash excludes review notes, so later index identity must include metadata
+and configuration too. The lesson creates no persisted artifact or search index.
+Single-page and batch CLI forms were exercised on Windows. The two-note learner
+visual comparison, understanding discussion and documentation synchronization
+remain pending; detailed evidence is in the learning log.
+
+The full retrieval/chunk return layouts below describe the earlier local
+prototype, not automatic availability in the learner's checkout. Both exercises
+must pass before the complete Step 4 gate closes.
+
 ## Current page and chunk evidence
 
 | Field / concept | Meaning and rule |

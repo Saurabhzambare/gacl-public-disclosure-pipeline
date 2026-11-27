@@ -7,7 +7,9 @@ Build-order reference: [Master Build Order](PHASE_2_BUILD_ORDER.md), version 1.0
 Step 2 baseline execution: **passed**.
 Step 3 inspector execution checks: **passed**.
 Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
-Next: **synchronize documentation before Step 4; no Step 4 code started**. Existing
+Documentation merge: **verified, local merge a5001c0; clean branch**.
+Step 4A execution checks: **passed, 27 November 2026**.
+Current checkpoint: **Step 4B committed/published as 29795de; clean tracking branch verified; documentation merge and learner visual confirmation pending**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -172,20 +174,223 @@ It does not change the report PDFs or invalidate their source hashes. No new
 test execution is invented after cleanup; the last supplied suite remains
 32 passing tests in 0.987 seconds.
 
-## Next checkpoint — synchronize documentation before Step 4
+## Documentation synchronization — verified local merge a5001c0
 
-The author's personal branch now has its own code commit, while public main
-has newer documentation. A fast-forward-only pull is no longer the appropriate
-assumed operation. On the clean feature/phase2-guided branch, the author should
-fetch origin, then merge origin/main with --no-edit. This preserves both lines
-of work and may create a local merge commit. Stop and inspect any conflict;
-do not use reset, force or blind replacement.
+The author supplied fetch/merge output using the ort strategy, clean status on
+feature/phase2-guided and a graph with a5001c0 combining local inspector commit
+39ceacb and origin/main documentation through 3df36db. No conflict, code push or
+merge into public main is evidenced. Both lines of work were preserved.
+The source branch remains personal and the latest verified software suite is
+still 32 tests in 0.987 seconds; this docs merge is not a new runtime test.
 
-Inspect final branch/status and a short graph log after the merge. No push,
-source-code publication or extra installation is required for this checkpoint.
-Step 4 implementation has not started. Its purpose is to turn extracted text
-into reusable page-evidence records carrying source/version/page/unit context
-where explicitly established; model inference and chunking are later steps.
+## Step 4A — execution checks verified on 27 November
+
+Evidence: author-uploaded Pasted text(20261127-042953).txt. The author created
+src/gacl_pipeline/retrieval.py locally and ran the module on the personal branch.
+
+| Check | Author-supplied result |
+|---|---|
+| Source / scope | gacl_dahej_plot3_ec_2025_h1 / dahej_plot3_report |
+| Document version | Approved monthly SHA-256 4882f4e453a78fe956850944d9df2b636c74d225eab2331e7d8873fe4050c9c1 |
+| Physical page 5 | printed_page 4, page_count 21, six monthly freshwater rows |
+| Physical page 6 | printed_page null; extracted footer says Page 5 of 20 |
+| Page 5 text SHA-256 | 1975b4bd411905133835f961efe30c7ffbfb600bfe37390e783306943ba6abd8 |
+| Page 6 text SHA-256 | 81b517eab4bda8fc718702da5c368dc9ca0ff10100a0af19a1cc66f4050be95a |
+| Extraction / library | pymupdf-page-text-sort-v1 / PyMuPDF 1.26.6 |
+| Citation targets | Official monthly PDF with physical page fragments 5 and 6 |
+| Invalid physical page 0 | Error: PDF page must be a positive integer; exit code 1 |
+| Existing regression suite | 32 tests, 1.233 seconds, OK |
+| Git status | feature/phase2-guided; only src/gacl_pipeline/retrieval.py untracked |
+
+The supplied paste repeats some commands/test lines and the same final summary.
+Count the reported 32-test suite once; do not add duplicated display lines or
+infer several independently verified runs. Text hashes are recorded as reported;
+do not recompute them from console-wrapped copied text and claim an independent
+integrity check. The raw canonical text must be checked from the actual module
+result when needed.
+
+Page 6 is the intended unknown-mapping behavior. Extracting a footer does not
+automatically populate reviewed configuration. No guessed page offset or new
+numerical observation is introduced. The original source configuration remains
+unchanged according to the supplied Git status.
+
+The assistant explained physical/index/printed numbering and where the saved
+mapping lives when asked. Do not mark a learner's independent explanation as
+supplied. No new focused retrieval tests, all-page extraction or model run is
+claimed. Current software counts remain separate from observations and page counts.
+
+## Current checkpoint — module reviewed; Step 4B supplied
+
+The author supplied the full 122-line src/gacl_pipeline/retrieval.py through
+Get-Content. It matches the Step 4A implementation, including exact-text hashing,
+unknown-label handling and the existing page CLI. This closes the source-file
+inspection prerequisite; it is not another runtime test or a local commit.
+
+The [Step 4B lesson](PHASE_2_STEP_04B.md) supplies exact commented JSON/Python,
+file locations, concepts/ELI5, no-new-installation guidance, verification commands
+and a stopping point. It creates config/retrieval.json and tests/test_retrieval.py,
+and explains replacing the inspected module with shared verification/extraction
+helpers while retaining extract_page and the single-page command. All-page
+extraction opens each PDF once per batch. Reviews stay version-pinned and separate
+from text; required unreadable/missing evidence fails, optional insufficient pages
+are listed as skipped, unknown labels stay null, conflicting labels fail.
+
+Documentation checks: the 20-line JSON and 266-/180-line Python blocks parse;
+13 focused test methods were counted. No supplied application/test code was
+executed by that check. Expected results are 13 focused / 45 full software tests,
+71 physical / 70 usable pages and one skipped monthly cover; actual learner
+results, visual comparison of the two recorded review notes, offline 18-fact
+regression and Git scope remain pending. These counts describe different units.
+
+The notes preserve the assistant's earlier 24 November visual review, not a new
+learner attestation. The author must compare physical annual pages 1 and 37
+before accepting their labels/notes. The annual production explanation must not
+be transferred to monthly site rates. Source configuration and the inspector stay
+unchanged; the raw text hash must exclude reviewer prose.
+
+Do not commit partial Step 4 or start Step 5 yet. Batch newer documentation
+synchronization at the Step 4 checkpoint after inspecting actual history.
+The assistant changes documentation only; learner application code stays on the
+personal branch until explicitly published.
+
+## Step 4B — real-source batch and numerical regression verified, 27 November
+
+The author pasted Windows terminal output directly after the uploaded text file
+could not be read in the unavailable execution workspace. Only the pasted
+results below are verified here; no uninspected attachment content is treated
+as evidence.
+
+| Check | Author-supplied result |
+|---|---|
+| Batch command | python -m gacl_pipeline.retrieval --all-pages --summary |
+| Approved sources | 2; both reported PDF hashes match the pinned register |
+| Monthly source | 21 physical pages, 20 usable pages |
+| Monthly skip | Physical page 1; insufficient_embedded_text_no_ocr; alnum_chars 0 |
+| Annual source | 50 physical pages, 50 usable pages; no skips |
+| Total | 71 physical pages, 70 usable pages, one skipped page |
+| Offline run ID | a8998693-ba1f-4044-b3b5-169b84456ca8 |
+| Offline status/input | success / cached_pdfs; pdfs_verified_this_run=true |
+| Numerical observations | 18 extracted, 18 loaded, 18 stored |
+| Dataset checks | All four passed: monthly coverage, annual coverage, two energy reconciliations |
+| Energy differences | 0.002 GJ and 0.00 GJ; tolerance 0.01 GJ |
+| Git branch | feature/phase2-guided |
+| Untracked paths | config/retrieval.json; src/gacl_pipeline/retrieval.py; tests/test_retrieval.py |
+| Tracked diff summary | Empty; untracked files do not appear in git diff --stat |
+
+This confirms real-source batch coverage and an unchanged accepted numerical
+dataset in the supplied local run. A batch summary omits page bodies; it does not
+independently establish exact page-text preservation, mapping/review field values
+or agreement of review notes with the visible PDF. File presence does not prove
+test execution. No cloud/dbt/Power BI rerun, local commit or source upload is
+claimed.
+
+At this checkpoint the software-test summaries and page-review evidence were
+still pending. The subsequent software-test results are recorded below.
+Page-field results already available locally may be pasted without repeating
+their extraction. Documentation synchronization stays batched at the Step 4
+checkpoint.
+
+## Step 4B — focused and full Windows tests verified, 27 November
+
+The author supplied both verbose terminal test runs directly in the conversation.
+
+| Run | Author-supplied result |
+|---|---|
+| Focused test_retrieval.py suite | 13 tests, 0.634 seconds, OK |
+| Complete tests suite | 45 tests, 1.620 seconds, OK |
+| Composition | 32 existing tests plus the same 13 new retrieval tests |
+| Failures/errors/skips | None shown in either run |
+
+The 13 retrieval tests cover exact fixture text/hash and separate notes, explicit
+skips/counts, changed source bytes, stale/duplicate reviews, conflicting labels,
+invalid source/page/threshold inputs, unreadable/out-of-range required pages,
+unknown printed labels and preservation of the page CLI alongside batch summary.
+These use synthetic temporary PDFs, not new GACL documents or observations.
+The full suite includes mocked BigQuery boundaries; it is not a fresh cloud job.
+The focused suite is included in the full suite, so there are 45 distinct tests.
+
+Together with the earlier pasted batch/offline output this verifies the software
+tests, 70 usable real-source pages and the preserved 18-fact numerical pipeline.
+At this test checkpoint the real-page fields, learner visual comparison and
+understanding discussion remained pending. The subsequent metadata results are
+recorded below. Do not repeat successful tests without a relevant code change.
+No local code commit, source upload or final Step 4 completion was evidenced.
+
+## Step 4B — real-page metadata verified; local checkpoint ready, 27 November
+
+The author ran the compact read-only Python block and pasted all four records.
+The accompanying GitHub Desktop screenshot shows the personal
+feature/phase2-guided branch, exactly three selected new files and an empty
+commit-summary field. The commit button is disabled until a summary is entered;
+no new commit is evidenced by that screenshot.
+
+| Source / physical page | Printed page | Review field | Text SHA-256, as reported |
+|---|---|---|---|
+| Monthly / 5 | 4 | null | 1975b4bd411905133835f961efe30c7ffbfb600bfe37390e783306943ba6abd8 |
+| Monthly / 6 | null | null | 81b517eab4bda8fc718702da5c368dc9ca0ff10100a0af19a1cc66f4050be95a |
+| Annual / 1 | 43 | Separate labelled review, standalone boundary and financial year | 9e551faa06772481d38415a3a85717245022bad46df8c02f93f3766d69c75765 |
+| Annual / 37 | 79 | Separate labelled review, recalculated comparatives and annual production explanation | 6a2124705e9b65a9aef0f1dbec650086dfcec6e602e4c4e0a6ac793109e6cd76 |
+
+Both monthly hashes match the earlier reported Step 4A hashes. Annual hashes
+are newly recorded extraction output, not an independently recomputed audit.
+The records show the intended explicit/unknown labels and separate notes.
+Printing configured notes does not independently verify their source support or
+prove the learner visually inspected the PDF. No new learner visual-comparison
+confirmation is inferred from the GitHub Desktop screenshot.
+
+With software tests, real batch coverage, core regression and detailed metadata
+reviewed, a local version-control checkpoint is now appropriate. This advances
+the earlier temporary instruction to hold uncommitted work: save these verified
+implementation changes locally while keeping the two-note source-review
+confirmation and understanding discussion explicit. A local commit is reversible
+and does not publish code or close the entire Step 4 learning gate.
+
+Suggested Desktop summary: feat: add verified PDF page evidence extraction.
+Commit only config/retrieval.json, src/gacl_pipeline/retrieval.py and
+tests/test_retrieval.py to feature/phase2-guided. Then share git status and the
+latest commit line so the checkpoint can be recorded. CRLF/LF normalization in
+the displayed JSON is ordinary Git text handling; it is not a change to PDF bytes.
+The local commit, current clean status, documentation merge and learner visual
+comparison of annual physical pages 1 and 37 remain unverified until supplied.
+Step 5 still follows the remaining review and Step 4 checkpoint.
+
+## Step 4B — commit, publication and source review verified, 27 November
+
+The author supplied git status showing a clean feature/phase2-guided tracking
+origin/feature/phase2-guided, and git log naming 29795de on both HEAD and the
+remote-tracking ref. GitHub Desktop shows zero changed files. GitHub connector
+readback independently confirms the published branch head as
+29795de7be220373bd0a3ffbe779a44841b4a66a.
+
+Commit: feat: add verified PDF page evidence extraction.
+The new commit contains config/retrieval.json (20 lines),
+src/gacl_pipeline/retrieval.py (266 lines), and tests/test_retrieval.py (180 lines).
+The previously committed 103-line scripts/inspect_source_page.py is also present
+on the published branch. No merge into public main is claimed.
+
+The assistant read all four published application files and the branch AGENTS.md.
+The extractor and tests match the Step 4B lesson after ignoring final newline
+differences; the parsed JSON matches semantically despite indentation. The
+review found no additional correction needed for the current lesson's scope.
+The source register remains the existing approved structure; arbitrary external
+manifest validation is outside this lesson. This is source review, not a newly
+executed software/PDF/model/cloud run. Windows software/real-source results
+remain the previously supplied evidence.
+
+Before this documentation update, GitHub compared main at 4e051477 with feature
+at 29795de as diverged: three feature-side commits and six main-side documentation
+commits since merge base 3df36db. Feature-side changed files are exactly the
+three Step 4B files plus the earlier inspector. Main-side changed files are
+Markdown documentation only. A normal merge of refreshed origin/main into the
+clean feature branch is appropriate; a fast-forward-only pull cannot combine
+these two histories. This documentation update advances main again, so fetch
+the latest ref rather than copying the recorded comparison SHA.
+
+Next commands are documented in [Step 4B](PHASE_2_STEP_04B.md): fetch origin,
+merge origin/main with --no-edit, then push the feature branch after a successful
+merge and inspect status/log. The assistant has not performed the learner's
+merge/push. The branch is published, but synchronization, two-note learner visual
+comparison and understanding discussion remain pending. Step 5 has not started.
 
 ## Evidence to record after each lesson
 
@@ -210,4 +415,11 @@ change does not advance the learner automatically.
 | 25 November 2026 | Documentation validation | 31 Markdown files / 184 local links checked; 30 sequential step IDs and eight stages verified; Step 1 sample syntax parsed without execution; whitespace checks passed | Passed; no new runtime or learner completion claimed |
 | 25 November 2026 | Step 2 | Clean personal branch; 32 tests passed; run 0516c23e-efac-4775-9f42-1fdc4464d1ab verified PDFs, 18 records and four checks | Execution passed; understanding discussion open |
 | 25 November 2026 | Step 3 | Inspector reviewed; full duplicate hashes matched; extra copy removed; only intended 103-line script committed as 39ceacb; clean personal branch | Local commit checkpoint complete; code not evidenced as uploaded |
-| 25 November 2026 | Before Step 4 | Fetch/merge newer documentation while preserving local code commit | Pending author execution |
+| 25 November 2026 | Before Step 4 | Local merge a5001c0 combines 39ceacb and documentation through 3df36db; clean feature branch | Verified |
+| 25 November 2026 | Step 4A | Single-page dictionary lesson prepared; 4B required before Step 4 completion | Pending learner implementation |
+| 27 November 2026 | Step 4A | Page-5 evidence, null unknown mapping, expected page-zero error, 32 tests OK in 1.233 seconds; module untracked | Execution checks passed; source-file review before 4B pending |
+| 27 November 2026 | Step 4A source review / Step 4B | Actual module matches 4A; complete 4B lesson supplied; JSON/Python syntax and 13 test-method count checked without execution | Review complete; learner 4B implementation/execution pending |
+| 27 November 2026 | Step 4B partial execution | Both pinned PDFs: 71 physical / 70 usable pages, one monthly cover skipped; offline run a8998693-ba1f-4044-b3b5-169b84456ca8 preserves 18 facts and four passing checks; exactly three intended untracked paths | Batch/core checks passed; tests and page-review evidence pending |
+| 27 November 2026 | Step 4B software verification | Focused suite: 13 tests OK in 0.634s; full suite: 45 tests OK in 1.620s; no failures/skips shown | Software checks passed; real-page fields, visual review and understanding pending |
+| 27 November 2026 | Step 4B real-page metadata | Four expected page records supplied; monthly hashes match 4A; annual separate review fields and printed labels 43/79 recorded; Desktop shows three selected new files | Metadata passed; local checkpoint ready, commit and learner visual confirmation pending |
+| 27 November 2026 | Step 4B commit/publication | Clean tracking branch and 29795de supplied; GitHub confirms published SHA; extractor/tests match lesson and JSON matches semantically; inspector present | Local/public feature checkpoint verified; documentation merge and learner visual confirmation pending |

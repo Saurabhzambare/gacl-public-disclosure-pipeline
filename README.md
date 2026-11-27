@@ -48,11 +48,18 @@ custom forecasting is deferred until suitable data exists.
 | Cited RAG answers and GenAI explanations | Planned; no generator/provider selected |
 | Dynamic bounded tool use and local interface | Planned; no agent or hosted service claimed |
 
-Saurabh will implement one step at a time; the assistant maintains documentation.
+Saurabh implements one step at a time; the assistant maintains documentation.
 The [Phase 2 Master Build Order](docs/PHASE_2_BUILD_ORDER.md) defines 30 stable
-steps in eight stages. **Steps 1–3 execution and the Step 3 local commit checkpoint are verified.
-The inspector is committed locally as 39ceacb on feature/phase2-guided.
-Next: synchronize documentation before Step 4; no Step 4 code is implemented.** Existing prototype work does not mark learner steps complete.
+steps in eight stages. **Steps 1–3 execution and the Step 3 checkpoint are
+verified. Step 4 software and real-page metadata checks passed on Windows:
+70 usable pages from 71 physical pages, 18 preserved numerical observations,
+four passing dataset checks and 45 passing software tests (32 existing plus
+13 retrieval tests). The learner committed and published the implementation as
+29795de on [feature/phase2-guided](https://github.com/Saurabhzambare/gacl-public-disclosure-pipeline/tree/feature/phase2-guided).
+The clean tracking branch and published source were reviewed. Documentation
+synchronization and learner visual confirmation of two annual review notes
+remain pending; Step 4 stays open.** The feature has not been merged into main.
+Existing prototype work does not mark learner steps complete.
 
 ### Existing retrieval reference
 
@@ -195,7 +202,9 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 | [Phase 2 build order](docs/PHASE_2_BUILD_ORDER.md) | 30 learner-implemented steps, dependencies and acceptance gates |
 | [Step 1 lesson](docs/PHASE_2_STEP_01.md) | Readiness check; Windows execution verified on 25 November |
 | [Step 2 lesson](docs/PHASE_2_STEP_02.md) | Windows baseline verified: 32 tests, 18 records, four checks |
-| [Step 3 lesson](docs/PHASE_2_STEP_03.md) | Commented inspector code to implement personally; pending |
+| [Step 3 lesson](docs/PHASE_2_STEP_03.md) | Verified inspector and local commit checkpoint |
+| [Step 4A lesson](docs/PHASE_2_STEP_04.md) | Single-page structured evidence; Windows execution passed |
+| [Step 4B lesson](docs/PHASE_2_STEP_04B.md) | Verified implementation published at 29795de; documentation synchronization and learner visual confirmation pending |
 | [AI scope](docs/AI_EXTENSION_PLAN.md) | Research assistant goals, boundaries and delivery milestones |
 | [Learning log](docs/AI_LEARNING_LOG.md) | Current step, learner evidence and next action |
 | [AI concepts](docs/AI_CONCEPTS.md) | Technical and ELI5 explanations |
