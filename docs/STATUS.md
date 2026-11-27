@@ -74,13 +74,19 @@ extractor, tests, retrieval settings and earlier inspector. The extractor/tests
 match the lesson after final-newline normalization and the JSON matches
 semantically. This is source review, not a fresh runtime execution.
 
-Main still contains newer documentation and no merged learner implementation.
-The compared feature changes are the four intended application paths; newer
-main changes are documentation only. Refresh and merge origin/main into the
-clean feature branch using the Step 4B instructions, then push the resulting
-feature merge. That synchronization is not yet evidenced. The complete Step 4
-gate remains open pending learner visual comparison/understanding and this
-checkpoint synchronization; Step 5 has not started.
+The author then successfully fetched and merged origin/main 9a954b7 into the
+feature branch using ort, and pushed merge 53b9be4. Supplied status/log show
+a clean tracking branch. GitHub readback confirms
+53b9be45534a144ab5b2effbe99f3918173919bb and a comparison with 29795de
+shows only nine Markdown paths changed, preserving the implementation. The
+version-control checkpoint and documentation synchronization are complete.
+No further merge is required solely for this evidence-recording update; batch
+later documentation at the next implementation checkpoint.
+
+The feature implementation has not been merged into main. The complete Step 4
+gate remains open only for the learner's annual-note visual comparison and
+understanding discussion. Step 5 has not started. No runtime retest is claimed
+by this documentation-only merge.
 The unavailable earlier text attachment was not read; evidence here comes from
 the actual subsequently pasted commands/results and visible Desktop screenshot.
 Steps 4–30 remain pending. Supporting

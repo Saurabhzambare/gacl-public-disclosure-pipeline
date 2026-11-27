@@ -56,9 +56,11 @@ verified. Step 4 software and real-page metadata checks passed on Windows:
 four passing dataset checks and 45 passing software tests (32 existing plus
 13 retrieval tests). The learner committed and published the implementation as
 29795de on [feature/phase2-guided](https://github.com/Saurabhzambare/gacl-public-disclosure-pipeline/tree/feature/phase2-guided).
-The clean tracking branch and published source were reviewed. Documentation
-synchronization and learner visual confirmation of two annual review notes
-remain pending; Step 4 stays open.** The feature has not been merged into main.
+The clean tracking branch and published source were reviewed. The author then
+merged the newer documentation and pushed 53b9be4; clean tracking status and
+Markdown-only merge changes are verified. The Git checkpoint is complete.
+Learner visual confirmation of two annual review notes and the understanding
+discussion remain before Step 5.** The feature has not been merged into main.
 Existing prototype work does not mark learner steps complete.
 
 ### Existing retrieval reference
@@ -204,7 +206,7 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 | [Step 2 lesson](docs/PHASE_2_STEP_02.md) | Windows baseline verified: 32 tests, 18 records, four checks |
 | [Step 3 lesson](docs/PHASE_2_STEP_03.md) | Verified inspector and local commit checkpoint |
 | [Step 4A lesson](docs/PHASE_2_STEP_04.md) | Single-page structured evidence; Windows execution passed |
-| [Step 4B lesson](docs/PHASE_2_STEP_04B.md) | Verified implementation published at 29795de; documentation synchronization and learner visual confirmation pending |
+| [Step 4B lesson](docs/PHASE_2_STEP_04B.md) | Verified implementation and documentation synchronized at 53b9be4; learner source-review confirmation pending |
 | [AI scope](docs/AI_EXTENSION_PLAN.md) | Research assistant goals, boundaries and delivery milestones |
 | [Learning log](docs/AI_LEARNING_LOG.md) | Current step, learner evidence and next action |
 | [AI concepts](docs/AI_CONCEPTS.md) | Technical and ELI5 explanations |

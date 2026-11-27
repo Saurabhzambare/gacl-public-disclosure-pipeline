@@ -5,8 +5,8 @@ Prerequisite: Step 4A execution passed and the author supplied the complete
 122-line retrieval.py for review. Its contents match the Step 4A lesson.
 Status: learner batch extraction, offline core regression and both software-test
 runs and all four real-page metadata checks passed on Windows. Implementation
-committed/published as 29795de; documentation merge and learner visual-review
-confirmation remain pending.
+committed/published as 29795de; documentation merge 53b9be4 pushed and clean.
+Learner visual-review confirmation and understanding discussion remain pending.
 This finishes the second exercise within Step 4. Step 5 is still chunking.
 
 ## Recorded partial execution — 27 November
@@ -28,8 +28,12 @@ reviewed notes. The learner's own visual comparison remains pending. The author 
 committed/published the implementation as 29795de on feature/phase2-guided,
 with clean tracking status. GitHub source readback confirms the extractor/tests
 match this lesson and the settings match semantically. The earlier inspector
-is also present on that branch. Documentation synchronization and understanding
-discussion remain open; no new runtime run is claimed by source review.
+is also present on that branch. The author subsequently merged origin/main at
+9a954b7, pushed merge commit 53b9be4 and showed clean tracking status.
+GitHub readback confirms the merge changes only Markdown relative to 29795de.
+Documentation synchronization is complete; learner visual confirmation and the
+understanding discussion remain. No runtime retest is claimed by the merge.
+Later documentation updates are batched at the next implementation checkpoint.
 See [the learning log](AI_LEARNING_LOG.md) for evidence. Successful tests need not
 be repeated without a relevant code change.
 
@@ -791,9 +795,10 @@ tracking origin/feature/phase2-guided. GitHub readback confirms the source files
 The previously committed inspector is present too. Do not make another
 duplicate implementation commit.
 
-The clean branch contains the learner's implementation while main contains newer
-documentation. Bring both histories together with a normal merge. Remain on
-feature/phase2-guided; the verified starting point is clean.
+Completed on 27 November: the author combined the implementation and the newer
+main documentation using the following commands. They are retained as the
+synchronization reference; do not repeat the merge just for the subsequent
+recording of its success.
 
 ```powershell
 # Download current remote history; preserve local files.
@@ -810,7 +815,8 @@ The inspected changes are in separate paths, so a normal merge is expected;
 actual success must still be checked. If Git reports conflicts or any error,
 share that output and stop before pushing. Preserve both versions of the work.
 
-After a successful merge, publish the combined feature history and inspect it:
+After the successful merge, the author published the combined feature history
+and inspected it with:
 
 ```powershell
 git push origin feature/phase2-guided
@@ -818,13 +824,14 @@ git status --short --branch
 git log --oneline --graph -5
 ```
 
-Expected: a successful push, clean feature/phase2-guided tracking its remote, and
-a merge commit preserving the implementation and documentation. Record the
-actual hash/output; it cannot be predicted. This does not merge the feature into
-main. The assistant maintains documentation but does not perform this learner
-merge or publish implementation changes on the learner's behalf. No software
-rerun is required merely for a documentation-only merge; reassess if source code
-or tests change or a conflict requires a code resolution.
+Actual result: merge 53b9be45534a144ab5b2effbe99f3918173919bb, successful
+push and clean feature/phase2-guided tracking its remote. GitHub readback confirms
+the head and that only nine Markdown paths changed from 29795de. This preserves
+the implementation and newer documentation, without merging feature code into
+main. The learner performed the merge/push. No software rerun is required merely
+for this documentation-only merge; reassess if source code or tests change or a
+future conflict requires code resolution. Batch subsequent documentation at the
+next implementation checkpoint instead of merging after every evidence update.
 
 The two-note visual comparison remains pending: inspect the annual PDF's physical
 pages 1 and 37 and say whether the configured notes agree with the visible text.

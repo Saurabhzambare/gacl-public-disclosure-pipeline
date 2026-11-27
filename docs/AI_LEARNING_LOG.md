@@ -9,7 +9,7 @@ Step 3 inspector execution checks: **passed**.
 Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
 Documentation merge: **verified, local merge a5001c0; clean branch**.
 Step 4A execution checks: **passed, 27 November 2026**.
-Current checkpoint: **Step 4B committed/published as 29795de; clean tracking branch verified; documentation merge and learner visual confirmation pending**. Existing
+Current checkpoint: **Step 4B implementation published; documentation merge 53b9be4 pushed and clean; only learner source-review confirmation/understanding remain before Step 5**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -386,11 +386,41 @@ clean feature branch is appropriate; a fast-forward-only pull cannot combine
 these two histories. This documentation update advances main again, so fetch
 the latest ref rather than copying the recorded comparison SHA.
 
-Next commands are documented in [Step 4B](PHASE_2_STEP_04B.md): fetch origin,
-merge origin/main with --no-edit, then push the feature branch after a successful
-merge and inspect status/log. The assistant has not performed the learner's
-merge/push. The branch is published, but synchronization, two-note learner visual
-comparison and understanding discussion remain pending. Step 5 has not started.
+At this checkpoint the next commands were fetch origin, merge origin/main with
+--no-edit, then push the feature branch and inspect status/log. The author has
+subsequently performed that synchronization as recorded below. The assistant
+did not merge or push the implementation branch.
+
+## Step 4B — documentation merge and push verified, 27 November
+
+The author supplied successful git fetch, merge and push output. Git used the
+ort strategy to merge origin/main at 9a954b7 into feature/phase2-guided.
+The merge changed nine Markdown files, with 1,527 insertions and 30 deletions,
+including the two Step 4 lesson documents. It reported no conflicts.
+
+The resulting merge commit is 53b9be45534a144ab5b2effbe99f3918173919bb.
+The push advanced origin/feature/phase2-guided from 29795de to 53b9be4.
+Supplied status is clean and tracking the remote. The graph preserves the
+implementation history and newer main documentation.
+
+GitHub connector readback independently confirms the feature head at 53b9be4.
+Comparing 29795de to 53b9be4 shows only the nine intended Markdown paths changed;
+application/configuration/test code is unchanged by the merge. This is Git/source
+evidence, not a fresh runtime test. Previous 13/45 passing tests and real-source
+coverage/core outputs remain the applicable execution evidence.
+
+The Step 4 version-control checkpoint and batched documentation synchronization
+are complete. Do not trigger another learner merge solely to receive this
+evidence-recording update: collect subsequent documentation updates at the next
+implementation checkpoint. A new main documentation commit after this record
+does not undo the verified synchronization or invalidate the user's clean state
+at the supplied checkpoint.
+
+Remaining before Step 5: learner visual comparison of the annual notes with
+physical PDF pages 1/37 (printed 43/79), and the separate understanding discussion.
+Those confirmations have not been supplied and are not inferred from metadata
+or Git output. No pull request, merge of feature code into main, chunker, model
+or newly executed test/cloud run is claimed.
 
 ## Evidence to record after each lesson
 
@@ -423,3 +453,4 @@ change does not advance the learner automatically.
 | 27 November 2026 | Step 4B software verification | Focused suite: 13 tests OK in 0.634s; full suite: 45 tests OK in 1.620s; no failures/skips shown | Software checks passed; real-page fields, visual review and understanding pending |
 | 27 November 2026 | Step 4B real-page metadata | Four expected page records supplied; monthly hashes match 4A; annual separate review fields and printed labels 43/79 recorded; Desktop shows three selected new files | Metadata passed; local checkpoint ready, commit and learner visual confirmation pending |
 | 27 November 2026 | Step 4B commit/publication | Clean tracking branch and 29795de supplied; GitHub confirms published SHA; extractor/tests match lesson and JSON matches semantically; inspector present | Local/public feature checkpoint verified; documentation merge and learner visual confirmation pending |
+| 27 November 2026 | Step 4B documentation synchronization | ort merge of origin/main 9a954b7 into feature; 53b9be4 pushed and clean; GitHub confirms head and Markdown-only changes since 29795de | Version-control checkpoint complete; learner source-review confirmation/understanding pending |
