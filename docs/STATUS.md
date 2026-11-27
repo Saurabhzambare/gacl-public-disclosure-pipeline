@@ -44,7 +44,10 @@ module, which matches Step 4A. The [Step 4B lesson](PHASE_2_STEP_04B.md) now sup
 exact commented configuration, the reviewed module's replacement, focused tests
 and real-source verification instructions. No application/configuration/test file
 was changed by this documentation update. Syntax checks passed for the lesson's
-JSON and both Python blocks; its 13 new test methods have not been executed.
+JSON and both Python blocks. Subsequent author-supplied Windows execution passed
+13 focused tests in 0.634 seconds and all 45 tests in 1.620 seconds, with no
+failures/errors/skips shown. The full count includes the same 13 new retrieval
+tests plus 32 existing tests; mocked cloud boundaries are not a live cloud rerun.
 The author subsequently supplied the real batch summary: two approved PDF hashes
 match the register, 71 physical pages yield 70 usable pages (monthly 20/21;
 annual 50/50), and monthly physical page 1 is skipped with zero alphanumeric
@@ -54,9 +57,9 @@ a8998693-ba1f-4044-b3b5-169b84456ca8 succeeds with cached PDFs verified,
 remain 0.002/0.00 GJ within 0.01 GJ. Git shows exactly the three intended
 untracked paths on feature/phase2-guided; an empty tracked diff is expected.
 
-Focused/full test summaries (expected 13/45), the Step 4B page-field checks and
-learner comparison of annual review notes against physical pages 1/37 are not
-yet supplied. The batch summary does not expose raw page text or review fields.
+The Step 4B real-page field checks and learner comparison of annual review notes
+against physical pages 1/37 are not yet supplied. Software tests are verified as
+above; they use synthetic PDFs and do not replace the real-page review. The batch summary does not expose raw page text or review fields.
 The unavailable uploaded text file was not read; no omitted test result is
 inferred from it. No code commit or public source upload is evidenced.
 The complete Step 4 gate remains open. Understanding discussion is recorded separately.

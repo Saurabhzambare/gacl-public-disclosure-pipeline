@@ -3,8 +3,8 @@
 Build-order version: 1.0. Prepared: 27 November 2026 (India).
 Prerequisite: Step 4A execution passed and the author supplied the complete
 122-line retrieval.py for review. Its contents match the Step 4A lesson.
-Status: learner batch extraction and offline core regression passed on Windows;
-software-test summaries and detailed page/review evidence remain pending.
+Status: learner batch extraction, offline core regression and both software-test
+runs passed on Windows; detailed real-page/review evidence remains pending.
 This finishes the second exercise within Step 4. Step 5 is still chunking.
 
 ## Recorded partial execution — 27 November
@@ -16,10 +16,14 @@ a8998693-ba1f-4044-b3b5-169b84456ca8 verifies cached PDFs and retains
 18 extracted/loaded/stored observations with all four checks passing.
 Git shows exactly the three intended untracked files on feature/phase2-guided.
 
-Focused/full software-test output and the detailed page/review checks requested
-at the end remain pending. Expected test counts below are not claimed as passed.
-See [the learning log](AI_LEARNING_LOG.md) for evidence and the remaining gate.
-Keep the work uncommitted until those checks are reviewed.
+The author then supplied 13 focused tests passing in 0.634 seconds and all
+45 tests passing in 1.620 seconds, with no failures or skips shown. The full suite
+includes the 13 retrieval tests and 32 existing tests. These synthetic-fixture
+checks complement the real-source batch run; they do not replace visual review.
+Only the detailed real-page/review checks requested at the end remain pending,
+along with the understanding discussion and final commit checkpoint.
+See [the learning log](AI_LEARNING_LOG.md) for evidence. Successful tests need not
+be repeated without a relevant code change. Keep work uncommitted until review.
 
 ## Purpose, ELI5 and boundaries
 
@@ -724,6 +728,51 @@ Expected new application paths are exactly config/retrieval.json,
 src/gacl_pipeline/retrieval.py and tests/test_retrieval.py. On the last verified
 branch all three will be untracked. git diff --stat does not show untracked-file
 contents; use status and file inspection. The previous inspector remains intact.
+
+## Optional compact display for the remaining real-page checks
+
+If the earlier page commands have already run, share only their requested
+metadata fields. Otherwise this read-only PowerShell block calls the existing
+extract_page function for the same four pages and displays compact JSON.
+It creates no script or output artifact, performs no download and does not
+change the implementation. Run from the repository root.
+
+```powershell
+@'
+"""Display selected page metadata without changing project files."""
+
+import json
+from pathlib import Path
+from gacl_pipeline.retrieval import extract_page
+
+# Use the current repository folder and the four existing reference pages.
+root = Path.cwd()
+pages_to_check = [
+    ("gacl_dahej_plot3_ec_2025_h1", 5),
+    ("gacl_dahej_plot3_ec_2025_h1", 6),
+    ("gacl_brsr_2025_26", 1),
+    ("gacl_brsr_2025_26", 37),
+]
+
+# Display only the fields needed for this checkpoint, excluding raw page text.
+fields = ("source_id", "pdf_page", "printed_page", "text_sha256", "reviewed_note")
+for source_id, pdf_page in pages_to_check:
+    evidence = extract_page(root, source_id, pdf_page)
+    summary = {field: evidence[field] for field in fields}
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
+'@ | .\.venv\Scripts\python.exe -
+```
+
+root is the current repository path. pages_to_check is a list of source/page
+pairs. fields chooses which returned values to display. Each loop iteration
+verifies and reads one selected source page, then constructs summary from its
+metadata. The actual raw text is neither changed nor printed here.
+
+Check monthly page 5 against the recorded 4A text hash above; page 6 should
+retain printed_page=null and reviewed_note=null. Annual pages 1 and 37 should
+show printed labels 43 and 79 and the separate review notes. Open those annual
+PDF pages and state whether the notes agree with the visible report. Printed
+labels in JSON alone do not establish that visual comparison.
 
 ## Stop and share the evidence
 

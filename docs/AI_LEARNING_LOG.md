@@ -9,7 +9,7 @@ Step 3 inspector execution checks: **passed**.
 Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
 Documentation merge: **verified, local merge a5001c0; clean branch**.
 Step 4A execution checks: **passed, 27 November 2026**.
-Current checkpoint: **Step 4B real-source batch and offline numerical regression passed; software-test and page-review evidence pending**. Existing
+Current checkpoint: **Step 4B batch/core checks and 13 focused / 45 full tests passed; real-page fields and visual-review confirmation pending**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -284,12 +284,39 @@ or agreement of review notes with the visible PDF. File presence does not prove
 test execution. No cloud/dbt/Power BI rerun, local commit or source upload is
 claimed.
 
-Still needed: focused/full software-test summaries (expected 13/45 with the
-unchanged baseline), Step 4B page-5 text hash and page-6 unknown mapping, the annual
+At this checkpoint the software-test summaries and page-review evidence were
+still pending. The subsequent software-test results are recorded below.
+Page-field results already available locally may be pasted without repeating
+their extraction. Documentation synchronization stays batched at the Step 4
+checkpoint.
+
+## Step 4B — focused and full Windows tests verified, 27 November
+
+The author supplied both verbose terminal test runs directly in the conversation.
+
+| Run | Author-supplied result |
+|---|---|
+| Focused test_retrieval.py suite | 13 tests, 0.634 seconds, OK |
+| Complete tests suite | 45 tests, 1.620 seconds, OK |
+| Composition | 32 existing tests plus the same 13 new retrieval tests |
+| Failures/errors/skips | None shown in either run |
+
+The 13 retrieval tests cover exact fixture text/hash and separate notes, explicit
+skips/counts, changed source bytes, stale/duplicate reviews, conflicting labels,
+invalid source/page/threshold inputs, unreadable/out-of-range required pages,
+unknown printed labels and preservation of the page CLI alongside batch summary.
+These use synthetic temporary PDFs, not new GACL documents or observations.
+The full suite includes mocked BigQuery boundaries; it is not a fresh cloud job.
+The focused suite is included in the full suite, so there are 45 distinct tests.
+
+Together with the earlier pasted batch/offline output this verifies the software
+tests, 70 usable real-source pages and the preserved 18-fact numerical pipeline.
+Remaining Step 4 evidence: actual page-5 text hash, page-6 null mapping, annual
 page-1/page-37 review fields and learner visual comparison, plus the understanding
-discussion. Existing results may be pasted; no repeat run is required merely to
-share output. Keep Step 4 open and code uncommitted until the remaining evidence
-is reviewed. Documentation synchronization stays batched at that checkpoint.
+discussion. The lesson now includes an optional compact read-only metadata check
+to avoid pasting full page bodies. Existing equivalent page output is sufficient.
+Do not repeat the successful tests without a relevant subsequent code change.
+No local code commit, source upload or final Step 4 completion is claimed.
 
 ## Evidence to record after each lesson
 
@@ -319,3 +346,4 @@ change does not advance the learner automatically.
 | 27 November 2026 | Step 4A | Page-5 evidence, null unknown mapping, expected page-zero error, 32 tests OK in 1.233 seconds; module untracked | Execution checks passed; source-file review before 4B pending |
 | 27 November 2026 | Step 4A source review / Step 4B | Actual module matches 4A; complete 4B lesson supplied; JSON/Python syntax and 13 test-method count checked without execution | Review complete; learner 4B implementation/execution pending |
 | 27 November 2026 | Step 4B partial execution | Both pinned PDFs: 71 physical / 70 usable pages, one monthly cover skipped; offline run a8998693-ba1f-4044-b3b5-169b84456ca8 preserves 18 facts and four passing checks; exactly three intended untracked paths | Batch/core checks passed; tests and page-review evidence pending |
+| 27 November 2026 | Step 4B software verification | Focused suite: 13 tests OK in 0.634s; full suite: 45 tests OK in 1.620s; no failures/skips shown | Software checks passed; real-page fields, visual review and understanding pending |
