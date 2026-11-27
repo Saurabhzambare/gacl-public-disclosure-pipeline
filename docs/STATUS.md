@@ -39,10 +39,17 @@ the six freshwater rows; page 6 retained printed_page=null despite a printed
 footer in the extracted text. Page zero was rejected with exit code 1. The
 existing suite reported 32 tests passing in 1.233 seconds; duplicated pasted
 lines are not extra tests or verified separate runs. Git shows only untracked
-src/gacl_pipeline/retrieval.py. Actual file-content review precedes precise 4B
-edits. Step 4B covers all usable pages/configuration/focused tests and remains
-pending; the overall Step 4 gate is still open. Understanding discussion remains recorded separately. Steps 4–30
-remain pending. Supporting
+src/gacl_pipeline/retrieval.py. The author then supplied the complete 122-line
+module, which matches Step 4A. The [Step 4B lesson](PHASE_2_STEP_04B.md) now supplies
+exact commented configuration, the reviewed module's replacement, focused tests
+and real-source verification instructions. No application/configuration/test file
+was changed by this documentation update. Syntax checks passed for the lesson's
+JSON and both Python blocks; its 13 new test methods have not been executed.
+Expected real coverage is 70 usable pages from 71 physical pages; expected full
+software count is 45 with the unchanged 32-test baseline. These are targets,
+not verified results. Step 4B implementation/execution and the complete Step 4
+gate remain pending. Understanding discussion is recorded separately.
+Steps 4–30 remain pending. Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming
 implementation. The first-version dated evidence below remains unchanged.

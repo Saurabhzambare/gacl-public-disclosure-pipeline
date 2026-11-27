@@ -1,6 +1,6 @@
 # Documentation guide
 
-Updated: 25 November 2026 (India). This project has a verified data-engineering
+Updated: 27 November 2026 (India). This project has a verified data-engineering
 foundation and a planned, guided AI extension. Documentation is not evidence
 that a planned feature has been implemented.
 
@@ -13,7 +13,8 @@ that a planned feature has been implemented.
 | [Step 1 lesson](PHASE_2_STEP_01.md) | Readiness check; Windows execution passed on 25 November |
 | [Step 2 lesson](PHASE_2_STEP_02.md) | Baseline execution passed on Windows, 25 November |
 | [Step 3 lesson](PHASE_2_STEP_03.md) | Verified PDF inspector and local commit checkpoint |
-| [Step 4 lesson](PHASE_2_STEP_04.md) | Structured page evidence, then all-page extraction and tests |
+| [Step 4A lesson](PHASE_2_STEP_04.md) | Structured single-page evidence; execution and module review verified |
+| [Step 4B lesson](PHASE_2_STEP_04B.md) | All-page extraction, separate reviews, full commented code/configuration/tests; execution pending |
 | [AI scope](AI_EXTENSION_PLAN.md) | Product objective, architecture, boundaries and milestones |
 | [Learning log](AI_LEARNING_LOG.md) | Current lesson, learner evidence, errors, decisions and next step |
 | [Concept guide](AI_CONCEPTS.md) | Technical explanations with ELI5 examples |

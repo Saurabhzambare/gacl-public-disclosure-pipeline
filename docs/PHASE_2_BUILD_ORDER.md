@@ -9,7 +9,7 @@ Baseline execution: **Step 2 passed on Windows, 25 November 2026**.
 Step 3 checkpoint: **reviewed, duplicate removed, local commit 39ceacb; clean branch**.
 Documentation synchronization: **local merge a5001c0 verified; clean personal branch**.
 Step 4A: **execution checks passed on Windows, 27 November 2026**.
-Current checkpoint: **inspect actual retrieval.py before Step 4B edits**.
+Current checkpoint: **actual retrieval.py reviewed; implement the supplied Step 4B lesson**.
 Step 4B completes all-page extraction/configuration/tests before Step 5.
 Learner understanding discussion is recorded separately in the learning log.
 
@@ -147,7 +147,8 @@ update. Exact future commands are introduced only when their modules exist.
   pages; reject missing required evidence instead of inventing text or labels.
   Gate A: source/version/page metadata is inspectable and correct.
 - **Teaching subdivisions:** [4A](PHASE_2_STEP_04.md) returns one structured page;
-  4B adds all-page extraction, metadata configuration and focused tests. These
+  [4B](PHASE_2_STEP_04B.md) supplies all-page extraction, metadata configuration
+  and focused tests after review of the learner's actual 4A module. These
   preserve the same 30 numbered steps. Do not mark Step 4 complete after 4A alone.
 
 ## Stage B — Keyword retrieval and baseline

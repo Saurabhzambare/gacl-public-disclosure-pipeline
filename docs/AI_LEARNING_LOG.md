@@ -9,7 +9,7 @@ Step 3 inspector execution checks: **passed**.
 Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
 Documentation merge: **verified, local merge a5001c0; clean branch**.
 Step 4A execution checks: **passed, 27 November 2026**.
-Current checkpoint: **review actual retrieval.py before Step 4B edits**. Existing
+Current checkpoint: **actual retrieval.py reviewed; implement and verify the supplied Step 4B lesson**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -219,19 +219,39 @@ mapping lives when asked. Do not mark a learner's independent explanation as
 supplied. No new focused retrieval tests, all-page extraction or model run is
 claimed. Current software counts remain separate from observations and page counts.
 
-## Current checkpoint — inspect the module before 4B
+## Current checkpoint — module reviewed; Step 4B supplied
 
-Ask for Get-Content of the learner's actual src/gacl_pipeline/retrieval.py
-before giving replacement/insertion instructions. Its output matches 4A
-expectations, but terminal results are not a complete source-file review.
-Do not commit partial Step 4 yet; review the file, then guide the all-page,
-metadata-configuration and focused-test exercise. Step 5 still waits for the
-complete Step 4 gate. No new installation or immediate documentation merge is
-required for this read-only inspection.
+The author supplied the full 122-line src/gacl_pipeline/retrieval.py through
+Get-Content. It matches the Step 4A implementation, including exact-text hashing,
+unknown-label handling and the existing page CLI. This closes the source-file
+inspection prerequisite; it is not another runtime test or a local commit.
 
-Batch newer documentation synchronization at the Step 4 checkpoint after
-inspecting actual history. The assistant changes documentation only; learner
-application code stays on the personal branch until explicitly published.
+The [Step 4B lesson](PHASE_2_STEP_04B.md) supplies exact commented JSON/Python,
+file locations, concepts/ELI5, no-new-installation guidance, verification commands
+and a stopping point. It creates config/retrieval.json and tests/test_retrieval.py,
+and explains replacing the inspected module with shared verification/extraction
+helpers while retaining extract_page and the single-page command. All-page
+extraction opens each PDF once per batch. Reviews stay version-pinned and separate
+from text; required unreadable/missing evidence fails, optional insufficient pages
+are listed as skipped, unknown labels stay null, conflicting labels fail.
+
+Documentation checks: the 20-line JSON and 266-/180-line Python blocks parse;
+13 focused test methods were counted. No supplied application/test code was
+executed by that check. Expected results are 13 focused / 45 full software tests,
+71 physical / 70 usable pages and one skipped monthly cover; actual learner
+results, visual comparison of the two recorded review notes, offline 18-fact
+regression and Git scope remain pending. These counts describe different units.
+
+The notes preserve the assistant's earlier 24 November visual review, not a new
+learner attestation. The author must compare physical annual pages 1 and 37
+before accepting their labels/notes. The annual production explanation must not
+be transferred to monthly site rates. Source configuration and the inspector stay
+unchanged; the raw text hash must exclude reviewer prose.
+
+Do not commit partial Step 4 or start Step 5 yet. Batch newer documentation
+synchronization at the Step 4 checkpoint after inspecting actual history.
+The assistant changes documentation only; learner application code stays on the
+personal branch until explicitly published.
 
 ## Evidence to record after each lesson
 
@@ -259,3 +279,4 @@ change does not advance the learner automatically.
 | 25 November 2026 | Before Step 4 | Local merge a5001c0 combines 39ceacb and documentation through 3df36db; clean feature branch | Verified |
 | 25 November 2026 | Step 4A | Single-page dictionary lesson prepared; 4B required before Step 4 completion | Pending learner implementation |
 | 27 November 2026 | Step 4A | Page-5 evidence, null unknown mapping, expected page-zero error, 32 tests OK in 1.233 seconds; module untracked | Execution checks passed; source-file review before 4B pending |
+| 27 November 2026 | Step 4A source review / Step 4B | Actual module matches 4A; complete 4B lesson supplied; JSON/Python syntax and 13 test-method count checked without execution | Review complete; learner 4B implementation/execution pending |

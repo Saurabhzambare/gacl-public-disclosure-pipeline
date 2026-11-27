@@ -4,9 +4,9 @@ Build-order version: 1.0. Prepared: 25 November 2026 (India).
 Step 4A execution: **passed on the author's Windows laptop, 27 November 2026**.
 Evidence: approved monthly PDF hash, page 5/printed 4 with six freshwater rows,
 page 6/printed null, page zero exit 1, and 32 tests passing in 1.233 seconds.
-The module is untracked. Review its actual contents before precise 4B edits;
-existing regression tests do not constitute focused coverage of the new module.
-Then: **4B — all usable pages, metadata configuration and focused tests; pending**.
+The author subsequently supplied the complete 122-line module; it matches 4A.
+Existing regression tests do not constitute focused coverage of the new module.
+Next: **[4B — all usable pages, metadata configuration and focused tests](PHASE_2_STEP_04B.md); instructions prepared, execution pending**.
 These are two exercises inside existing Step 4, not new numbered roadmap steps.
 Step 5 cannot begin until the complete Step 4 gate passes.
 
@@ -322,20 +322,20 @@ hashes describe different content, and why unknown printed_page should be None.
 Share page-5 metadata and relevant table context, page-6 printed_page,
 page-zero exit code, test summary and Git status. Do not commit Step 4 yet.
 
-## 4B plan — not implementation instructions yet
+## Continue with the supplied 4B lesson
 
-After reviewing 4A output, extend the page contract/configuration to separate
-reviewed notes from raw text, verify all required mappings, extract usable pages
-from each approved document efficiently, record skipped image-only pages and
-add meaningful isolated tests. Do not infer missing labels. The expected
-reference coverage is 70 usable pages across two PDFs, but the learner's actual
-counts and failures must be checked, not assumed.
+The module review prerequisite is complete. Follow the
+[standalone Step 4B lesson](PHASE_2_STEP_04B.md) for the exact retrieval.json,
+bounded full-module replacement, focused tests, explanations and Windows checks.
+It preserves extract_page and the existing page command while adding batch
+extraction and separately labelled version-pinned reviews.
 
-Only after both exercises and actual evidence pass is Step 4 complete. Chunking
-remains Step 5. Exact 4B code and file edits will be supplied after the current
-module/output are reviewed. No application file is created or executed by the
-assistant through this documentation publication.
-
+No new installation is required. The 70 usable-page and 45 software-test counts
+in that lesson are expected outcomes, not verified learner results. Step 4 stays
+open until the actual results, required evidence and understanding are reviewed.
+Chunking remains Step 5. Documentation synchronization is batched at the
+Step 4 checkpoint after inspecting the personal branch; no immediate merge is
+required to read the lesson online.
 References: [Python dictionaries](https://docs.python.org/3.11/tutorial/datastructures.html#dictionaries),
 [hashlib](https://docs.python.org/3.11/library/hashlib.html),
 [PyMuPDF page text](https://pymupdf.readthedocs.io/en/latest/page.html).

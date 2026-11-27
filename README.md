@@ -54,7 +54,9 @@ steps in eight stages. **Steps 1–3 execution and the Step 3 local commit check
 The inspector is committed locally as 39ceacb on feature/phase2-guided.
 Documentation synchronization is verified at local merge a5001c0.
 Step 4A execution checks passed on Windows, 27 November.
-Current checkpoint: review retrieval.py before extending it in Step 4B; Step 4 remains open.** Existing prototype work does not mark learner steps complete.
+The supplied retrieval.py has now been reviewed against 4A.
+[Step 4B](docs/PHASE_2_STEP_04B.md) supplies all-page extraction, separate reviewed
+metadata and focused tests for personal implementation; execution is pending and Step 4 remains open.** Existing prototype work does not mark learner steps complete.
 
 ### Existing retrieval reference
 
@@ -198,7 +200,8 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 | [Step 1 lesson](docs/PHASE_2_STEP_01.md) | Readiness check; Windows execution verified on 25 November |
 | [Step 2 lesson](docs/PHASE_2_STEP_02.md) | Windows baseline verified: 32 tests, 18 records, four checks |
 | [Step 3 lesson](docs/PHASE_2_STEP_03.md) | Verified inspector and local commit checkpoint |
-| [Step 4 lesson](docs/PHASE_2_STEP_04.md) | 4A structured page record now; 4B all-page extraction/tests later |
+| [Step 4A lesson](docs/PHASE_2_STEP_04.md) | Single-page structured evidence; Windows execution passed |
+| [Step 4B lesson](docs/PHASE_2_STEP_04B.md) | Complete commented all-page/configuration/test exercise; execution pending |
 | [AI scope](docs/AI_EXTENSION_PLAN.md) | Research assistant goals, boundaries and delivery milestones |
 | [Learning log](docs/AI_LEARNING_LOG.md) | Current step, learner evidence and next action |
 | [AI concepts](docs/AI_CONCEPTS.md) | Technical and ELI5 explanations |

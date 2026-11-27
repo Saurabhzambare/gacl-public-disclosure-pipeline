@@ -17,13 +17,25 @@ causal explanation is introduced by these contracts.
 
 ## Guided implementation versus the reference prototype
 
-The learner is beginning Step 4A after verified local merge a5001c0. Its proposed
-extract_page(root, source_id, pdf_page) returns one page dictionary with PDF/text
-hashes, explicit page/scope metadata, extraction/library versions and a citation
-URL. It has no chunks, index, reviewed-note configuration or search API yet.
-Those return layouts below describe the earlier local prototype, not automatic
-availability in the learner's checkout. [Step 4](PHASE_2_STEP_04.md) introduces
-all-page metadata and focused tests in 4B before the full gate closes.
+The learner's Step 4A execution passed on Windows and the supplied module has
+been reviewed. extract_page(root, source_id, pdf_page) returns one page dictionary
+with PDF/text hashes, explicit page/scope metadata, extraction/library versions
+and a citation URL. It has no chunks, index or search API.
+
+[Step 4B](PHASE_2_STEP_04B.md) supplies the next implementation, not a verified
+installed interface: retain extract_page, add extract_documents, keep exact text
+separate from reviewed_note, leave section null, and return explicit skip reasons
+and per-document/aggregate page counts. Reviews are pinned to approved PDF hashes.
+The schema-version-1 retrieval settings introduce a 30-alphanumeric-character
+filter. Required mapped/reviewed pages must pass; optional insufficient pages may
+be skipped. Unknown labels stay null; conflicting labels and stale reviews fail.
+A text hash excludes review notes, so later index identity must include metadata
+and configuration too. The lesson creates no persisted artifact or search index.
+Single-page and batch CLI forms are supplied there; execution is pending.
+
+The full retrieval/chunk return layouts below describe the earlier local
+prototype, not automatic availability in the learner's checkout. Both exercises
+must pass before the complete Step 4 gate closes.
 
 ## Current page and chunk evidence
 
