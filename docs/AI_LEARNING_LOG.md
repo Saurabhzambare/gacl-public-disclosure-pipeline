@@ -10,7 +10,7 @@ Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
 Documentation merge: **verified, local merge a5001c0; clean branch**.
 Step 4A execution checks: **passed, 27 November 2026**.
 Step 4: **execution, source-review confirmation and Git checkpoint complete, 27 November**.
-Current lesson: **Step 5 exact-span chunking; instructions prepared, learner implementation/execution pending**. Existing
+Current lesson: **Step 5 initial runs reached 28/60 tests with three errors each; repair the test fixture's missing chunk setting and rerun**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -462,6 +462,50 @@ batch synchronization at the next reviewed implementation checkpoint.
 The last actual local clean Git checkpoint remains 53b9be4 until new output
 is supplied. Step 5 is open; no search, storage, model or generation run is claimed.
 
+## Step 5 — initial Windows test errors diagnosed, 27 November
+
+Evidence: uploaded Pasted text(20261127-070226).txt, read from the supplied scratch
+attachment copy after the execution environment became ready. The attachment is
+terminal output, not the full current source files. No implementation file was
+changed by the assistant.
+
+| Run | Author-supplied result |
+|---|---|
+| Retrieval tests | 28 run in 0.738 seconds; FAILED (errors=3), 25 completed successfully |
+| Full suite | 60 run in 1.715 seconds; FAILED (errors=3), 57 completed successfully |
+| String-level ChunkSpanTests | All 12 shown as passing |
+| Existing Phase 1 / page tests | All shown as passing |
+| Errors | The three new PageEvidenceTests integration cases |
+
+The paste repeats several traceback fragments, particularly near the full-suite
+summary. Record the final three-error count per run; do not count repeated text
+as additional failed tests or independent runs.
+
+Root evidence is KeyError: 'max_chunk_chars' at the direct self.settings lookup
+inside test_invalid_chunk_settings_fail_before_pdf_read. The PageEvidenceTests
+fixture lacks that exact key. The two other cases invoke extract_chunks with
+the fixture's temporary root. settings.get yields None for the absent key;
+the positive-integer validator raises ValueError. The CLI case catches that
+error and exits with SystemExit: 1. These are related symptoms of the missing
+fixture setting, not evidence of three separate chunk-boundary defects.
+
+The real config/retrieval.json and self.settings in PageEvidenceTests.setUp are
+independent configurations. write_config serializes the latter into a temporary
+repository. Updating the real configuration does not update test fixtures.
+The current real configuration contents are not established by this log.
+
+Prescribed learner edit: inside tests/test_retrieval.py, PageEvidenceTests.setUp,
+add/correct max_chunk_chars: 1800 and overlap_chars: 250 in the self.settings
+dictionary, immediately after min_alnum_chars. Keep the existing fixture entries.
+The missing maximum is confirmed; overlap must also be supplied as required by
+the Step 5 interface. Do not weaken validation, add silent defaults or make the
+isolated tests read production configuration.
+
+Rerun the 28-test retrieval suite; after it passes, rerun the full 60-test suite.
+Corrected output is pending. Step 5 real-PDF chunk counts, span/coverage/repeated-ID
+checks, offline core rerun and Git checkpoint remain unverified for this lesson.
+No success, code correction or new commit is claimed from the diagnosis alone.
+
 ## Evidence to record after each lesson
 
 Use the existing stable step ID. Record purpose, exact files changed, new
@@ -495,3 +539,4 @@ change does not advance the learner automatically.
 | 27 November 2026 | Step 4B commit/publication | Clean tracking branch and 29795de supplied; GitHub confirms published SHA; extractor/tests match lesson and JSON matches semantically; inspector present | Local/public feature checkpoint verified; documentation merge and learner visual confirmation pending |
 | 27 November 2026 | Step 4B documentation synchronization | ort merge of origin/main 9a954b7 into feature; 53b9be4 pushed and clean; GitHub confirms head and Markdown-only changes since 29795de | Version-control checkpoint complete; learner source-review confirmation/understanding pending |
 | 27 November 2026 | Step 4 completion / Step 5 start | Author confirms both annual notes match visible PDF pages and requests Step 5; exact chunking lesson prepared against published 53b9be4 | Step 4 closed; Step 5 implementation/execution pending |
+| 27 November 2026 | Step 5 initial test diagnosis | 28 tests in 0.738s and 60 in 1.715s, each with three errors; 12 string chunk tests pass; traceback confirms missing max_chunk_chars in PageEvidenceTests fixture | Learner fixture repair and rerun pending; Step 5 open |

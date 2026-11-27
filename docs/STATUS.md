@@ -91,9 +91,15 @@ Independent concept reflection remains tracked separately; no learner explanatio
 is invented from a yes/no confirmation. The author explicitly requested Step 5.
 [The Step 5 lesson](PHASE_2_STEP_05.md) now supplies commented exact-span chunking
 code, insertion locations and 15 additional tests after reviewing the published
-53b9be4 files. Implementation/execution remain pending. Expected new totals are
-28 retrieval / 60 full software tests, not recorded results. No new runtime
-retest, chunk count, persisted index or model is claimed by documentation.
+53b9be4 files. The author subsequently supplied initial Windows output: 28
+retrieval tests in 0.738 seconds and 60 full tests in 1.715 seconds, each ending
+with three errors (25/57 tests completed successfully). All 12 string-level
+chunk tests pass. The three integration errors trace to missing max_chunk_chars
+in PageEvidenceTests.setUp's self.settings; the tests use a separate temporary
+configuration, not the real project config. The lesson documents the learner's
+fixture repair with both required chunk settings. Corrected output and real-PDF
+chunk checks are pending. Repeated traceback fragments are not extra test runs.
+No passing Step 5 suite, chunk count, persisted index or model is claimed.
 Read the lesson online; batch documentation synchronization at the next checkpoint.
 The unavailable earlier text attachment was not read; evidence here comes from
 the actual subsequently pasted commands/results and visible Desktop screenshot.

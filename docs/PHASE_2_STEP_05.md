@@ -5,7 +5,9 @@ Prerequisite: Step 4 software, source evidence and Git checkpoints passed.
 The author has now confirmed that both annual review notes match the visible
 PDF pages. This closes the Step 4 source-review gate; the independent explanation
 of concepts remains a learning reflection, not an invented answer.
-Status: Step 5 instructions prepared; implementation and execution pending.
+Status: initial learner runs reached 28 retrieval / 60 full tests with three
+integration errors each; the test fixture's missing chunk maximum is diagnosed.
+Fixture repair, passing reruns and real-chunk checks remain pending.
 
 ## Purpose and ELI5
 
@@ -429,6 +431,21 @@ min_alnum_chars entry, insert:
 
 This changes only synthetic test configuration. Keep the existing source/PDF
 fixture and all 13 Step 4B tests unchanged.
+
+Important: this is a second configuration, independent of the real project's
+config/retrieval.json edited in Section 1. setUp creates a temporary repository;
+write_config writes self.settings into that temporary repository. The tests pass
+self.root to extract_chunks, so they read the temporary configuration. Both
+places need the new settings. Keep the tests isolated from production files.
+
+The author's initial run confirmed what happens when max_chunk_chars is missing
+from self.settings: two cases raise the positive-integer ValueError (one wrapped
+as CLI SystemExit: 1), and the invalid-settings case raises KeyError while reading
+that absent key directly. All 12 string-level chunk tests pass; the three new
+integration cases error before exercising their intended checks. Add/correct
+the two entries in this exact fixture dictionary and save the file, then rerun
+the focused suite before the full suite. Do not remove the validator or make
+it silently accept None. Corrected execution is not yet verified.
 
 ## 6. Add three integration tests inside PageEvidenceTests
 
