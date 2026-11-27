@@ -66,7 +66,9 @@ current lesson. After repairing the isolated test fixture, the learner's Windows
 run passes all 60 software tests and verifies 136 chunks across all 70 usable
 pages, with stable IDs and unchanged 18-fact outputs. The implementation is
 committed/published as 42c9ceb; clean tracking status and source review are
-verified. One batched documentation merge remains before Step 6.** The feature
+verified. The author merged/pushed the documentation at 98c14ec with clean
+tracking status, completing Step 5. [Step 6: local index storage](docs/PHASE_2_STEP_06.md)
+is now the current lesson; implementation/execution remain pending.** The feature
 has not been merged into main.
 Existing prototype work does not mark learner steps complete.
 
@@ -214,7 +216,8 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 | [Step 3 lesson](docs/PHASE_2_STEP_03.md) | Verified inspector and local commit checkpoint |
 | [Step 4A lesson](docs/PHASE_2_STEP_04.md) | Single-page structured evidence; Windows execution passed |
 | [Step 4B lesson](docs/PHASE_2_STEP_04B.md) | Execution/source review and published Git checkpoint complete |
-| [Step 5 lesson](docs/PHASE_2_STEP_05.md) | Windows checks passed and source published/reviewed at 42c9ceb; final documentation synchronization pending |
+| [Step 5 lesson](docs/PHASE_2_STEP_05.md) | Execution/publication/source/Git checkpoint complete at merge 98c14ec |
+| [Step 6 lesson](docs/PHASE_2_STEP_06.md) | Separate SQLite index, atomic replacement and status; commented code/tests supplied, execution pending |
 | [AI scope](docs/AI_EXTENSION_PLAN.md) | Research assistant goals, boundaries and delivery milestones |
 | [Learning log](docs/AI_LEARNING_LOG.md) | Current step, learner evidence and next action |
 | [AI concepts](docs/AI_CONCEPTS.md) | Technical and ELI5 explanations |

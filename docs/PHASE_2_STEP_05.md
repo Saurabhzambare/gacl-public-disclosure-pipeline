@@ -8,7 +8,8 @@ of concepts remains a learning reflection, not an invented answer.
 Status: corrected learner runs pass 28 retrieval / 60 full tests. Real verification
 passes for 136 chunks covering all 70 usable pages, with stable IDs and the
 original 18-fact pipeline intact. Source is committed/published and reviewed at
-42c9ceb; final batched documentation synchronization pending before Step 6.
+42c9ceb; documentation merge 98c14ec pushed and clean. Step 5 is complete.
+Continue with [Step 6](PHASE_2_STEP_06.md); its implementation/execution is pending.
 
 ## Recorded Windows verification — 27 November
 
@@ -29,9 +30,10 @@ not an assistant rerun, index build or cloud job.
 The execution gate is passed. The author then committed/published 42c9ceb and
 showed clean tracking status. GitHub confirms the three-file commit, and the
 published module/tests/config match this lesson after formatting/comment
-normalization. No source correction is needed for this checkpoint. The single
-batched documentation synchronization described at the end remains. Existing
-successful checks need not be repeated without a relevant source change.
+normalization. No source correction is needed for this checkpoint. The author
+then completed the batched documentation merge/push at 98c14ec, with clean status.
+GitHub confirms only Markdown changed since 42c9ceb. Existing successful checks
+need not be repeated without a relevant source change.
 
 ## Purpose and ELI5
 
@@ -863,12 +865,11 @@ read the published files: the module matches the supplied edits after ignoring
 blank lines, the tests match after blank lines and two explanatory comments,
 and parsed JSON matches. This is source review, not a fresh runtime test.
 
-## Complete the batched documentation synchronization
+## Completed batched documentation synchronization
 
-The verified starting point is clean feature/phase2-guided at 42c9ceb. Main has
-newer documentation while the feature has implementation commits. Combine the
-histories with a normal merge, preserving both. Refresh the latest origin/main
-rather than hard-coding the old comparison SHA:
+The following synchronization completed on 27 November from clean
+feature/phase2-guided at 42c9ceb. The commands are retained as the checkpoint
+record; do not repeat this merge solely for its later evidence-recording update.
 
 ```powershell
 # Update remote-tracking references without changing the working files.
@@ -887,23 +888,22 @@ git status --short --branch
 git log --oneline --graph -5
 ```
 
-Share the merge/push/status/history output. If an error/conflict occurs, preserve
-both histories and share that output before pushing. The compared main changes
-are Markdown only, so no software rerun is required merely for this merge;
-reassess if source/tests change or need a conflict resolution. The assistant
-has not performed this learner merge/push. No feature-to-main merge is implied.
-After successful synchronization is recorded, batch later evidence-document
-updates at the next checkpoint rather than starting another merge loop.
+Actual result: successful ort merge of origin/main 996ca93, merge commit
+98c14ecdfa8bc55ad134772c1a3ba44bb3fbc907, successful push and clean
+tracking status. GitHub readback confirms the head and only nine Markdown paths
+changed relative to 42c9ceb. The learner performed the merge/push. This is not a
+feature-to-main merge or a new software run. Batch later documentation at the
+next checkpoint rather than starting another merge for this record.
 
 For understanding: explain why the end offset is exclusive, why actual overlap
 may be below 250, and why a chunk may still lack table context. Distinguish
 1,800 characters from model tokens. Show how a chunk's page offsets recover its
 exact text and why reviewed notes remain separate.
 
-Execution and published-source review are recorded. Complete the single batched
-documentation merge above, then move to Step 6: persist pages/chunks in a separate
-replaceable index. The current .gitignore still needs a data/retrieval/ rule
-before that future index is created. No index is part of the Step 5 implementation.
+Execution, published-source review and documentation synchronization are complete.
+Follow [Step 6](PHASE_2_STEP_06.md) to persist pages/chunks in a separate replaceable
+index. The current .gitignore still needs a data/retrieval/ rule before that
+future index is created. No index is part of the Step 5 implementation.
 
 References: [Python string slicing](https://docs.python.org/3.11/tutorial/introduction.html#strings),
 [string methods](https://docs.python.org/3.11/library/stdtypes.html#string-methods),

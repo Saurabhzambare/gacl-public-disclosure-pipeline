@@ -10,7 +10,8 @@ Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
 Documentation merge: **verified, local merge a5001c0; clean branch**.
 Step 4A execution checks: **passed, 27 November 2026**.
 Step 4: **execution, source-review confirmation and Git checkpoint complete, 27 November**.
-Step 5: **execution passed; 42c9ceb committed/published and reviewed; clean tracking branch verified; batched documentation synchronization pending before Step 6**. Existing
+Step 5: **complete; implementation 42c9ceb and documentation merge 98c14ec published, reviewed and clean**.
+Current lesson: **Step 6 separate SQLite index; instructions prepared, learner implementation/execution pending**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -604,6 +605,53 @@ ignored by Git. The inspected .gitignore does not yet include data/retrieval/;
 adding that rule belongs to the learner's Step 6 implementation. No index was
 created by this review or documentation update.
 
+## Step 5 synchronization complete; Step 6 supplied — 27 November
+
+The author supplied a successful fetch/ort merge of origin/main 996ca93 into
+feature/phase2-guided, then a successful push from 42c9ceb to 98c14ec.
+Status is clean and tracking its remote; the graph preserves both histories.
+The merge reports nine Markdown files, 1,285 insertions and 60 deletions,
+including the new Step 5 lesson document.
+
+GitHub connector readback confirms feature head
+98c14ecdfa8bc55ad134772c1a3ba44bb3fbc907. Comparing 42c9ceb to 98c14ec
+shows only those nine documentation paths changed. The already reviewed
+application code and earlier 28/60 test and real-source evidence remain unchanged.
+The Step 5 implementation/source/Git gate is complete. No runtime retest is
+claimed for the documentation merge.
+
+The assistant inspected the actual retrieval module, tests, retrieval settings,
+.gitignore and package declaration at 98c14ec before preparing
+[Step 6](PHASE_2_STEP_06.md). The learner will edit only .gitignore and the existing
+module/test file. No new package or source is introduced. The new ignored target
+is data/retrieval/index.sqlite, separate from data/warehouse/gacl.sqlite.
+
+The lesson supplies commented schema/build/status code and 12 focused tests,
+including persisted evidence, failed write/replacement preservation, changing
+inputs, stale/missing indexes, manifest/count checks and warehouse preservation.
+Expected totals are 40 retrieval / 72 full tests, not executed results.
+Builds capture approved configuration and runtime fingerprints, verify the
+temporary database before replacing the old file, and keep review notes in a
+separate full-text column. Query/ranking logic is still Step 7.
+
+Preparation checks: proposed Python module/tests parse, the 40 retrieval test
+methods are counted, and the SQL schema/FTS fields were exercised in an in-memory
+SQLite database. An additional isolated reference run executed the assembled
+lesson examples in Linux/Python 3.12.14 with PyMuPDF 1.26.6: 40 retrieval tests
+passed in 0.392 seconds, no errors/failures. Code was loaded in memory; synthetic
+temporary PDFs/databases were cleaned up. No learner source/configuration/test/
+ignore file was modified or created; only Markdown is published.
+
+This is reference-example validation, not execution of the learner's Windows
+application, the full 72-test suite, a real-PDF index or a Windows atomic rebuild.
+Those user results remain pending.
+
+Read the new lesson online. Do not start another documentation merge just to
+receive this evidence update; batch subsequent documents at the next reviewed
+implementation checkpoint. The last actual clean local head remains 98c14ec.
+Step 6 implementation/execution is pending; no persisted learner index, keyword
+search, model or cloud run is claimed.
+
 ## Evidence to record after each lesson
 
 Use the existing stable step ID. Record purpose, exact files changed, new
@@ -640,3 +688,4 @@ change does not advance the learner automatically.
 | 27 November 2026 | Step 5 initial test diagnosis | 28 tests in 0.738s and 60 in 1.715s, each with three errors; 12 string chunk tests pass; traceback confirms missing max_chunk_chars in PageEvidenceTests fixture | Learner fixture repair and rerun pending; Step 5 open |
 | 27 November 2026 | Step 5 corrected verification | 28 tests OK in 0.913s; 60 OK in 1.931s; 136 chunks (60 monthly/76 annual), 70 pages with exact coverage and stable IDs; offline f2d60348-903b-4438-a74f-ca4a01545c8a retains 18 facts/four passing checks; only three tracked implementation files modified | Execution checks passed; commit/publication/source-review pending |
 | 27 November 2026 | Step 5 commit/publication/review | 42c9ceb pushed with clean tracking status; GitHub confirms SHA and three-file diff; module/tests/config match lesson apart from formatting and explanatory comments | Code checkpoint complete; batched documentation synchronization pending before Step 6 |
+| 27 November 2026 | Step 5 synchronization / Step 6 preparation | 98c14ec merged/pushed and clean; GitHub confirms Markdown-only changes; Step 6 guide supplies separate atomic index, manifest/status and 12 tests; Python syntax and in-memory SQL/FTS checks passed | Step 5 complete; Step 6 learner implementation/execution pending |

@@ -7,12 +7,14 @@ Controlled steps: **30**, grouped into **8 stages**.
 Readiness execution: **Step 1 passed on Windows, 25 November 2026**.
 Baseline execution: **Step 2 passed on Windows, 25 November 2026**.
 Step 3 checkpoint: **reviewed, duplicate removed, local commit 39ceacb; clean branch**.
-Documentation synchronization: **latest merge 53b9be4 pushed; clean tracking branch verified, 27 November**.
+Documentation synchronization: **latest merge 98c14ec pushed; clean tracking branch verified, 27 November**.
 Step 4A: **execution checks passed on Windows, 27 November 2026**.
 Step 4: **execution, source-review confirmation and Git checkpoint complete, 27 November**.
-Step 5: **execution passed; 42c9ceb committed/published and reviewed; clean tracking branch verified; batched documentation synchronization pending before Step 6**.
+Step 5: **complete; implementation 42c9ceb and documentation merge 98c14ec published, reviewed and clean**.
+Current lesson: **Step 6 separate SQLite index; instructions prepared, learner implementation/execution pending**.
 Step 4B all-page extraction/configuration/tests and the annual-note visual
-confirmation are complete. Gate A is closed; begin Step 5 in Stage B.
+confirmation are complete. Gate A is closed; Step 5 is complete and Step 6 is
+current in Stage B.
 Learner understanding discussion is recorded separately in the learning log.
 
 ## Purpose and finished behavior
@@ -174,7 +176,9 @@ update. Exact future commands are introduced only when their modules exist.
 
 ### Step 6 — Build a separate, replaceable search index
 
-- **Depends on:** Step 5.
+- **Depends on:** Step 5, now complete.
+- **Lesson / status:** [Step 6 detailed lesson](PHASE_2_STEP_06.md), prepared from
+  the inspected 98c14ec checkout; learner implementation/execution pending.
 - **Purpose / why:** persist evidence without modifying the observation warehouse.
 - **ELI5:** build a catalogue beside the checked ledger.
 - **Files / installation:** `retrieval.py` index builder; generated

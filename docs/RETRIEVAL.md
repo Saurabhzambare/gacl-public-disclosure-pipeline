@@ -10,6 +10,14 @@ not proof of learner implementation. Follow [Master Build Order](PHASE_2_BUILD_O
 Steps 1–10 to inspect/build/test the same responsibilities personally. Use the learning log for current learner progress. Do not overwrite existing files or run commands from
 an unpublished feature that is absent from the actual checkout.
 
+Current guided checkpoint, 27 November: Step 5 is complete on the published
+feature/phase2-guided branch; documentation merge 98c14ec is verified. Use
+[the Step 6 lesson](PHASE_2_STEP_06.md) for the current learner's storage build,
+read-only status, exact edits and tests. Its --build-index / --index-status
+commands become available only after implementation. The commands and search
+capabilities below still describe the separate earlier reference prototype;
+they are not automatically installed by reading these documents.
+
 [Concepts](AI_CONCEPTS.md) explain methods; [contracts](AI_CONTRACTS.md) distinguish
 current search output from future numerical/RAG/agent interfaces; the
 [evaluation plan](AI_EVALUATION_PLAN.md) defines subsequent comparisons.

@@ -51,8 +51,8 @@ of those values before the ID is inserted. Reviewed notes remain a separate
 field and participate in identity without entering raw text. extract_chunks
 provides the verified in-memory batch and --chunks CLI on the published guided
 feature branch; no persisted index is introduced until Step 6. Runtime evidence,
-source review and pending batched documentation synchronization are recorded
-separately in the learning log.
+source review and completed synchronization at 98c14ec are recorded separately
+in the learning log.
 
 The full retrieval/search/chunk layouts below otherwise describe the earlier
 local prototype, not automatic availability in the learner's checkout.
@@ -86,6 +86,38 @@ Current `search_documents` returns `mode=lexical_retrieval`, `answer=null` and
 `answerability=not_assessed`. A keyword hit is a candidate, not an answer.
 Search results are deduplicated by source/page before the top-k cutoff. Full-page
 retrieval is distinct from a chunk's potentially incomplete table context.
+
+## Step 6 proposed storage contract — implementation pending
+
+[The detailed lesson](PHASE_2_STEP_06.md) introduces a fixed ignored target,
+data/retrieval/index.sqlite, separate from the observation warehouse.
+The inspected .gitignore does not yet include that directory; the learner adds
+the rule before building. Schema version 1 uses documents, pages, chunks,
+chunk_fts and a singleton manifest. Full page/chunk JSON retains the established
+contracts; SQL columns provide keys/joins and scope filters.
+
+The manifest records canonical source/settings data, extraction/chunk/schema
+and tokenizer versions, PyMuPDF/Python/SQLite runtime versions, a SHA-256 input
+fingerprint, counts and UTC build time. Raw text and reviewed notes are stored
+and indexed in separate fields. Later queries must keep their evidence roles
+visible; a match in a parent-page note does not make it verbatim chunk text.
+
+Build from one captured configuration snapshot, verify cached PDF bytes, create
+the new database in a same-directory temporary file, commit/close, inspect
+consistency and reject changed configuration before os.replace. No potentially
+failing file read follows publication. A failed write/validation/swap preserves
+the previous index. The builder targets the complete approved register; there
+is no arbitrary output-path or partial-index CLI option.
+
+Readiness uses an existing mode=ro database and checks schema/fingerprints,
+counts, foreign keys and FTS correspondence. Missing/stale/bad input is explicit;
+status never auto-creates or rebuilds. It compares current approved settings to
+the receipt, without rehashing cached PDFs on each read. This is a cache
+consistency boundary, not a signed/tamper-proof source authority.
+
+The lesson's expected 40 retrieval / 72 full tests and real stored 2-source,
+70-page, 136-chunk checks are acceptance targets, not executed learner evidence.
+Step 7 remains the separate keyword-query/ranking implementation.
 
 ## Planned semantic-index contract
 

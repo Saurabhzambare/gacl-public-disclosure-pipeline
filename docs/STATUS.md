@@ -121,17 +121,29 @@ source: module/tests match the lesson after blank-line/comment normalization and
 retrieval JSON matches semantically. All 28 retrieval test methods and both
 fixture settings are present. This is source review, not another runtime run.
 
-Step 5 execution, commit/publication and source review are verified. Only the
-batched merge of newer main documentation into the clean feature remains before
-Step 6. Main-side changes were inspected as Markdown only; synchronization/push
-results are not yet supplied. Feature application code is not merged into main.
-No persisted index, keyword search, model or fresh cloud run is claimed from
-these chunking checks.
+The author then merged origin/main 996ca93 into the feature branch and pushed
+98c14ec, with clean tracking status. GitHub confirms
+98c14ecdfa8bc55ad134772c1a3ba44bb3fbc907 and Markdown-only changes
+relative to 42c9ceb. Step 5 execution, commit/publication, source review and
+batched documentation synchronization are complete. Feature application code
+is not merged into main.
+
+[Step 6](PHASE_2_STEP_06.md) is now prepared against the inspected 98c14ec files:
+separate ignored SQLite storage, input/version manifest, validated temporary
+build plus replacement, read-only status and 12 new tests. The learner will add
+the ignore rule and edit the existing module/tests personally. Preparation
+validated Python syntax and the SQL/FTS schema. An isolated reference run of
+the assembled examples passed 40 retrieval tests in 0.392 seconds on Linux/
+Python 3.12.14, PyMuPDF 1.26.6, using temporary synthetic fixtures and no learner
+source-file changes. The user's Windows/full-suite and real index/rebuild
+results remain pending. Expected learner totals are 40 retrieval / 72 full
+tests. No persisted learner
+index, keyword search, model or fresh cloud run is claimed. No immediate merge
+is required for this evidence update; read online and batch at the next checkpoint.
 Read the lesson online; batch documentation synchronization at the next checkpoint.
 The unavailable earlier text attachment was not read; evidence here comes from
 the actual subsequently pasted commands/results and visible Desktop screenshot.
-Step 5 is at its final documentation-synchronization checkpoint; Steps 6–30
-remain pending execution.
+Step 6 is the current implementation lesson; Steps 6–30 remain pending execution.
 Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming
