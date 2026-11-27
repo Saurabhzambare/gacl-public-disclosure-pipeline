@@ -7,7 +7,8 @@ PDF pages. This closes the Step 4 source-review gate; the independent explanatio
 of concepts remains a learning reflection, not an invented answer.
 Status: corrected learner runs pass 28 retrieval / 60 full tests. Real verification
 passes for 136 chunks covering all 70 usable pages, with stable IDs and the
-original 18-fact pipeline intact. Commit/publication/source-review pending.
+original 18-fact pipeline intact. Source is committed/published and reviewed at
+42c9ceb; final batched documentation synchronization pending before Step 6.
 
 ## Recorded Windows verification — 27 November
 
@@ -25,8 +26,11 @@ paths are modified. No whitespace errors were reported; CRLF/LF notices are
 ordinary Git source-text handling. These are author-supplied Windows results,
 not an assistant rerun, index build or cloud job.
 
-The execution gate is passed. Save/push the three-file checkpoint as described
-at the end; actual commit/publication/source readback remain pending. Existing
+The execution gate is passed. The author then committed/published 42c9ceb and
+showed clean tracking status. GitHub confirms the three-file commit, and the
+published module/tests/config match this lesson after formatting/comment
+normalization. No source correction is needed for this checkpoint. The single
+batched documentation synchronization described at the end remains. Existing
 successful checks need not be repeated without a relevant source change.
 
 ## Purpose and ELI5
@@ -822,11 +826,12 @@ src/gacl_pipeline/retrieval.py and tests/test_retrieval.py.
 Generated raw PDFs/databases/outputs stay ignored. git diff --check should
 report no whitespace errors. Do not stage unrelated files or full PDF passages.
 
-## Save the verified implementation checkpoint
+## Verified implementation checkpoint
 
-The author has supplied passing focused/full tests, the real chunk summary,
+The author supplied passing focused/full tests, the real chunk summary,
 coverage/ID verification, offline numerical output and the three-file Git scope.
-The execution results have been reviewed; save that verified work now.
+The following staging/commit/push sequence has now completed successfully.
+It is retained as the checkpoint record; do not make a duplicate code commit.
 
 Stage only the intended files and inspect the staged scope:
 
@@ -851,21 +856,54 @@ git status --short --branch
 git log -1 --oneline
 ```
 
-Share the actual commit/push/status/log output. Expected: a new commit, successful
-push and clean feature/phase2-guided tracking its remote. The hash is not known
-in advance. If commit or push fails, share the error before further Git changes.
-The assistant will inspect the published Step 5 files before the next lesson.
-Batch documentation synchronization after that reviewed checkpoint; an immediate
-documentation-only pull is not required just for this evidence update.
+Actual result: 42c9cebf9ee61d14e1c05b1d86f59904390b5151, successful push
+and clean feature/phase2-guided tracking its remote. GitHub confirms exactly
+those three changed files and the 385-insertion/14-deletion diff. The assistant
+read the published files: the module matches the supplied edits after ignoring
+blank lines, the tests match after blank lines and two explanatory comments,
+and parsed JSON matches. This is source review, not a fresh runtime test.
+
+## Complete the batched documentation synchronization
+
+The verified starting point is clean feature/phase2-guided at 42c9ceb. Main has
+newer documentation while the feature has implementation commits. Combine the
+histories with a normal merge, preserving both. Refresh the latest origin/main
+rather than hard-coding the old comparison SHA:
+
+```powershell
+# Update remote-tracking references without changing the working files.
+git fetch origin
+if ($LASTEXITCODE -ne 0) { throw "Fetch failed; stop before merging." }
+
+# Bring the updated lesson and evidence documents into the feature branch.
+git merge --no-edit origin/main
+```
+
+If the merge succeeds, publish it and inspect the resulting checkpoint:
+
+```powershell
+git push origin feature/phase2-guided
+git status --short --branch
+git log --oneline --graph -5
+```
+
+Share the merge/push/status/history output. If an error/conflict occurs, preserve
+both histories and share that output before pushing. The compared main changes
+are Markdown only, so no software rerun is required merely for this merge;
+reassess if source/tests change or need a conflict resolution. The assistant
+has not performed this learner merge/push. No feature-to-main merge is implied.
+After successful synchronization is recorded, batch later evidence-document
+updates at the next checkpoint rather than starting another merge loop.
 
 For understanding: explain why the end offset is exclusive, why actual overlap
 may be below 250, and why a chunk may still lack table context. Distinguish
 1,800 characters from model tokens. Show how a chunk's page offsets recover its
 exact text and why reviewed notes remain separate.
 
-After review, record the actual Step 5 evidence and create a local checkpoint,
-then batch documentation synchronization. Step 6 will persist pages/chunks in
-a separate replaceable index. It is not part of the current implementation.
+Execution and published-source review are recorded. Complete the single batched
+documentation merge above, then move to Step 6: persist pages/chunks in a separate
+replaceable index. The current .gitignore still needs a data/retrieval/ rule
+before that future index is created. No index is part of the Step 5 implementation.
 
 References: [Python string slicing](https://docs.python.org/3.11/tutorial/introduction.html#strings),
 [string methods](https://docs.python.org/3.11/library/stdtypes.html#string-methods),

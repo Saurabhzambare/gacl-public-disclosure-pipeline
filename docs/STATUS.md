@@ -113,15 +113,25 @@ Offline run f2d60348-903b-4438-a74f-ca4a01545c8a succeeds with cached PDFs
 verified, 18 extracted/loaded/stored and four passing checks. Git shows only the
 three intended tracked files modified, with 385 insertions/14 deletions. No
 whitespace errors are reported; CRLF/LF notices concern source-text normalization,
-not PDF changes. Step 5 execution checks pass; local commit, publication of the
-new source, remote code review and the version-control checkpoint remain pending.
-The last connector-verified feature head remains 53b9be4. No persisted index,
-keyword search, model or fresh cloud run is claimed from these chunking checks.
+not PDF changes. The author then committed and pushed 42c9ceb with clean
+tracking status. GitHub readback confirms
+42c9cebf9ee61d14e1c05b1d86f59904390b5151 and a three-file diff of
+385 insertions / 14 deletions relative to 53b9be4. The assistant read the published
+source: module/tests match the lesson after blank-line/comment normalization and
+retrieval JSON matches semantically. All 28 retrieval test methods and both
+fixture settings are present. This is source review, not another runtime run.
+
+Step 5 execution, commit/publication and source review are verified. Only the
+batched merge of newer main documentation into the clean feature remains before
+Step 6. Main-side changes were inspected as Markdown only; synchronization/push
+results are not yet supplied. Feature application code is not merged into main.
+No persisted index, keyword search, model or fresh cloud run is claimed from
+these chunking checks.
 Read the lesson online; batch documentation synchronization at the next checkpoint.
 The unavailable earlier text attachment was not read; evidence here comes from
 the actual subsequently pasted commands/results and visible Desktop screenshot.
-Step 5 is at its commit/publication/review checkpoint; Steps 6–30 remain pending
-execution.
+Step 5 is at its final documentation-synchronization checkpoint; Steps 6–30
+remain pending execution.
 Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming

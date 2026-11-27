@@ -10,7 +10,7 @@ Step 3 checkpoint: **reviewed, duplicate removed, local commit 39ceacb; clean br
 Documentation synchronization: **latest merge 53b9be4 pushed; clean tracking branch verified, 27 November**.
 Step 4A: **execution checks passed on Windows, 27 November 2026**.
 Step 4: **execution, source-review confirmation and Git checkpoint complete, 27 November**.
-Step 5: **Windows software and real-source verification passed; 136 chunks / 70 usable pages; commit, publication and source-review checkpoint pending**.
+Step 5: **execution passed; 42c9ceb committed/published and reviewed; clean tracking branch verified; batched documentation synchronization pending before Step 6**.
 Step 4B all-page extraction/configuration/tests and the annual-note visual
 confirmation are complete. Gate A is closed; begin Step 5 in Stage B.
 Learner understanding discussion is recorded separately in the learning log.
@@ -160,7 +160,8 @@ update. Exact future commands are introduced only when their modules exist.
 - **Depends on:** Step 4, now complete.
 - **Lesson / status:** [Step 5 detailed lesson](PHASE_2_STEP_05.md); author-supplied
   Windows verification passed: 28 retrieval / 60 full tests, 136 chunks covering
-  70 usable pages with stable IDs. Commit/publication/source-review pending.
+  70 usable pages with stable IDs. Commit 42c9ceb is published and reviewed;
+  the final batched documentation synchronization remains before Step 6.
 - **Purpose / why:** create manageable passages without losing their locations.
 - **ELI5:** split a long page into overlapping reading cards.
 - **Files / installation:** `retrieval.py` chunking helpers, `config/retrieval.json`

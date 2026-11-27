@@ -42,7 +42,7 @@ custom forecasting is deferred until suitable data exists.
 | Capability | Evidence/status |
 |---|---|
 | Python → SQLite → BigQuery/dbt → Power BI | Verified Phase 1; dated evidence linked above |
-| Guided page evidence and in-memory chunking | Windows: 70 usable pages / 136 chunks, 60 software tests pass; Step 5 source publication/review pending |
+| Guided page evidence and in-memory chunking | Windows: 70 usable pages / 136 chunks, 60 software tests pass; published/reviewed at 42c9ceb on the guided feature branch |
 | Persisted page/chunk index and keyword search | Local reference prototype; guided storage/search implementation starts at Steps 6–7 |
 | Pretrained embeddings and semantic search | Planned; model/runtime not yet selected |
 | Validated numerical assistant tools | Planned; existing observations remain authoritative |
@@ -64,8 +64,10 @@ The learner then confirmed both annual notes match the visible PDF pages,
 closing Step 4. [Step 5: exact-span chunking](docs/PHASE_2_STEP_05.md) is now the
 current lesson. After repairing the isolated test fixture, the learner's Windows
 run passes all 60 software tests and verifies 136 chunks across all 70 usable
-pages, with stable IDs and unchanged 18-fact outputs. Step 5 is ready for its
-commit/publication/source-review checkpoint.** The feature has not been merged into main.
+pages, with stable IDs and unchanged 18-fact outputs. The implementation is
+committed/published as 42c9ceb; clean tracking status and source review are
+verified. One batched documentation merge remains before Step 6.** The feature
+has not been merged into main.
 Existing prototype work does not mark learner steps complete.
 
 ### Existing retrieval reference
@@ -212,7 +214,7 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 | [Step 3 lesson](docs/PHASE_2_STEP_03.md) | Verified inspector and local commit checkpoint |
 | [Step 4A lesson](docs/PHASE_2_STEP_04.md) | Single-page structured evidence; Windows execution passed |
 | [Step 4B lesson](docs/PHASE_2_STEP_04B.md) | Execution/source review and published Git checkpoint complete |
-| [Step 5 lesson](docs/PHASE_2_STEP_05.md) | Windows checks passed: 60 tests / 136 chunks / 70 pages; commit/publication/review pending |
+| [Step 5 lesson](docs/PHASE_2_STEP_05.md) | Windows checks passed and source published/reviewed at 42c9ceb; final documentation synchronization pending |
 | [AI scope](docs/AI_EXTENSION_PLAN.md) | Research assistant goals, boundaries and delivery milestones |
 | [Learning log](docs/AI_LEARNING_LOG.md) | Current step, learner evidence and next action |
 | [AI concepts](docs/AI_CONCEPTS.md) | Technical and ELI5 explanations |

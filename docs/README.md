@@ -15,7 +15,7 @@ that a planned feature has been implemented.
 | [Step 3 lesson](PHASE_2_STEP_03.md) | Verified PDF inspector; now included in the published guided feature branch |
 | [Step 4A lesson](PHASE_2_STEP_04.md) | Structured single-page evidence; execution and module review verified |
 | [Step 4B lesson](PHASE_2_STEP_04B.md) | Execution/source-review gate complete; documentation merged/pushed at 53b9be4 |
-| [Step 5 lesson](PHASE_2_STEP_05.md) | Windows execution passed: 60 tests, 136 chunks, exact page coverage and stable IDs; commit/review pending |
+| [Step 5 lesson](PHASE_2_STEP_05.md) | Windows execution and published source review passed at 42c9ceb; final batched documentation merge pending |
 | [AI scope](AI_EXTENSION_PLAN.md) | Product objective, architecture, boundaries and milestones |
 | [Learning log](AI_LEARNING_LOG.md) | Current lesson, learner evidence, errors, decisions and next step |
 | [Concept guide](AI_CONCEPTS.md) | Technical explanations with ELI5 examples |

@@ -42,15 +42,17 @@ concept reflection is recorded separately in the learning log.
 
 [Step 5](PHASE_2_STEP_05.md) has passed author-supplied Windows execution checks:
 28 retrieval / 60 full tests and 136 real chunks covering 70 usable pages with
-stable IDs. The new source is not yet committed/published for remote review.
+stable IDs. Source is published and reviewed at 42c9ceb on feature/phase2-guided;
+main remains documentation-only for these guided additions.
 chunk_text returns exact start_char/end_char spans with an exclusive
 end; chunk_page returns source/page metadata plus parent page_text_sha256,
 chunk text_sha256, chunking_version and settings. chunk_id hashes canonical JSON
 of those values before the ID is inserted. Reviewed notes remain a separate
 field and participate in identity without entering raw text. extract_chunks
-provides the verified in-memory batch and --chunks CLI in the author's local
-implementation; no persisted index is introduced until Step 6. Runtime evidence
-and pending commit/review are recorded separately in the learning log.
+provides the verified in-memory batch and --chunks CLI on the published guided
+feature branch; no persisted index is introduced until Step 6. Runtime evidence,
+source review and pending batched documentation synchronization are recorded
+separately in the learning log.
 
 The full retrieval/search/chunk layouts below otherwise describe the earlier
 local prototype, not automatic availability in the learner's checkout.

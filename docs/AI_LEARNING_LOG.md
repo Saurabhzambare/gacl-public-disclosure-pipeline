@@ -10,7 +10,7 @@ Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
 Documentation merge: **verified, local merge a5001c0; clean branch**.
 Step 4A execution checks: **passed, 27 November 2026**.
 Step 4: **execution, source-review confirmation and Git checkpoint complete, 27 November**.
-Step 5: **Windows software and real-source verification passed; 136 chunks / 70 usable pages; commit, publication and source-review checkpoint pending**. Existing
+Step 5: **execution passed; 42c9ceb committed/published and reviewed; clean tracking branch verified; batched documentation synchronization pending before Step 6**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -559,6 +559,51 @@ is claimed yet. Successful tests need not be repeated without a relevant change.
 Documentation synchronization is batched after the reviewed implementation
 checkpoint; this evidence update does not require an immediate documentation pull.
 
+## Step 5 — published commit and source review verified, 27 November
+
+The author supplied staging/check output for exactly the three intended paths,
+then committed feat: add exact-span chunking with page provenance as 42c9ceb.
+The push advanced origin/feature/phase2-guided from 53b9be4 to 42c9ceb.
+Status is clean and tracks the remote; the log shows the same commit on HEAD
+and origin/feature/phase2-guided. The wrapped word in the pasted log is display
+formatting; the supplied commit command/message is recorded exactly above.
+
+GitHub connector readback confirms
+42c9cebf9ee61d14e1c05b1d86f59904390b5151. Comparing it with 53b9be4
+shows one commit changing only config/retrieval.json,
+src/gacl_pipeline/retrieval.py and tests/test_retrieval.py:
+385 insertions / 14 deletions. No unrelated file or observation-parser change
+is present in that comparison.
+
+The assistant read the published module, configuration, tests, AGENTS.md,
+.gitignore and dependency declaration. Reconstructing the supplied Step 5
+insertions against 53b9be4 matches the published module after ignoring blank
+lines, and matches the tests after ignoring blank lines and the two explanatory
+fixture comments. Parsed retrieval JSON matches exactly. All 28 retrieval
+test methods remain, and the repaired self.settings includes both required
+chunk parameters. No source correction is needed for the current lesson.
+
+This is read-only source comparison, not an assistant runtime rerun or a new
+Windows/cloud/model execution. The prior 28/60 tests, real 136-chunk/70-page
+coverage/ID checks and offline 18-fact run remain the applicable evidence.
+The implementation source publication/review checkpoint is now complete.
+
+Before this documentation update, main at dbf4bc9 and the feature at 42c9ceb
+were diverged. The newer main changes are Markdown only; the feature preserves
+the implementation. Refresh origin and normally merge origin/main into the
+clean feature branch, then push and inspect status/history. The learner performs
+these Git commands, as documented in Step 5. The assistant has not merged or
+pushed the implementation branch in this update.
+
+The remaining housekeeping is that single batched documentation synchronization.
+Do not repeat successful tests just for a Markdown-only merge. Inspect and
+share any actual merge error/conflict before pushing. Main still has no merged
+learner application code; no PR or main merge is claimed. Step 6 is next after
+the checkpoint: its index must be separate from the observations warehouse and
+ignored by Git. The inspected .gitignore does not yet include data/retrieval/;
+adding that rule belongs to the learner's Step 6 implementation. No index was
+created by this review or documentation update.
+
 ## Evidence to record after each lesson
 
 Use the existing stable step ID. Record purpose, exact files changed, new
@@ -594,3 +639,4 @@ change does not advance the learner automatically.
 | 27 November 2026 | Step 4 completion / Step 5 start | Author confirms both annual notes match visible PDF pages and requests Step 5; exact chunking lesson prepared against published 53b9be4 | Step 4 closed; Step 5 implementation/execution pending |
 | 27 November 2026 | Step 5 initial test diagnosis | 28 tests in 0.738s and 60 in 1.715s, each with three errors; 12 string chunk tests pass; traceback confirms missing max_chunk_chars in PageEvidenceTests fixture | Learner fixture repair and rerun pending; Step 5 open |
 | 27 November 2026 | Step 5 corrected verification | 28 tests OK in 0.913s; 60 OK in 1.931s; 136 chunks (60 monthly/76 annual), 70 pages with exact coverage and stable IDs; offline f2d60348-903b-4438-a74f-ca4a01545c8a retains 18 facts/four passing checks; only three tracked implementation files modified | Execution checks passed; commit/publication/source-review pending |
+| 27 November 2026 | Step 5 commit/publication/review | 42c9ceb pushed with clean tracking status; GitHub confirms SHA and three-file diff; module/tests/config match lesson apart from formatting and explanatory comments | Code checkpoint complete; batched documentation synchronization pending before Step 6 |
