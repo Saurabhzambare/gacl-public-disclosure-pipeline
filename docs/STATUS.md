@@ -97,13 +97,31 @@ with three errors (25/57 tests completed successfully). All 12 string-level
 chunk tests pass. The three integration errors trace to missing max_chunk_chars
 in PageEvidenceTests.setUp's self.settings; the tests use a separate temporary
 configuration, not the real project config. The lesson documents the learner's
-fixture repair with both required chunk settings. Corrected output and real-PDF
-chunk checks are pending. Repeated traceback fragments are not extra test runs.
-No passing Step 5 suite, chunk count, persisted index or model is claimed.
+fixture repair with both required chunk settings. Repeated traceback fragments
+are not extra test runs.
+
+The author then supplied corrected Windows results: 28 retrieval tests pass in
+0.913 seconds and all 60 tests pass in 1.931 seconds, with no failures/skips
+shown. Both real CLI modes retain 2 sources, 71 physical / 70 usable pages and
+one skipped monthly cover. Chunking produces 136 chunks: 60 monthly and 76 annual,
+using line-window-v1, maximum 1,800 characters and target overlap 250. Both
+reported source hashes match the approved versions. The real verification block
+passes exact-span/full-coverage, parent metadata/hash, unique-ID and repeated-ID
+checks for all 136 chunks across 70 pages.
+
+Offline run f2d60348-903b-4438-a74f-ca4a01545c8a succeeds with cached PDFs
+verified, 18 extracted/loaded/stored and four passing checks. Git shows only the
+three intended tracked files modified, with 385 insertions/14 deletions. No
+whitespace errors are reported; CRLF/LF notices concern source-text normalization,
+not PDF changes. Step 5 execution checks pass; local commit, publication of the
+new source, remote code review and the version-control checkpoint remain pending.
+The last connector-verified feature head remains 53b9be4. No persisted index,
+keyword search, model or fresh cloud run is claimed from these chunking checks.
 Read the lesson online; batch documentation synchronization at the next checkpoint.
 The unavailable earlier text attachment was not read; evidence here comes from
 the actual subsequently pasted commands/results and visible Desktop screenshot.
-Step 5 is the current implementation lesson; Steps 5–30 remain pending execution.
+Step 5 is at its commit/publication/review checkpoint; Steps 6–30 remain pending
+execution.
 Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming

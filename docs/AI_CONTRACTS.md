@@ -40,14 +40,17 @@ synchronization is verified at 53b9be4, and the learner confirmed both annual
 review notes against the visible report. Step 4 is complete; the independent
 concept reflection is recorded separately in the learning log.
 
-[Step 5](PHASE_2_STEP_05.md) supplies the next proposed additions; execution is
-pending. chunk_text returns exact start_char/end_char spans with an exclusive
+[Step 5](PHASE_2_STEP_05.md) has passed author-supplied Windows execution checks:
+28 retrieval / 60 full tests and 136 real chunks covering 70 usable pages with
+stable IDs. The new source is not yet committed/published for remote review.
+chunk_text returns exact start_char/end_char spans with an exclusive
 end; chunk_page returns source/page metadata plus parent page_text_sha256,
 chunk text_sha256, chunking_version and settings. chunk_id hashes canonical JSON
 of those values before the ID is inserted. Reviewed notes remain a separate
 field and participate in identity without entering raw text. extract_chunks
-will provide a verified in-memory batch and --chunks CLI; no persisted index
-is introduced until Step 6. Its expected test totals are not completion claims.
+provides the verified in-memory batch and --chunks CLI in the author's local
+implementation; no persisted index is introduced until Step 6. Runtime evidence
+and pending commit/review are recorded separately in the learning log.
 
 The full retrieval/search/chunk layouts below otherwise describe the earlier
 local prototype, not automatic availability in the learner's checkout.

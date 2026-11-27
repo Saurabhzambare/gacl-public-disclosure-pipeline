@@ -5,9 +5,29 @@ Prerequisite: Step 4 software, source evidence and Git checkpoints passed.
 The author has now confirmed that both annual review notes match the visible
 PDF pages. This closes the Step 4 source-review gate; the independent explanation
 of concepts remains a learning reflection, not an invented answer.
-Status: initial learner runs reached 28 retrieval / 60 full tests with three
-integration errors each; the test fixture's missing chunk maximum is diagnosed.
-Fixture repair, passing reruns and real-chunk checks remain pending.
+Status: corrected learner runs pass 28 retrieval / 60 full tests. Real verification
+passes for 136 chunks covering all 70 usable pages, with stable IDs and the
+original 18-fact pipeline intact. Commit/publication/source-review pending.
+
+## Recorded Windows verification — 27 November
+
+After the missing test-fixture setting was repaired, the author supplied 28
+retrieval tests passing in 0.913 seconds and all 60 tests passing in 1.931 seconds.
+Both actual source hashes match the approved reports. The new command produces
+136 chunks: 60 monthly and 76 annual, across 70 usable pages from 71 physical
+pages. The single skipped page remains the monthly cover with no embedded text.
+
+The real verifier confirms exact spans and full coverage, inherited metadata,
+unique IDs and identical ordered IDs across two batches. Offline numerical run
+f2d60348-903b-4438-a74f-ca4a01545c8a passes with 18 extracted/loaded/stored
+observations and four passing checks. Only the three intended implementation
+paths are modified. No whitespace errors were reported; CRLF/LF notices are
+ordinary Git source-text handling. These are author-supplied Windows results,
+not an assistant rerun, index build or cloud job.
+
+The execution gate is passed. Save/push the three-file checkpoint as described
+at the end; actual commit/publication/source readback remain pending. Existing
+successful checks need not be repeated without a relevant source change.
 
 ## Purpose and ELI5
 
@@ -445,7 +465,8 @@ that absent key directly. All 12 string-level chunk tests pass; the three new
 integration cases error before exercising their intended checks. Add/correct
 the two entries in this exact fixture dictionary and save the file, then rerun
 the focused suite before the full suite. Do not remove the validator or make
-it silently accept None. Corrected execution is not yet verified.
+it silently accept None. The author subsequently supplied passing corrected
+28/60 runs; the initial error is retained here as a troubleshooting example.
 
 ## 6. Add three integration tests inside PageEvidenceTests
 
@@ -801,12 +822,41 @@ src/gacl_pipeline/retrieval.py and tests/test_retrieval.py.
 Generated raw PDFs/databases/outputs stay ignored. git diff --check should
 report no whitespace errors. Do not stage unrelated files or full PDF passages.
 
-## Stop and share the results
+## Save the verified implementation checkpoint
 
-Share focused/full test summaries, the new real chunk summary, the coverage/ID
-verification output, the offline numerical summary and Git status/diff summary.
-Share any failure traceback rather than claiming a partial run passed.
-Keep the work uncommitted until the implementation and results are reviewed.
+The author has supplied passing focused/full tests, the real chunk summary,
+coverage/ID verification, offline numerical output and the three-file Git scope.
+The execution results have been reviewed; save that verified work now.
+
+Stage only the intended files and inspect the staged scope:
+
+```powershell
+# Select the three implementation changes already verified above.
+git add -- config/retrieval.json src/gacl_pipeline/retrieval.py tests/test_retrieval.py
+git diff --cached --stat
+git diff --cached --check
+```
+
+Expected staged scope: those three files, with no unrelated output/data files.
+The current reported diff is 385 insertions and 14 deletions. CRLF/LF notices
+are normal text normalization. If another path or an actual whitespace error
+appears, inspect it before committing.
+
+Then commit and push the already published feature branch:
+
+```powershell
+git commit -m "feat: add exact-span chunking with page provenance"
+git push origin feature/phase2-guided
+git status --short --branch
+git log -1 --oneline
+```
+
+Share the actual commit/push/status/log output. Expected: a new commit, successful
+push and clean feature/phase2-guided tracking its remote. The hash is not known
+in advance. If commit or push fails, share the error before further Git changes.
+The assistant will inspect the published Step 5 files before the next lesson.
+Batch documentation synchronization after that reviewed checkpoint; an immediate
+documentation-only pull is not required just for this evidence update.
 
 For understanding: explain why the end offset is exclusive, why actual overlap
 may be below 250, and why a chunk may still lack table context. Distinguish

@@ -10,7 +10,7 @@ Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
 Documentation merge: **verified, local merge a5001c0; clean branch**.
 Step 4A execution checks: **passed, 27 November 2026**.
 Step 4: **execution, source-review confirmation and Git checkpoint complete, 27 November**.
-Current lesson: **Step 5 initial runs reached 28/60 tests with three errors each; repair the test fixture's missing chunk setting and rerun**. Existing
+Step 5: **Windows software and real-source verification passed; 136 chunks / 70 usable pages; commit, publication and source-review checkpoint pending**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -506,6 +506,59 @@ Corrected output is pending. Step 5 real-PDF chunk counts, span/coverage/repeate
 checks, offline core rerun and Git checkpoint remain unverified for this lesson.
 No success, code correction or new commit is claimed from the diagnosis alone.
 
+## Step 5 — corrected tests and real-source chunk verification passed, 27 November
+
+The author supplied the corrected Windows terminal runs directly. The three
+previous fixture-related integration errors are absent and all named tests pass.
+This confirms the rerun's behaviour; the exact uncommitted source edits have not
+yet been read back from a published Step 5 commit.
+
+| Check | Author-supplied result |
+|---|---|
+| Retrieval suite | 28 tests, 0.913 seconds, OK |
+| Complete suite | 60 tests, 1.931 seconds, OK |
+| Test composition | 32 core/cloud-boundary tests plus the same 28 retrieval tests; no failures/skips shown |
+| Existing all-page CLI | 2 sources, 71 physical / 70 usable pages, one skipped monthly cover |
+| Monthly chunks | 60 from 20 usable pages; approved monthly PDF hash matches |
+| Annual chunks | 76 from 50 usable pages; approved annual PDF hash matches |
+| Total chunks | 136 |
+| Method/settings | line-window-v1; maximum 1,800 characters, target overlap 250 |
+| Real span/coverage checks | 70 pages, 136 chunks; exact_spans_and_coverage=passed |
+| Repeatability | stable_ids_across_two_runs=true |
+| Offline run ID | f2d60348-903b-4438-a74f-ca4a01545c8a |
+| Offline mode/status | cached_pdfs / success; pdfs_verified_this_run=true |
+| Numerical observations | 18 extracted, 18 loaded, 18 stored |
+| Dataset checks | All four passed; energy differences 0.002/0.00 GJ within 0.01 GJ |
+| Git branch | feature/phase2-guided tracking its remote |
+| Modified tracked files | config/retrieval.json; src/gacl_pipeline/retrieval.py; tests/test_retrieval.py |
+| Tracked diff | Three files, 385 insertions, 14 deletions |
+| Whitespace output | No whitespace errors reported; CRLF/LF normalization notices only |
+
+The focused 28 tests are included in the complete 60, not additional tests.
+The full suite's BigQuery tests use mocks; no fresh cloud/dbt/Power BI run is
+implied. The 136 chunks are text passages, not new numerical observations.
+
+The real verifier checks exact slices, valid/bounded offsets, progress and full
+coverage to each page's end, parent text hashes, inherited source/scope/citation/
+review metadata, unique IDs and identical ordered IDs across two actual batches.
+The actual script uses normal interpreter execution. This is author-supplied
+local evidence, not independent assistant rerunning of the Windows checkout.
+
+The earlier reference prototype also happened to have 136 chunks; record this
+as a new learner-executed result, not an inference from that prototype or a fixed
+target. The observed maximum is the configured bound; overlap remains a target
+and is not claimed to be exactly 250 in every pair.
+
+Execution checks are passed. Next save the exact three modified files in a local
+commit, message feat: add exact-span chunking with page provenance, then push the
+already published feature branch. Share the resulting status/log for review.
+The implementation remains on the author's laptop until that new commit is
+published; connector readback currently still shows feature head 53b9be4.
+No Step 5 commit, public source review, final checkpoint or Step 6 implementation
+is claimed yet. Successful tests need not be repeated without a relevant change.
+Documentation synchronization is batched after the reviewed implementation
+checkpoint; this evidence update does not require an immediate documentation pull.
+
 ## Evidence to record after each lesson
 
 Use the existing stable step ID. Record purpose, exact files changed, new
@@ -540,3 +593,4 @@ change does not advance the learner automatically.
 | 27 November 2026 | Step 4B documentation synchronization | ort merge of origin/main 9a954b7 into feature; 53b9be4 pushed and clean; GitHub confirms head and Markdown-only changes since 29795de | Version-control checkpoint complete; learner source-review confirmation/understanding pending |
 | 27 November 2026 | Step 4 completion / Step 5 start | Author confirms both annual notes match visible PDF pages and requests Step 5; exact chunking lesson prepared against published 53b9be4 | Step 4 closed; Step 5 implementation/execution pending |
 | 27 November 2026 | Step 5 initial test diagnosis | 28 tests in 0.738s and 60 in 1.715s, each with three errors; 12 string chunk tests pass; traceback confirms missing max_chunk_chars in PageEvidenceTests fixture | Learner fixture repair and rerun pending; Step 5 open |
+| 27 November 2026 | Step 5 corrected verification | 28 tests OK in 0.913s; 60 OK in 1.931s; 136 chunks (60 monthly/76 annual), 70 pages with exact coverage and stable IDs; offline f2d60348-903b-4438-a74f-ca4a01545c8a retains 18 facts/four passing checks; only three tracked implementation files modified | Execution checks passed; commit/publication/source-review pending |
