@@ -9,8 +9,10 @@ Baseline execution: **Step 2 passed on Windows, 25 November 2026**.
 Step 3 checkpoint: **reviewed, duplicate removed, local commit 39ceacb; clean branch**.
 Documentation synchronization: **latest merge 53b9be4 pushed; clean tracking branch verified, 27 November**.
 Step 4A: **execution checks passed on Windows, 27 November 2026**.
-Current checkpoint: **Step 4B implementation published; documentation merge 53b9be4 pushed and clean; only learner source-review confirmation/understanding remain before Step 5**.
-Step 4B completes all-page extraction/configuration/tests before Step 5.
+Step 4: **execution, source-review confirmation and Git checkpoint complete, 27 November**.
+Current lesson: **Step 5 exact-span chunking; instructions prepared, learner implementation/execution pending**.
+Step 4B all-page extraction/configuration/tests and the annual-note visual
+confirmation are complete. Gate A is closed; begin Step 5 in Stage B.
 Learner understanding discussion is recorded separately in the learning log.
 
 ## Purpose and finished behavior
@@ -155,7 +157,9 @@ update. Exact future commands are introduced only when their modules exist.
 
 ### Step 5 — Implement exact-span chunking with overlap
 
-- **Depends on:** Step 4.
+- **Depends on:** Step 4, now complete.
+- **Lesson / status:** [Step 5 detailed lesson](PHASE_2_STEP_05.md), prepared after
+  inspecting the published 53b9be4 files; implementation/execution pending.
 - **Purpose / why:** create manageable passages without losing their locations.
 - **ELI5:** split a long page into overlapping reading cards.
 - **Files / installation:** `retrieval.py` chunking helpers, `config/retrieval.json`

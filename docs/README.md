@@ -14,7 +14,8 @@ that a planned feature has been implemented.
 | [Step 2 lesson](PHASE_2_STEP_02.md) | Baseline execution passed on Windows, 25 November |
 | [Step 3 lesson](PHASE_2_STEP_03.md) | Verified PDF inspector; now included in the published guided feature branch |
 | [Step 4A lesson](PHASE_2_STEP_04.md) | Structured single-page evidence; execution and module review verified |
-| [Step 4B lesson](PHASE_2_STEP_04B.md) | Verified extractor/configuration/tests published as 29795de; documentation merge and learner visual confirmation pending |
+| [Step 4B lesson](PHASE_2_STEP_04B.md) | Execution/source-review gate complete; documentation merged/pushed at 53b9be4 |
+| [Step 5 lesson](PHASE_2_STEP_05.md) | Exact-span chunking, stable IDs and focused tests; learner implementation/execution pending |
 | [AI scope](AI_EXTENSION_PLAN.md) | Product objective, architecture, boundaries and milestones |
 | [Learning log](AI_LEARNING_LOG.md) | Current lesson, learner evidence, errors, decisions and next step |
 | [Concept guide](AI_CONCEPTS.md) | Technical explanations with ELI5 examples |

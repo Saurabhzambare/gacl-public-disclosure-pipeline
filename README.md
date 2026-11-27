@@ -59,8 +59,10 @@ four passing dataset checks and 45 passing software tests (32 existing plus
 The clean tracking branch and published source were reviewed. The author then
 merged the newer documentation and pushed 53b9be4; clean tracking status and
 Markdown-only merge changes are verified. The Git checkpoint is complete.
-Learner visual confirmation of two annual review notes and the understanding
-discussion remain before Step 5.** The feature has not been merged into main.
+The learner then confirmed both annual notes match the visible PDF pages,
+closing Step 4. [Step 5: exact-span chunking](docs/PHASE_2_STEP_05.md) is now the
+current lesson; code/tests are supplied for personal implementation and execution
+is pending.** The feature has not been merged into main.
 Existing prototype work does not mark learner steps complete.
 
 ### Existing retrieval reference
@@ -206,7 +208,8 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 | [Step 2 lesson](docs/PHASE_2_STEP_02.md) | Windows baseline verified: 32 tests, 18 records, four checks |
 | [Step 3 lesson](docs/PHASE_2_STEP_03.md) | Verified inspector and local commit checkpoint |
 | [Step 4A lesson](docs/PHASE_2_STEP_04.md) | Single-page structured evidence; Windows execution passed |
-| [Step 4B lesson](docs/PHASE_2_STEP_04B.md) | Verified implementation and documentation synchronized at 53b9be4; learner source-review confirmation pending |
+| [Step 4B lesson](docs/PHASE_2_STEP_04B.md) | Execution/source review and published Git checkpoint complete |
+| [Step 5 lesson](docs/PHASE_2_STEP_05.md) | Exact-span chunking, commented edits and 15 new tests; learner execution pending |
 | [AI scope](docs/AI_EXTENSION_PLAN.md) | Research assistant goals, boundaries and delivery milestones |
 | [Learning log](docs/AI_LEARNING_LOG.md) | Current step, learner evidence and next action |
 | [AI concepts](docs/AI_CONCEPTS.md) | Technical and ELI5 explanations |

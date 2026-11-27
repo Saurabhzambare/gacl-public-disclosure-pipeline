@@ -9,7 +9,8 @@ Step 3 inspector execution checks: **passed**.
 Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
 Documentation merge: **verified, local merge a5001c0; clean branch**.
 Step 4A execution checks: **passed, 27 November 2026**.
-Current checkpoint: **Step 4B implementation published; documentation merge 53b9be4 pushed and clean; only learner source-review confirmation/understanding remain before Step 5**. Existing
+Step 4: **execution, source-review confirmation and Git checkpoint complete, 27 November**.
+Current lesson: **Step 5 exact-span chunking; instructions prepared, learner implementation/execution pending**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -422,6 +423,45 @@ Those confirmations have not been supplied and are not inferred from metadata
 or Git output. No pull request, merge of feature code into main, chunker, model
 or newly executed test/cloud run is claimed.
 
+## Step 4 closed; Step 5 lesson supplied — 27 November
+
+The author answered yes to the final question asking whether both annual review
+notes agree with the visible report at physical pages 1 and 37 (printed 43/79),
+and explicitly requested Step 5. Record this as the author's source-review
+confirmation, not a new assistant PDF inspection or a new extraction/test run.
+Together with the existing 13/45 Windows tests, real-source batch/core results,
+detailed metadata and published clean merge 53b9be4, the Step 4 gate is closed.
+
+The assistant's explanations and the learner's independent concept reflection
+are separate. No independent explanation was supplied by the confirmation.
+Reflection can continue during the next lesson; it is not a reason to repeat
+verified checks or delay the expressly requested Step 5.
+
+[Step 5](PHASE_2_STEP_05.md) is prepared from the actual published retrieval.py,
+retrieval.json and test_retrieval.py at feature/phase2-guided 53b9be4.
+It supplies exact insertions, a bounded main replacement, comments, concepts/ELI5
+and verification commands. Only three existing implementation files are to be
+edited by the learner; no new package is required. The assistant publishes
+Markdown only, not application/configuration/test changes.
+
+Planned current exercise: exact page-string spans, maximum 1,800 characters,
+target overlap 250 with newline preference, preserved page offsets/provenance,
+separate notes, deterministic chunk IDs and an in-memory --chunks command.
+Existing page/all-page interfaces remain. A separate persisted index is Step 6.
+Expected software totals are 28 retrieval tests and 60 full tests after 15 added
+methods; these are not executed results. Real chunk counts must be measured.
+
+Documentation review assembled the proposed insertions in memory, checked one
+main/guard per file, counted the expected 28 retrieval test methods, parsed the
+proposed JSON and checked Markdown fences/whitespace. Python source/test
+execution and real chunk verification were not performed by those checks.
+The user will run the implementation and supply actual evidence.
+
+No immediate documentation merge is required. Read the new lesson online and
+batch synchronization at the next reviewed implementation checkpoint.
+The last actual local clean Git checkpoint remains 53b9be4 until new output
+is supplied. Step 5 is open; no search, storage, model or generation run is claimed.
+
 ## Evidence to record after each lesson
 
 Use the existing stable step ID. Record purpose, exact files changed, new
@@ -454,3 +494,4 @@ change does not advance the learner automatically.
 | 27 November 2026 | Step 4B real-page metadata | Four expected page records supplied; monthly hashes match 4A; annual separate review fields and printed labels 43/79 recorded; Desktop shows three selected new files | Metadata passed; local checkpoint ready, commit and learner visual confirmation pending |
 | 27 November 2026 | Step 4B commit/publication | Clean tracking branch and 29795de supplied; GitHub confirms published SHA; extractor/tests match lesson and JSON matches semantically; inspector present | Local/public feature checkpoint verified; documentation merge and learner visual confirmation pending |
 | 27 November 2026 | Step 4B documentation synchronization | ort merge of origin/main 9a954b7 into feature; 53b9be4 pushed and clean; GitHub confirms head and Markdown-only changes since 29795de | Version-control checkpoint complete; learner source-review confirmation/understanding pending |
+| 27 November 2026 | Step 4 completion / Step 5 start | Author confirms both annual notes match visible PDF pages and requests Step 5; exact chunking lesson prepared against published 53b9be4 | Step 4 closed; Step 5 implementation/execution pending |

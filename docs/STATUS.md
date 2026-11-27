@@ -62,8 +62,10 @@ retains printed label 4; page 6 retains null. Both monthly text hashes match the
 reported 4A hashes. Annual physical pages 1/37 retain printed labels 43/79 and
 the two separate labelled review notes. Annual text hashes are recorded in the
 learning log as reported extraction output. This verifies the metadata display,
-not an independent visual source review. The learner has not yet confirmed that
-the two notes agree with the visible PDF pages.
+not an independent assistant visual source review. The learner subsequently
+answered yes to the final comparison question, confirming both notes agree
+with the visible annual PDF pages. This is author confirmation, not a fresh
+PDF extraction or runtime test.
 
 The author subsequently committed the three intended Step 4B files as 29795de,
 feat: add verified PDF page evidence extraction, and published feature/phase2-guided.
@@ -83,13 +85,20 @@ version-control checkpoint and documentation synchronization are complete.
 No further merge is required solely for this evidence-recording update; batch
 later documentation at the next implementation checkpoint.
 
-The feature implementation has not been merged into main. The complete Step 4
-gate remains open only for the learner's annual-note visual comparison and
-understanding discussion. Step 5 has not started. No runtime retest is claimed
-by this documentation-only merge.
+The feature implementation has not been merged into main. With the author's
+annual-note visual confirmation, the Step 4 execution/source/Git gate is closed.
+Independent concept reflection remains tracked separately; no learner explanation
+is invented from a yes/no confirmation. The author explicitly requested Step 5.
+[The Step 5 lesson](PHASE_2_STEP_05.md) now supplies commented exact-span chunking
+code, insertion locations and 15 additional tests after reviewing the published
+53b9be4 files. Implementation/execution remain pending. Expected new totals are
+28 retrieval / 60 full software tests, not recorded results. No new runtime
+retest, chunk count, persisted index or model is claimed by documentation.
+Read the lesson online; batch documentation synchronization at the next checkpoint.
 The unavailable earlier text attachment was not read; evidence here comes from
 the actual subsequently pasted commands/results and visible Desktop screenshot.
-Steps 4–30 remain pending. Supporting
+Step 5 is the current implementation lesson; Steps 5–30 remain pending execution.
+Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming
 implementation. The first-version dated evidence below remains unchanged.
