@@ -1,6 +1,8 @@
 {
     "schema_version": 1,
     "min_alnum_chars": 30,
+    "max_chunk_chars": 1800,
+    "overlap_chars": 250,
     "reviewed_pages": [
         {
             "source_id": "gacl_brsr_2025_26",

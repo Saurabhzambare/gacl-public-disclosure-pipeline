@@ -10,6 +10,8 @@ import fitz  # Existing PyMuPDF dependency; no new installation.
 
 # The raw-text extraction method is unchanged from Step 4A.
 EXTRACTION_VERSION = "pymupdf-page-text-sort-v1"
+# Bump this identifier when chunk-boundary or identity rules change.
+CHUNKING_VERSION = "line-window-v1"
 
 
 def _positive_integer(value: object) -> bool:
@@ -229,33 +231,198 @@ def extract_documents(root: Path, source_id: str | None = None) -> dict:
         "documents": documents,
     }
 
+def _validate_chunk_settings(max_chunk_chars: int, overlap_chars: int) -> None:
+    """Reject invalid character-window settings before chunking.
+
+    Parameters:
+        max_chunk_chars: Positive maximum number of Python string characters.
+        overlap_chars: Nonnegative target overlap, smaller than the maximum.
+    Returns:
+        None. Invalid values raise ValueError; bool is not accepted as int.
+    """
+    if not _positive_integer(max_chunk_chars):
+        raise ValueError("max_chunk_chars must be a positive integer.")
+    if type(overlap_chars) is not int or not 0 <= overlap_chars < max_chunk_chars:
+        raise ValueError("overlap_chars must be an integer from 0 to max_chunk_chars - 1.")
+
+
+def chunk_text(text: str, max_chunk_chars: int, overlap_chars: int) -> list[dict]:
+    """Split one string into exact, overlapping spans without rewriting it.
+
+    Parameters:
+        text: Exact extracted text from one page.
+        max_chunk_chars: Maximum characters per span.
+        overlap_chars: Target shared characters between neighbouring spans.
+    Returns:
+        Dictionaries with start_char, exclusive end_char and exact text slices.
+        An empty input string returns an empty list.
+    """
+    _validate_chunk_settings(max_chunk_chars, overlap_chars)
+    if not isinstance(text, str):
+        raise ValueError("Chunk text must be a string.")
+
+    spans = []
+    start = 0
+    while start < len(text):
+        limit = min(start + max_chunk_chars, len(text))
+        end = limit
+
+        # Prefer a newline in the latter part of a nonfinal window.
+        # Looking past the overlap also prevents reusing the previous end.
+        if limit < len(text):
+            minimum = max(overlap_chars + 1, max_chunk_chars // 2)
+            newline = text.rfind("\n", start + minimum, limit)
+            if newline != -1:
+                end = newline + 1  # Preserve the newline inside the exact slice.
+
+        spans.append({
+            "start_char": start,
+            "end_char": end,
+            "text": text[start:end],
+        })
+        if end == len(text):
+            break  # Do not create an unnecessary trailing overlap-only chunk.
+
+        next_start = end - overlap_chars
+        if overlap_chars:
+            # Prefer beginning after a newline within the proposed overlap.
+            # Exclude the final newline so this does not collapse overlap to zero.
+            newline = text.find("\n", next_start, end - 1)
+            if newline != -1:
+                next_start = newline + 1
+
+        # The boundary rules above guarantee start < next_start <= end.
+        start = next_start
+    return spans
+
+
+def chunk_page(page: dict, max_chunk_chars: int, overlap_chars: int) -> list[dict]:
+    """Attach provenance and deterministic IDs to spans of one verified page.
+
+    Parameters:
+        page: A complete evidence record returned by extract_page/document helpers.
+        max_chunk_chars: Maximum characters per chunk.
+        overlap_chars: Target overlap before optional newline alignment.
+    Returns:
+        Chunk dictionaries whose text round-trips to the original page offsets.
+        The input page dictionary is not modified.
+    """
+    text = page["text"]
+    if not isinstance(text, str):
+        raise ValueError("Page text must be a string.")
+    actual_text_hash = hashlib.sha256(text.encode("utf-8")).hexdigest()
+    if actual_text_hash != page["text_sha256"]:
+        raise ValueError("Page text SHA-256 mismatch.")
+
+    # Copy explicit provenance fields; do not infer years, units or headings.
+    metadata_keys = (
+        "source_id", "document_sha256", "source_url", "reporting_scope",
+        "pdf_page", "printed_page", "page_count", "reviewed_note", "section",
+        "extraction_version", "pymupdf_version", "citation_url",
+    )
+    chunks = []
+    for span in chunk_text(text, max_chunk_chars, overlap_chars):
+        chunk = {key: page[key] for key in metadata_keys}
+        chunk.update({
+            "page_text_sha256": page["text_sha256"],
+            "start_char": span["start_char"],
+            "end_char": span["end_char"],
+            "text": span["text"],
+            "text_sha256": hashlib.sha256(span["text"].encode("utf-8")).hexdigest(),
+            "chunking_version": CHUNKING_VERSION,
+            "max_chunk_chars": max_chunk_chars,
+            "overlap_chars": overlap_chars,
+        })
+
+        # Canonical JSON gives the same bytes for the same values/key contents.
+        # Include metadata, offsets, versions and parameters in identity.
+        identity = json.dumps(
+            chunk, sort_keys=True, ensure_ascii=False, separators=(",", ":")
+        )
+        chunk["chunk_id"] = hashlib.sha256(identity.encode("utf-8")).hexdigest()
+        chunks.append(chunk)
+    return chunks
+
+
+def extract_chunks(root: Path, source_id: str | None = None) -> dict:
+    """Verify selected PDFs, extract their pages and collect in-memory chunks.
+
+    Parameters:
+        root: Repository directory containing configuration and cached PDFs.
+        source_id: Optional approved-source filter; None selects both sources.
+    Returns:
+        Source/page/chunk counts and document results with pages and chunks.
+        No index, file, database, model request or network call is created.
+    """
+    project_root, sources, settings = _read_inputs(root)
+    max_chunk_chars = settings.get("max_chunk_chars")
+    overlap_chars = settings.get("overlap_chars")
+    _validate_chunk_settings(max_chunk_chars, overlap_chars)
+
+    selected = [
+        source for source in sources
+        if source_id is None or source["source_id"] == source_id
+    ]
+    if not selected:
+        raise ValueError(f"Unknown source ID: {source_id}")
+
+    documents = []
+    for source in selected:
+        # Reuse Step 4B: read/hash/open each selected PDF once in this batch.
+        document = _extract_document(project_root, source, settings)
+        chunks = []
+        for page in document["pages"]:
+            chunks.extend(chunk_page(page, max_chunk_chars, overlap_chars))
+        document["chunks"] = chunks
+        document["chunk_count"] = len(chunks)
+        documents.append(document)
+
+    return {
+        "source_count": len(documents),
+        "physical_pages": sum(item["page_count"] for item in documents),
+        "usable_pages": sum(item["usable_pages"] for item in documents),
+        "skipped_page_count": sum(len(item["skipped_pages"]) for item in documents),
+        "chunk_count": sum(item["chunk_count"] for item in documents),
+        "chunking_version": CHUNKING_VERSION,
+        "max_chunk_chars": max_chunk_chars,
+        "overlap_chars": overlap_chars,
+        "documents": documents,
+    }
+
 
 def main() -> None:
-    """Parse page/batch selections and display JSON; summary omits page text."""
+    """Display page, all-page or chunk results; summary omits long text bodies."""
     parser = argparse.ArgumentParser(description="Extract verified PDF-page evidence.")
     parser.add_argument("--root", type=Path, default=Path.cwd(), help="Repository directory.")
-    parser.add_argument("--source", help="Approved source ID; optional for all pages.")
+    parser.add_argument("--source", help="Approved source ID; optional for batch modes.")
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--page", type=int, help="One-based physical PDF page.")
     mode.add_argument("--all-pages", action="store_true", help="Read all usable pages.")
-    parser.add_argument("--summary", action="store_true", help="Omit pages from batch JSON.")
+    mode.add_argument("--chunks", action="store_true", help="Read and chunk usable pages.")
+    parser.add_argument("--summary", action="store_true", help="Omit batch page/chunk bodies.")
     arguments = parser.parse_args()
     if arguments.page is not None and not arguments.source:
         parser.error("--page requires --source.")
-    if arguments.summary and not arguments.all_pages:
-        parser.error("--summary requires --all-pages.")
+    if arguments.summary and arguments.page is not None:
+        parser.error("--summary requires --all-pages or --chunks.")
 
     try:
-        if arguments.all_pages:
+        if arguments.chunks:
+            evidence = extract_chunks(arguments.root, arguments.source)
+        elif arguments.all_pages:
             evidence = extract_documents(arguments.root, arguments.source)
-            if arguments.summary:
-                # Build display dictionaries without altering canonical page records.
-                evidence["documents"] = [
-                    {key: value for key, value in item.items() if key != "pages"}
-                    for item in evidence["documents"]
-                ]
         else:
             evidence = extract_page(arguments.root, arguments.source, arguments.page)
+
+        if arguments.summary:
+            # Keep counts/skip reasons while omitting page and chunk text records.
+            evidence["documents"] = [
+                {
+                    key: value for key, value in item.items()
+                    if key not in {"pages", "chunks"}
+                }
+                for item in evidence["documents"]
+            ]
     except (OSError, ValueError) as error:
         parser.exit(status=1, message=f"Error: {error}\n")
     print(json.dumps(evidence, indent=2, ensure_ascii=False))
