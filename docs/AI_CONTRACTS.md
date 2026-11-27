@@ -35,13 +35,27 @@ filter. Required mapped/reviewed pages must pass; optional insufficient pages ma
 be skipped. Unknown labels stay null; conflicting labels and stale reviews fail.
 A text hash excludes review notes, so later index identity must include metadata
 and configuration too. The lesson creates no persisted artifact or search index.
-Single-page and batch CLI forms were exercised on Windows. The two-note learner
-visual comparison, understanding discussion and documentation synchronization
-remain pending; detailed evidence is in the learning log.
+Single-page and batch CLI forms were exercised on Windows. Documentation
+synchronization is verified at 53b9be4, and the learner confirmed both annual
+review notes against the visible report. Step 4 is complete; the independent
+concept reflection is recorded separately in the learning log.
 
-The full retrieval/chunk return layouts below describe the earlier local
-prototype, not automatic availability in the learner's checkout. Both exercises
-must pass before the complete Step 4 gate closes.
+[Step 5](PHASE_2_STEP_05.md) has passed author-supplied Windows execution checks:
+28 retrieval / 60 full tests and 136 real chunks covering 70 usable pages with
+stable IDs. Source is published and reviewed at 42c9ceb on feature/phase2-guided;
+main remains documentation-only for these guided additions.
+chunk_text returns exact start_char/end_char spans with an exclusive
+end; chunk_page returns source/page metadata plus parent page_text_sha256,
+chunk text_sha256, chunking_version and settings. chunk_id hashes canonical JSON
+of those values before the ID is inserted. Reviewed notes remain a separate
+field and participate in identity without entering raw text. extract_chunks
+provides the verified in-memory batch and --chunks CLI on the published guided
+feature branch; no persisted index is introduced until Step 6. Runtime evidence,
+source review and pending batched documentation synchronization are recorded
+separately in the learning log.
+
+The full retrieval/search/chunk layouts below otherwise describe the earlier
+local prototype, not automatic availability in the learner's checkout.
 
 ## Current page and chunk evidence
 

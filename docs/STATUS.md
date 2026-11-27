@@ -62,8 +62,10 @@ retains printed label 4; page 6 retains null. Both monthly text hashes match the
 reported 4A hashes. Annual physical pages 1/37 retain printed labels 43/79 and
 the two separate labelled review notes. Annual text hashes are recorded in the
 learning log as reported extraction output. This verifies the metadata display,
-not an independent visual source review. The learner has not yet confirmed that
-the two notes agree with the visible PDF pages.
+not an independent assistant visual source review. The learner subsequently
+answered yes to the final comparison question, confirming both notes agree
+with the visible annual PDF pages. This is author confirmation, not a fresh
+PDF extraction or runtime test.
 
 The author subsequently committed the three intended Step 4B files as 29795de,
 feat: add verified PDF page evidence extraction, and published feature/phase2-guided.
@@ -74,16 +76,63 @@ extractor, tests, retrieval settings and earlier inspector. The extractor/tests
 match the lesson after final-newline normalization and the JSON matches
 semantically. This is source review, not a fresh runtime execution.
 
-Main still contains newer documentation and no merged learner implementation.
-The compared feature changes are the four intended application paths; newer
-main changes are documentation only. Refresh and merge origin/main into the
-clean feature branch using the Step 4B instructions, then push the resulting
-feature merge. That synchronization is not yet evidenced. The complete Step 4
-gate remains open pending learner visual comparison/understanding and this
-checkpoint synchronization; Step 5 has not started.
+The author then successfully fetched and merged origin/main 9a954b7 into the
+feature branch using ort, and pushed merge 53b9be4. Supplied status/log show
+a clean tracking branch. GitHub readback confirms
+53b9be45534a144ab5b2effbe99f3918173919bb and a comparison with 29795de
+shows only nine Markdown paths changed, preserving the implementation. The
+version-control checkpoint and documentation synchronization are complete.
+No further merge is required solely for this evidence-recording update; batch
+later documentation at the next implementation checkpoint.
+
+The feature implementation has not been merged into main. With the author's
+annual-note visual confirmation, the Step 4 execution/source/Git gate is closed.
+Independent concept reflection remains tracked separately; no learner explanation
+is invented from a yes/no confirmation. The author explicitly requested Step 5.
+[The Step 5 lesson](PHASE_2_STEP_05.md) now supplies commented exact-span chunking
+code, insertion locations and 15 additional tests after reviewing the published
+53b9be4 files. The author subsequently supplied initial Windows output: 28
+retrieval tests in 0.738 seconds and 60 full tests in 1.715 seconds, each ending
+with three errors (25/57 tests completed successfully). All 12 string-level
+chunk tests pass. The three integration errors trace to missing max_chunk_chars
+in PageEvidenceTests.setUp's self.settings; the tests use a separate temporary
+configuration, not the real project config. The lesson documents the learner's
+fixture repair with both required chunk settings. Repeated traceback fragments
+are not extra test runs.
+
+The author then supplied corrected Windows results: 28 retrieval tests pass in
+0.913 seconds and all 60 tests pass in 1.931 seconds, with no failures/skips
+shown. Both real CLI modes retain 2 sources, 71 physical / 70 usable pages and
+one skipped monthly cover. Chunking produces 136 chunks: 60 monthly and 76 annual,
+using line-window-v1, maximum 1,800 characters and target overlap 250. Both
+reported source hashes match the approved versions. The real verification block
+passes exact-span/full-coverage, parent metadata/hash, unique-ID and repeated-ID
+checks for all 136 chunks across 70 pages.
+
+Offline run f2d60348-903b-4438-a74f-ca4a01545c8a succeeds with cached PDFs
+verified, 18 extracted/loaded/stored and four passing checks. Git shows only the
+three intended tracked files modified, with 385 insertions/14 deletions. No
+whitespace errors are reported; CRLF/LF notices concern source-text normalization,
+not PDF changes. The author then committed and pushed 42c9ceb with clean
+tracking status. GitHub readback confirms
+42c9cebf9ee61d14e1c05b1d86f59904390b5151 and a three-file diff of
+385 insertions / 14 deletions relative to 53b9be4. The assistant read the published
+source: module/tests match the lesson after blank-line/comment normalization and
+retrieval JSON matches semantically. All 28 retrieval test methods and both
+fixture settings are present. This is source review, not another runtime run.
+
+Step 5 execution, commit/publication and source review are verified. Only the
+batched merge of newer main documentation into the clean feature remains before
+Step 6. Main-side changes were inspected as Markdown only; synchronization/push
+results are not yet supplied. Feature application code is not merged into main.
+No persisted index, keyword search, model or fresh cloud run is claimed from
+these chunking checks.
+Read the lesson online; batch documentation synchronization at the next checkpoint.
 The unavailable earlier text attachment was not read; evidence here comes from
 the actual subsequently pasted commands/results and visible Desktop screenshot.
-Steps 4–30 remain pending. Supporting
+Step 5 is at its final documentation-synchronization checkpoint; Steps 6–30
+remain pending execution.
+Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming
 implementation. The first-version dated evidence below remains unchanged.

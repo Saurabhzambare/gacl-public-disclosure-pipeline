@@ -5,11 +5,12 @@ Prerequisite: Step 4A execution passed and the author supplied the complete
 122-line retrieval.py for review. Its contents match the Step 4A lesson.
 Status: learner batch extraction, offline core regression and both software-test
 runs and all four real-page metadata checks passed on Windows. Implementation
-committed/published as 29795de; documentation merge and learner visual-review
-confirmation remain pending.
-This finishes the second exercise within Step 4. Step 5 is still chunking.
+committed/published as 29795de; documentation merge 53b9be4 pushed and clean.
+The learner has confirmed both annual notes match the visible PDF pages; the
+Step 4 gate is closed. Independent concept reflection remains a learning note,
+not an invented explanation. Continue with [Step 5: chunking](PHASE_2_STEP_05.md).
 
-## Recorded partial execution — 27 November
+## Recorded execution and checkpoint — 27 November
 
 Author-supplied Windows output confirms 2 pinned PDFs, 71 physical / 70 usable
 pages, monthly 20/21 and annual 50/50. Monthly physical page 1 is skipped with
@@ -24,12 +25,18 @@ includes the 13 retrieval tests and 32 existing tests. These synthetic-fixture
 checks complement the real-source batch run; they do not replace visual review.
 All four detailed metadata records have since been supplied: monthly labels 4/null,
 unchanged monthly text hashes, and annual printed labels 43/79 with separate
-reviewed notes. The learner's own visual comparison remains pending. The author has now
+reviewed notes. The learner subsequently confirmed the visual comparison.
+The author has now
 committed/published the implementation as 29795de on feature/phase2-guided,
 with clean tracking status. GitHub source readback confirms the extractor/tests
 match this lesson and the settings match semantically. The earlier inspector
-is also present on that branch. Documentation synchronization and understanding
-discussion remain open; no new runtime run is claimed by source review.
+is also present on that branch. The author subsequently merged origin/main at
+9a954b7, pushed merge commit 53b9be4 and showed clean tracking status.
+GitHub readback confirms the merge changes only Markdown relative to 29795de.
+Documentation synchronization and learner visual confirmation are complete.
+Independent concept reflection is recorded separately. No runtime retest is
+claimed by the merge or the later confirmation.
+Later documentation updates are batched at the next implementation checkpoint.
 See [the learning log](AI_LEARNING_LOG.md) for evidence. Successful tests need not
 be repeated without a relevant code change.
 
@@ -791,9 +798,10 @@ tracking origin/feature/phase2-guided. GitHub readback confirms the source files
 The previously committed inspector is present too. Do not make another
 duplicate implementation commit.
 
-The clean branch contains the learner's implementation while main contains newer
-documentation. Bring both histories together with a normal merge. Remain on
-feature/phase2-guided; the verified starting point is clean.
+Completed on 27 November: the author combined the implementation and the newer
+main documentation using the following commands. They are retained as the
+synchronization reference; do not repeat the merge just for the subsequent
+recording of its success.
 
 ```powershell
 # Download current remote history; preserve local files.
@@ -810,7 +818,8 @@ The inspected changes are in separate paths, so a normal merge is expected;
 actual success must still be checked. If Git reports conflicts or any error,
 share that output and stop before pushing. Preserve both versions of the work.
 
-After a successful merge, publish the combined feature history and inspect it:
+After the successful merge, the author published the combined feature history
+and inspected it with:
 
 ```powershell
 git push origin feature/phase2-guided
@@ -818,26 +827,29 @@ git status --short --branch
 git log --oneline --graph -5
 ```
 
-Expected: a successful push, clean feature/phase2-guided tracking its remote, and
-a merge commit preserving the implementation and documentation. Record the
-actual hash/output; it cannot be predicted. This does not merge the feature into
-main. The assistant maintains documentation but does not perform this learner
-merge or publish implementation changes on the learner's behalf. No software
-rerun is required merely for a documentation-only merge; reassess if source code
-or tests change or a conflict requires a code resolution.
+Actual result: merge 53b9be45534a144ab5b2effbe99f3918173919bb, successful
+push and clean feature/phase2-guided tracking its remote. GitHub readback confirms
+the head and that only nine Markdown paths changed from 29795de. This preserves
+the implementation and newer documentation, without merging feature code into
+main. The learner performed the merge/push. No software rerun is required merely
+for this documentation-only merge; reassess if source code or tests change or a
+future conflict requires code resolution. Batch subsequent documentation at the
+next implementation checkpoint instead of merging after every evidence update.
 
-The two-note visual comparison remains pending: inspect the annual PDF's physical
-pages 1 and 37 and say whether the configured notes agree with the visible text.
-Outputting a configured note does not establish this comparison. Record any
-discrepancy and correct the review metadata before using it in Step 5.
+The author has now confirmed the two-note visual comparison against physical
+annual pages 1 and 37. This completes the Step 4 source-review gate alongside
+the already verified software, batch/core, metadata and Git checkpoints.
+Outputting configured notes alone did not establish that comparison; the later
+explicit yes supplied the author's confirmation.
 
 For understanding, explain why reviewed prose stays separate from extracted text,
 and why unreadable required evidence fails while an optional insufficient page
 can be skipped. Distinguish 18 observations, 70 usable pages and 45 software tests.
 The discussion is tracked separately from verified execution.
 
-Step 5 then introduces exact-span chunks and overlap. No chunker, search index
-or model is introduced by this lesson.
+Continue with [the Step 5 lesson](PHASE_2_STEP_05.md) for exact-span chunks and
+overlap. No chunker, search index or model is implemented merely by closing
+this Step 4 lesson.
 
 References: [PyMuPDF page API](https://pymupdf.readthedocs.io/en/latest/page.html),
 [document API](https://pymupdf.readthedocs.io/en/latest/document.html),
