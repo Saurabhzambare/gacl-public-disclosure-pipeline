@@ -1,7 +1,11 @@
 # Phase 2 — Step 4: Define page evidence and extract usable pages
 
 Build-order version: 1.0. Prepared: 25 November 2026 (India).
-Current lesson: **4A — one structured page record; learner implementation pending**.
+Step 4A execution: **passed on the author's Windows laptop, 27 November 2026**.
+Evidence: approved monthly PDF hash, page 5/printed 4 with six freshwater rows,
+page 6/printed null, page zero exit 1, and 32 tests passing in 1.233 seconds.
+The module is untracked. Review its actual contents before precise 4B edits;
+existing regression tests do not constitute focused coverage of the new module.
 Then: **4B — all usable pages, metadata configuration and focused tests; pending**.
 These are two exercises inside existing Step 4, not new numbered roadmap steps.
 Step 5 cannot begin until the complete Step 4 gate passes.

@@ -53,7 +53,8 @@ The [Phase 2 Master Build Order](docs/PHASE_2_BUILD_ORDER.md) defines 30 stable
 steps in eight stages. **Steps 1–3 execution and the Step 3 local commit checkpoint are verified.
 The inspector is committed locally as 39ceacb on feature/phase2-guided.
 Documentation synchronization is verified at local merge a5001c0.
-Current lesson: Step 4A, structured single-page evidence; learner implementation pending.** Existing prototype work does not mark learner steps complete.
+Step 4A execution checks passed on Windows, 27 November.
+Current checkpoint: review retrieval.py before extending it in Step 4B; Step 4 remains open.** Existing prototype work does not mark learner steps complete.
 
 ### Existing retrieval reference
 

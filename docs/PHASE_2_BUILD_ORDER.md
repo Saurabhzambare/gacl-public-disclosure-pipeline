@@ -8,7 +8,8 @@ Readiness execution: **Step 1 passed on Windows, 25 November 2026**.
 Baseline execution: **Step 2 passed on Windows, 25 November 2026**.
 Step 3 checkpoint: **reviewed, duplicate removed, local commit 39ceacb; clean branch**.
 Documentation synchronization: **local merge a5001c0 verified; clean personal branch**.
-Current lesson: **Step 4A — structured page record; implementation pending**.
+Step 4A: **execution checks passed on Windows, 27 November 2026**.
+Current checkpoint: **inspect actual retrieval.py before Step 4B edits**.
 Step 4B completes all-page extraction/configuration/tests before Step 5.
 Learner understanding discussion is recorded separately in the learning log.
 
@@ -526,8 +527,7 @@ update. Exact future commands are introduced only when their modules exist.
 
 Steps 1–3 execution checks passed on Windows, and Step 3's local-file review and
 commit checkpoint closed with 39ceacb on a clean personal branch. Documentation
-synchronization at merge a5001c0 is also verified. Step 4A instructions
-are prepared; learner implementation and 4B remain pending. Steps 5–30 remain pending. Understanding discussion remains recorded separately. Do not pre-check the roadmap
+synchronization at merge a5001c0 is also verified. Step 4A execution checks passed on 27 November. Review the learner's actual\nmodule before 4B edits; 4B and the overall Step 4 gate remain pending. Steps 5–30 remain pending. Understanding discussion remains recorded separately. Do not pre-check the roadmap
 because a reference module exists. In [AI_LEARNING_LOG.md](AI_LEARNING_LOG.md),
 record current step ID, actual files changed, commands/results, explanation in
 the learner's words, errors/fixes and next step. [STATUS.md](STATUS.md) tracks

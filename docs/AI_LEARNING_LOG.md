@@ -8,7 +8,8 @@ Step 2 baseline execution: **passed**.
 Step 3 inspector execution checks: **passed**.
 Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
 Documentation merge: **verified, local merge a5001c0; clean branch**.
-Current lesson: **Step 4A, structured page record; implementation pending**. Existing
+Step 4A execution checks: **passed, 27 November 2026**.
+Current checkpoint: **review actual retrieval.py before Step 4B edits**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -182,23 +183,55 @@ merge into public main is evidenced. Both lines of work were preserved.
 The source branch remains personal and the latest verified software suite is
 still 32 tests in 0.987 seconds; this docs merge is not a new runtime test.
 
-## Current lesson — Step 4A: return one structured page record
+## Step 4A — execution checks verified on 27 November
 
-[Step 4](PHASE_2_STEP_04.md) is taught in two exercises without changing the
-30-step order: 4A returns one page dictionary; 4B adds all-page extraction,
-reviewed metadata configuration, skipped-page rules and focused tests. Both
-must pass before Step 5. The learner creates src/gacl_pipeline/retrieval.py
-personally, keeping the existing inspector unchanged. No installation is needed.
+Evidence: author-uploaded Pasted text(20261127-042953).txt. The author created
+src/gacl_pipeline/retrieval.py locally and ran the module on the personal branch.
 
-The code/commands are supplied as documentation only. No new module, config,
-test or index is created by the assistant. Learner implementation/output remain
-pending; no model or generated-answer claim is made. A page is not a numerical
-observation, and document-level scope does not classify every sentence's period.
+| Check | Author-supplied result |
+|---|---|
+| Source / scope | gacl_dahej_plot3_ec_2025_h1 / dahej_plot3_report |
+| Document version | Approved monthly SHA-256 4882f4e453a78fe956850944d9df2b636c74d225eab2331e7d8873fe4050c9c1 |
+| Physical page 5 | printed_page 4, page_count 21, six monthly freshwater rows |
+| Physical page 6 | printed_page null; extracted footer says Page 5 of 20 |
+| Page 5 text SHA-256 | 1975b4bd411905133835f961efe30c7ffbfb600bfe37390e783306943ba6abd8 |
+| Page 6 text SHA-256 | 81b517eab4bda8fc718702da5c368dc9ca0ff10100a0af19a1cc66f4050be95a |
+| Extraction / library | pymupdf-page-text-sort-v1 / PyMuPDF 1.26.6 |
+| Citation targets | Official monthly PDF with physical page fragments 5 and 6 |
+| Invalid physical page 0 | Error: PDF page must be a positive integer; exit code 1 |
+| Existing regression suite | 32 tests, 1.233 seconds, OK |
+| Git status | feature/phase2-guided; only src/gacl_pipeline/retrieval.py untracked |
 
-The author can use the online lesson/conversation without another immediate
-documentation merge. Batch documentation synchronization at the Step 4 commit
-checkpoint after inspecting actual history; do not require a merge for every
-minor progress note.
+The supplied paste repeats some commands/test lines and the same final summary.
+Count the reported 32-test suite once; do not add duplicated display lines or
+infer several independently verified runs. Text hashes are recorded as reported;
+do not recompute them from console-wrapped copied text and claim an independent
+integrity check. The raw canonical text must be checked from the actual module
+result when needed.
+
+Page 6 is the intended unknown-mapping behavior. Extracting a footer does not
+automatically populate reviewed configuration. No guessed page offset or new
+numerical observation is introduced. The original source configuration remains
+unchanged according to the supplied Git status.
+
+The assistant explained physical/index/printed numbering and where the saved
+mapping lives when asked. Do not mark a learner's independent explanation as
+supplied. No new focused retrieval tests, all-page extraction or model run is
+claimed. Current software counts remain separate from observations and page counts.
+
+## Current checkpoint — inspect the module before 4B
+
+Ask for Get-Content of the learner's actual src/gacl_pipeline/retrieval.py
+before giving replacement/insertion instructions. Its output matches 4A
+expectations, but terminal results are not a complete source-file review.
+Do not commit partial Step 4 yet; review the file, then guide the all-page,
+metadata-configuration and focused-test exercise. Step 5 still waits for the
+complete Step 4 gate. No new installation or immediate documentation merge is
+required for this read-only inspection.
+
+Batch newer documentation synchronization at the Step 4 checkpoint after
+inspecting actual history. The assistant changes documentation only; learner
+application code stays on the personal branch until explicitly published.
 
 ## Evidence to record after each lesson
 
@@ -225,3 +258,4 @@ change does not advance the learner automatically.
 | 25 November 2026 | Step 3 | Inspector reviewed; full duplicate hashes matched; extra copy removed; only intended 103-line script committed as 39ceacb; clean personal branch | Local commit checkpoint complete; code not evidenced as uploaded |
 | 25 November 2026 | Before Step 4 | Local merge a5001c0 combines 39ceacb and documentation through 3df36db; clean feature branch | Verified |
 | 25 November 2026 | Step 4A | Single-page dictionary lesson prepared; 4B required before Step 4 completion | Pending learner implementation |
+| 27 November 2026 | Step 4A | Page-5 evidence, null unknown mapping, expected page-zero error, 32 tests OK in 1.233 seconds; module untracked | Execution checks passed; source-file review before 4B pending |

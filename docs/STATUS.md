@@ -1,6 +1,6 @@
 # Project status
 
-Updated: 25 November 2026. Original first-version target: 22 November 2026, 8:00 PM IST; this was a target, not a completed release date.
+Updated: 27 November 2026. Original first-version target: 22 November 2026, 8:00 PM IST; this was a target, not a completed release date.
 
 ## Guided AI implementation — 25 November 2026
 
@@ -33,9 +33,15 @@ checkpoint is closed; source-code upload/merge into public main is not evidenced
 The author then fetched/merged origin/main into the personal branch at a5001c0;
 the supplied graph retains 39ceacb and documentation through 3df36db, with clean
 status. This is local branch synchronization, not source upload to public main.
-Step 4A's structured-page lesson is prepared for personal implementation. 4B
-will cover all usable pages/configuration/tests. Neither exercise is claimed
-implemented or executed; Step 4 remains open until both pass. Understanding discussion remains recorded separately. Steps 4–30
+Step 4A execution checks passed in author-supplied Windows output on 27 November:
+physical page 5 returned the approved monthly source hash, printed page 4 and
+the six freshwater rows; page 6 retained printed_page=null despite a printed
+footer in the extracted text. Page zero was rejected with exit code 1. The
+existing suite reported 32 tests passing in 1.233 seconds; duplicated pasted
+lines are not extra tests or verified separate runs. Git shows only untracked
+src/gacl_pipeline/retrieval.py. Actual file-content review precedes precise 4B
+edits. Step 4B covers all usable pages/configuration/focused tests and remains
+pending; the overall Step 4 gate is still open. Understanding discussion remains recorded separately. Steps 4–30
 remain pending. Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming
