@@ -57,12 +57,23 @@ a8998693-ba1f-4044-b3b5-169b84456ca8 succeeds with cached PDFs verified,
 remain 0.002/0.00 GJ within 0.01 GJ. Git shows exactly the three intended
 untracked paths on feature/phase2-guided; an empty tracked diff is expected.
 
-The Step 4B real-page field checks and learner comparison of annual review notes
-against physical pages 1/37 are not yet supplied. Software tests are verified as
-above; they use synthetic PDFs and do not replace the real-page review. The batch summary does not expose raw page text or review fields.
-The unavailable uploaded text file was not read; no omitted test result is
-inferred from it. No code commit or public source upload is evidenced.
-The complete Step 4 gate remains open. Understanding discussion is recorded separately.
+The author subsequently supplied all four detailed page records. Monthly page 5
+retains printed label 4; page 6 retains null. Both monthly text hashes match the
+reported 4A hashes. Annual physical pages 1/37 retain printed labels 43/79 and
+the two separate labelled review notes. Annual text hashes are recorded in the
+learning log as reported extraction output. This verifies the metadata display,
+not an independent visual source review. The learner has not yet confirmed that
+the two notes agree with the visible PDF pages.
+
+The Desktop screenshot shows exactly the three intended new files selected on
+feature/phase2-guided and an empty commit-summary field. A local checkpoint commit
+is now appropriate after the passed software/batch/core/metadata checks; its
+actual commit ID and clean status are not yet supplied. No source upload or
+public main merge is evidenced. Documentation synchronization stays batched at
+the checkpoint. The complete Step 4 gate remains open pending the learner's
+visual comparison/understanding and checkpoint; Step 5 has not started.
+The unavailable earlier text attachment was not read; evidence here comes from
+the actual subsequently pasted commands/results and visible Desktop screenshot.
 Steps 4–30 remain pending. Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming

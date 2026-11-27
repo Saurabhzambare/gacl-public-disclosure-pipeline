@@ -9,7 +9,7 @@ Step 3 inspector execution checks: **passed**.
 Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
 Documentation merge: **verified, local merge a5001c0; clean branch**.
 Step 4A execution checks: **passed, 27 November 2026**.
-Current checkpoint: **Step 4B batch/core checks and 13 focused / 45 full tests passed; real-page fields and visual-review confirmation pending**. Existing
+Current checkpoint: **Step 4B software and real-page metadata checks passed; local checkpoint commit and learner visual-review confirmation pending**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -311,12 +311,48 @@ The focused suite is included in the full suite, so there are 45 distinct tests.
 
 Together with the earlier pasted batch/offline output this verifies the software
 tests, 70 usable real-source pages and the preserved 18-fact numerical pipeline.
-Remaining Step 4 evidence: actual page-5 text hash, page-6 null mapping, annual
-page-1/page-37 review fields and learner visual comparison, plus the understanding
-discussion. The lesson now includes an optional compact read-only metadata check
-to avoid pasting full page bodies. Existing equivalent page output is sufficient.
-Do not repeat the successful tests without a relevant subsequent code change.
-No local code commit, source upload or final Step 4 completion is claimed.
+At this test checkpoint the real-page fields, learner visual comparison and
+understanding discussion remained pending. The subsequent metadata results are
+recorded below. Do not repeat successful tests without a relevant code change.
+No local code commit, source upload or final Step 4 completion was evidenced.
+
+## Step 4B — real-page metadata verified; local checkpoint ready, 27 November
+
+The author ran the compact read-only Python block and pasted all four records.
+The accompanying GitHub Desktop screenshot shows the personal
+feature/phase2-guided branch, exactly three selected new files and an empty
+commit-summary field. The commit button is disabled until a summary is entered;
+no new commit is evidenced by that screenshot.
+
+| Source / physical page | Printed page | Review field | Text SHA-256, as reported |
+|---|---|---|---|
+| Monthly / 5 | 4 | null | 1975b4bd411905133835f961efe30c7ffbfb600bfe37390e783306943ba6abd8 |
+| Monthly / 6 | null | null | 81b517eab4bda8fc718702da5c368dc9ca0ff10100a0af19a1cc66f4050be95a |
+| Annual / 1 | 43 | Separate labelled review, standalone boundary and financial year | 9e551faa06772481d38415a3a85717245022bad46df8c02f93f3766d69c75765 |
+| Annual / 37 | 79 | Separate labelled review, recalculated comparatives and annual production explanation | 6a2124705e9b65a9aef0f1dbec650086dfcec6e602e4c4e0a6ac793109e6cd76 |
+
+Both monthly hashes match the earlier reported Step 4A hashes. Annual hashes
+are newly recorded extraction output, not an independently recomputed audit.
+The records show the intended explicit/unknown labels and separate notes.
+Printing configured notes does not independently verify their source support or
+prove the learner visually inspected the PDF. No new learner visual-comparison
+confirmation is inferred from the GitHub Desktop screenshot.
+
+With software tests, real batch coverage, core regression and detailed metadata
+reviewed, a local version-control checkpoint is now appropriate. This advances
+the earlier temporary instruction to hold uncommitted work: save these verified
+implementation changes locally while keeping the two-note source-review
+confirmation and understanding discussion explicit. A local commit is reversible
+and does not publish code or close the entire Step 4 learning gate.
+
+Suggested Desktop summary: feat: add verified PDF page evidence extraction.
+Commit only config/retrieval.json, src/gacl_pipeline/retrieval.py and
+tests/test_retrieval.py to feature/phase2-guided. Then share git status and the
+latest commit line so the checkpoint can be recorded. CRLF/LF normalization in
+the displayed JSON is ordinary Git text handling; it is not a change to PDF bytes.
+The local commit, current clean status, documentation merge and learner visual
+comparison of annual physical pages 1 and 37 remain unverified until supplied.
+Step 5 still follows the remaining review and Step 4 checkpoint.
 
 ## Evidence to record after each lesson
 
@@ -347,3 +383,4 @@ change does not advance the learner automatically.
 | 27 November 2026 | Step 4A source review / Step 4B | Actual module matches 4A; complete 4B lesson supplied; JSON/Python syntax and 13 test-method count checked without execution | Review complete; learner 4B implementation/execution pending |
 | 27 November 2026 | Step 4B partial execution | Both pinned PDFs: 71 physical / 70 usable pages, one monthly cover skipped; offline run a8998693-ba1f-4044-b3b5-169b84456ca8 preserves 18 facts and four passing checks; exactly three intended untracked paths | Batch/core checks passed; tests and page-review evidence pending |
 | 27 November 2026 | Step 4B software verification | Focused suite: 13 tests OK in 0.634s; full suite: 45 tests OK in 1.620s; no failures/skips shown | Software checks passed; real-page fields, visual review and understanding pending |
+| 27 November 2026 | Step 4B real-page metadata | Four expected page records supplied; monthly hashes match 4A; annual separate review fields and printed labels 43/79 recorded; Desktop shows three selected new files | Metadata passed; local checkpoint ready, commit and learner visual confirmation pending |

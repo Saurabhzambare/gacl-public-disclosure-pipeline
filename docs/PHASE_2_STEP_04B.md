@@ -4,7 +4,8 @@ Build-order version: 1.0. Prepared: 27 November 2026 (India).
 Prerequisite: Step 4A execution passed and the author supplied the complete
 122-line retrieval.py for review. Its contents match the Step 4A lesson.
 Status: learner batch extraction, offline core regression and both software-test
-runs passed on Windows; detailed real-page/review evidence remains pending.
+runs and all four real-page metadata checks passed on Windows. Local checkpoint
+commit and learner visual-review confirmation remain pending.
 This finishes the second exercise within Step 4. Step 5 is still chunking.
 
 ## Recorded partial execution — 27 November
@@ -20,10 +21,13 @@ The author then supplied 13 focused tests passing in 0.634 seconds and all
 45 tests passing in 1.620 seconds, with no failures or skips shown. The full suite
 includes the 13 retrieval tests and 32 existing tests. These synthetic-fixture
 checks complement the real-source batch run; they do not replace visual review.
-Only the detailed real-page/review checks requested at the end remain pending,
-along with the understanding discussion and final commit checkpoint.
+All four detailed metadata records have since been supplied: monthly labels 4/null,
+unchanged monthly text hashes, and annual printed labels 43/79 with separate
+reviewed notes. The learner's own visual comparison remains pending. A local
+checkpoint commit can now save the verified implementation; its commit ID/clean
+status, documentation synchronization and understanding discussion remain open.
 See [the learning log](AI_LEARNING_LOG.md) for evidence. Successful tests need not
-be repeated without a relevant code change. Keep work uncommitted until review.
+be repeated without a relevant code change.
 
 ## Purpose, ELI5 and boundaries
 
@@ -774,12 +778,40 @@ show printed labels 43 and 79 and the separate review notes. Open those annual
 PDF pages and state whether the notes agree with the visible report. Printed
 labels in JSON alone do not establish that visual comparison.
 
-## Stop and share the evidence
+## Review and local checkpoint
 
-Do not commit yet. Share the focused and full test summaries, real batch summary,
-page-5 text hash, page-6 mapping, the two annual review fields and your visual
-comparison result, offline numerical summary and Git status. Share an error's
-traceback if any check fails; full PDF text dumps are unnecessary.
+The author has now supplied passing software tests, batch/core results and the
+four detailed page records. The earlier temporary hold on committing can end:
+save the verified implementation in a local checkpoint while retaining the
+remaining visual-review confirmation explicitly.
+
+In GitHub Desktop, keep exactly these three files selected: config/retrieval.json,
+src/gacl_pipeline/retrieval.py and tests/test_retrieval.py. Enter this summary:
+
+```text
+feat: add verified PDF page evidence extraction
+```
+
+Click Commit 3 files to feature/phase2-guided. A local commit saves a version on
+the laptop; it does not publish the feature branch or merge code into public main.
+The screenshot's CRLF/LF notice is normal text normalization, not a PDF change.
+
+After committing, share:
+
+```powershell
+git status --short --branch
+git log -1 --oneline
+```
+
+Expected: clean feature/phase2-guided and a new commit carrying the chosen message.
+The hash cannot be predicted; record the actual output. Do not pull/merge newer
+documentation into unexplained changes. Synchronization will use the inspected
+branch state after the local checkpoint.
+
+Also confirm whether the separate notes agree with annual physical pages 1 and
+37 in the actual PDF. Outputting a configured note does not establish this
+comparison. If any source discrepancy appears, record it and correct the note
+in a subsequent reviewed change before Step 5. Full PDF text dumps are unnecessary.
 
 In your own words explain: why can a reviewed note not count as extracted text,
 and why do we fail on an unreadable required page while recording an optional
