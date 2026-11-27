@@ -6,7 +6,7 @@ Evidence: approved monthly PDF hash, page 5/printed 4 with six freshwater rows,
 page 6/printed null, page zero exit 1, and 32 tests passing in 1.233 seconds.
 The author subsequently supplied the complete 122-line module; it matches 4A.
 Existing regression tests do not constitute focused coverage of the new module.
-Next: **[4B — all usable pages, metadata configuration and focused tests](PHASE_2_STEP_04B.md); instructions prepared, execution pending**.
+Current: **[4B — all usable pages, metadata configuration and focused tests](PHASE_2_STEP_04B.md) passed software/batch/core/metadata checks and is published as 29795de on feature/phase2-guided. Documentation synchronization and learner visual confirmation remain pending.**
 These are two exercises inside existing Step 4, not new numbered roadmap steps.
 Step 5 cannot begin until the complete Step 4 gate passes.
 

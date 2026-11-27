@@ -8,8 +8,9 @@ and 32 existing tests passing in 0.987 seconds. Subsequent file review found the
 intended script matched this lesson. The author verified complete duplicate hashes,
 removed only the extra .github/scripts/ copy and committed the single intended
 103-line file locally as 39ceacb. Final branch feature/phase2-guided is clean.
-The Step 3 local commit checkpoint is complete; no code upload/public merge is
-claimed. The CRLF-to-LF warning is ordinary script line-ending normalization,
+The Step 3 local commit checkpoint is complete. On 27 November, GitHub readback
+also confirmed this inspector on the published feature/phase2-guided branch at
+29795de; a merge into public main remains pending. The CRLF-to-LF warning is ordinary script line-ending normalization,
 not a Python failure or a change to the verified source PDF. The reusable lesson and
 sample below remain for reference.
 Step 2 baseline execution passed on the author's Windows laptop. Understanding

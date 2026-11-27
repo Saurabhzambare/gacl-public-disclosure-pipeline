@@ -9,7 +9,7 @@ Step 3 inspector execution checks: **passed**.
 Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
 Documentation merge: **verified, local merge a5001c0; clean branch**.
 Step 4A execution checks: **passed, 27 November 2026**.
-Current checkpoint: **Step 4B software and real-page metadata checks passed; local checkpoint commit and learner visual-review confirmation pending**. Existing
+Current checkpoint: **Step 4B committed/published as 29795de; clean tracking branch verified; documentation merge and learner visual confirmation pending**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -354,6 +354,44 @@ The local commit, current clean status, documentation merge and learner visual
 comparison of annual physical pages 1 and 37 remain unverified until supplied.
 Step 5 still follows the remaining review and Step 4 checkpoint.
 
+## Step 4B — commit, publication and source review verified, 27 November
+
+The author supplied git status showing a clean feature/phase2-guided tracking
+origin/feature/phase2-guided, and git log naming 29795de on both HEAD and the
+remote-tracking ref. GitHub Desktop shows zero changed files. GitHub connector
+readback independently confirms the published branch head as
+29795de7be220373bd0a3ffbe779a44841b4a66a.
+
+Commit: feat: add verified PDF page evidence extraction.
+The new commit contains config/retrieval.json (20 lines),
+src/gacl_pipeline/retrieval.py (266 lines), and tests/test_retrieval.py (180 lines).
+The previously committed 103-line scripts/inspect_source_page.py is also present
+on the published branch. No merge into public main is claimed.
+
+The assistant read all four published application files and the branch AGENTS.md.
+The extractor and tests match the Step 4B lesson after ignoring final newline
+differences; the parsed JSON matches semantically despite indentation. The
+review found no additional correction needed for the current lesson's scope.
+The source register remains the existing approved structure; arbitrary external
+manifest validation is outside this lesson. This is source review, not a newly
+executed software/PDF/model/cloud run. Windows software/real-source results
+remain the previously supplied evidence.
+
+Before this documentation update, GitHub compared main at 4e051477 with feature
+at 29795de as diverged: three feature-side commits and six main-side documentation
+commits since merge base 3df36db. Feature-side changed files are exactly the
+three Step 4B files plus the earlier inspector. Main-side changed files are
+Markdown documentation only. A normal merge of refreshed origin/main into the
+clean feature branch is appropriate; a fast-forward-only pull cannot combine
+these two histories. This documentation update advances main again, so fetch
+the latest ref rather than copying the recorded comparison SHA.
+
+Next commands are documented in [Step 4B](PHASE_2_STEP_04B.md): fetch origin,
+merge origin/main with --no-edit, then push the feature branch after a successful
+merge and inspect status/log. The assistant has not performed the learner's
+merge/push. The branch is published, but synchronization, two-note learner visual
+comparison and understanding discussion remain pending. Step 5 has not started.
+
 ## Evidence to record after each lesson
 
 Use the existing stable step ID. Record purpose, exact files changed, new
@@ -384,3 +422,4 @@ change does not advance the learner automatically.
 | 27 November 2026 | Step 4B partial execution | Both pinned PDFs: 71 physical / 70 usable pages, one monthly cover skipped; offline run a8998693-ba1f-4044-b3b5-169b84456ca8 preserves 18 facts and four passing checks; exactly three intended untracked paths | Batch/core checks passed; tests and page-review evidence pending |
 | 27 November 2026 | Step 4B software verification | Focused suite: 13 tests OK in 0.634s; full suite: 45 tests OK in 1.620s; no failures/skips shown | Software checks passed; real-page fields, visual review and understanding pending |
 | 27 November 2026 | Step 4B real-page metadata | Four expected page records supplied; monthly hashes match 4A; annual separate review fields and printed labels 43/79 recorded; Desktop shows three selected new files | Metadata passed; local checkpoint ready, commit and learner visual confirmation pending |
+| 27 November 2026 | Step 4B commit/publication | Clean tracking branch and 29795de supplied; GitHub confirms published SHA; extractor/tests match lesson and JSON matches semantically; inspector present | Local/public feature checkpoint verified; documentation merge and learner visual confirmation pending |

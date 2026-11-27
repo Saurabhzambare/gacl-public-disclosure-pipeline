@@ -65,13 +65,22 @@ learning log as reported extraction output. This verifies the metadata display,
 not an independent visual source review. The learner has not yet confirmed that
 the two notes agree with the visible PDF pages.
 
-The Desktop screenshot shows exactly the three intended new files selected on
-feature/phase2-guided and an empty commit-summary field. A local checkpoint commit
-is now appropriate after the passed software/batch/core/metadata checks; its
-actual commit ID and clean status are not yet supplied. No source upload or
-public main merge is evidenced. Documentation synchronization stays batched at
-the checkpoint. The complete Step 4 gate remains open pending the learner's
-visual comparison/understanding and checkpoint; Step 5 has not started.
+The author subsequently committed the three intended Step 4B files as 29795de,
+feat: add verified PDF page evidence extraction, and published feature/phase2-guided.
+Supplied status/log show a clean branch tracking origin/feature/phase2-guided;
+the Desktop screenshot shows zero changed files. GitHub readback confirms
+29795de7be220373bd0a3ffbe779a44841b4a66a. The assistant read the uploaded
+extractor, tests, retrieval settings and earlier inspector. The extractor/tests
+match the lesson after final-newline normalization and the JSON matches
+semantically. This is source review, not a fresh runtime execution.
+
+Main still contains newer documentation and no merged learner implementation.
+The compared feature changes are the four intended application paths; newer
+main changes are documentation only. Refresh and merge origin/main into the
+clean feature branch using the Step 4B instructions, then push the resulting
+feature merge. That synchronization is not yet evidenced. The complete Step 4
+gate remains open pending learner visual comparison/understanding and this
+checkpoint synchronization; Step 5 has not started.
 The unavailable earlier text attachment was not read; evidence here comes from
 the actual subsequently pasted commands/results and visible Desktop screenshot.
 Steps 4–30 remain pending. Supporting

@@ -4,8 +4,9 @@ Build-order version: 1.0. Prepared: 27 November 2026 (India).
 Prerequisite: Step 4A execution passed and the author supplied the complete
 122-line retrieval.py for review. Its contents match the Step 4A lesson.
 Status: learner batch extraction, offline core regression and both software-test
-runs and all four real-page metadata checks passed on Windows. Local checkpoint
-commit and learner visual-review confirmation remain pending.
+runs and all four real-page metadata checks passed on Windows. Implementation
+committed/published as 29795de; documentation merge and learner visual-review
+confirmation remain pending.
 This finishes the second exercise within Step 4. Step 5 is still chunking.
 
 ## Recorded partial execution — 27 November
@@ -23,9 +24,12 @@ includes the 13 retrieval tests and 32 existing tests. These synthetic-fixture
 checks complement the real-source batch run; they do not replace visual review.
 All four detailed metadata records have since been supplied: monthly labels 4/null,
 unchanged monthly text hashes, and annual printed labels 43/79 with separate
-reviewed notes. The learner's own visual comparison remains pending. A local
-checkpoint commit can now save the verified implementation; its commit ID/clean
-status, documentation synchronization and understanding discussion remain open.
+reviewed notes. The learner's own visual comparison remains pending. The author has now
+committed/published the implementation as 29795de on feature/phase2-guided,
+with clean tracking status. GitHub source readback confirms the extractor/tests
+match this lesson and the settings match semantically. The earlier inspector
+is also present on that branch. Documentation synchronization and understanding
+discussion remain open; no new runtime run is claimed by source review.
 See [the learning log](AI_LEARNING_LOG.md) for evidence. Successful tests need not
 be repeated without a relevant code change.
 
@@ -778,49 +782,62 @@ show printed labels 43 and 79 and the separate review notes. Open those annual
 PDF pages and state whether the notes agree with the visible report. Printed
 labels in JSON alone do not establish that visual comparison.
 
-## Review and local checkpoint
+## Verified publication checkpoint and documentation synchronization
 
-The author has now supplied passing software tests, batch/core results and the
-four detailed page records. The earlier temporary hold on committing can end:
-save the verified implementation in a local checkpoint while retaining the
-remaining visual-review confirmation explicitly.
+The author completed the local commit and published feature/phase2-guided:
+29795de7be220373bd0a3ffbe779a44841b4a66a, message
+feat: add verified PDF page evidence extraction. Status shows a clean branch
+tracking origin/feature/phase2-guided. GitHub readback confirms the source files.
+The previously committed inspector is present too. Do not make another
+duplicate implementation commit.
 
-In GitHub Desktop, keep exactly these three files selected: config/retrieval.json,
-src/gacl_pipeline/retrieval.py and tests/test_retrieval.py. Enter this summary:
-
-```text
-feat: add verified PDF page evidence extraction
-```
-
-Click Commit 3 files to feature/phase2-guided. A local commit saves a version on
-the laptop; it does not publish the feature branch or merge code into public main.
-The screenshot's CRLF/LF notice is normal text normalization, not a PDF change.
-
-After committing, share:
+The clean branch contains the learner's implementation while main contains newer
+documentation. Bring both histories together with a normal merge. Remain on
+feature/phase2-guided; the verified starting point is clean.
 
 ```powershell
-git status --short --branch
-git log -1 --oneline
+# Download current remote history; preserve local files.
+git fetch origin
+if ($LASTEXITCODE -ne 0) { throw "Fetch failed; stop before merging." }
+
+# Bring the newer documentation into the implementation branch.
+git merge --no-edit origin/main
 ```
 
-Expected: clean feature/phase2-guided and a new commit carrying the chosen message.
-The hash cannot be predicted; record the actual output. Do not pull/merge newer
-documentation into unexplained changes. Synchronization will use the inspected
-branch state after the local checkpoint.
+fetch refreshes remote-tracking refs. merge combines the documentation history
+with the implementation history. --no-edit accepts the default merge message.
+The inspected changes are in separate paths, so a normal merge is expected;
+actual success must still be checked. If Git reports conflicts or any error,
+share that output and stop before pushing. Preserve both versions of the work.
 
-Also confirm whether the separate notes agree with annual physical pages 1 and
-37 in the actual PDF. Outputting a configured note does not establish this
-comparison. If any source discrepancy appears, record it and correct the note
-in a subsequent reviewed change before Step 5. Full PDF text dumps are unnecessary.
+After a successful merge, publish the combined feature history and inspect it:
 
-In your own words explain: why can a reviewed note not count as extracted text,
-and why do we fail on an unreadable required page while recording an optional
-unreadable page as skipped? Also distinguish 18 observations, 70 expected usable
-pages and 45 expected software tests.
+```powershell
+git push origin feature/phase2-guided
+git status --short --branch
+git log --oneline --graph -5
+```
 
-After results are reviewed, finish the Step 4 commit and documentation merge
-using the actual branch state. Step 5 then introduces exact-span chunks and
-overlap. No chunker, search index or model is introduced by this lesson.
+Expected: a successful push, clean feature/phase2-guided tracking its remote, and
+a merge commit preserving the implementation and documentation. Record the
+actual hash/output; it cannot be predicted. This does not merge the feature into
+main. The assistant maintains documentation but does not perform this learner
+merge or publish implementation changes on the learner's behalf. No software
+rerun is required merely for a documentation-only merge; reassess if source code
+or tests change or a conflict requires a code resolution.
+
+The two-note visual comparison remains pending: inspect the annual PDF's physical
+pages 1 and 37 and say whether the configured notes agree with the visible text.
+Outputting a configured note does not establish this comparison. Record any
+discrepancy and correct the review metadata before using it in Step 5.
+
+For understanding, explain why reviewed prose stays separate from extracted text,
+and why unreadable required evidence fails while an optional insufficient page
+can be skipped. Distinguish 18 observations, 70 usable pages and 45 software tests.
+The discussion is tracked separately from verified execution.
+
+Step 5 then introduces exact-span chunks and overlap. No chunker, search index
+or model is introduced by this lesson.
 
 References: [PyMuPDF page API](https://pymupdf.readthedocs.io/en/latest/page.html),
 [document API](https://pymupdf.readthedocs.io/en/latest/document.html),
