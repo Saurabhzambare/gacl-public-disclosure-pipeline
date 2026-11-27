@@ -1,0 +1,20 @@
+{
+    "schema_version": 1,
+    "min_alnum_chars": 30,
+    "reviewed_pages": [
+        {
+            "source_id": "gacl_brsr_2025_26",
+            "document_sha256": "9fa0d33a69af711744590ad564145b93b2891e77f2e86004084bb89ba3390230",
+            "pdf_page": 1,
+            "printed_page": 43,
+            "reviewed_note": "Visual-review note (assistant, 24 November 2026): Section A, item 13 states that the reporting boundary is standalone. Item 9 gives the financial year as 1 April 2025 to 31 March 2026. These labels are incomplete in embedded text extraction."
+        },
+        {
+            "source_id": "gacl_brsr_2025_26",
+            "document_sha256": "9fa0d33a69af711744590ad564145b93b2891e77f2e86004084bb89ba3390230",
+            "pdf_page": 37,
+            "printed_page": 79,
+            "reviewed_note": "Visual-review note (assistant, 24 November 2026): FY 2024-25 disclosures are recalculated comparatives aligned with the FY 2025-26 reporting boundary and methodology. The note attributes higher FY 2025-26 annual water consumption to increased production. These notes are incomplete in embedded text extraction."
+        }
+    ]
+}
