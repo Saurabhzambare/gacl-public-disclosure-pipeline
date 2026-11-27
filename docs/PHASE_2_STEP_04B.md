@@ -3,8 +3,23 @@
 Build-order version: 1.0. Prepared: 27 November 2026 (India).
 Prerequisite: Step 4A execution passed and the author supplied the complete
 122-line retrieval.py for review. Its contents match the Step 4A lesson.
-Status: instructions prepared; learner implementation and execution pending.
+Status: learner batch extraction and offline core regression passed on Windows;
+software-test summaries and detailed page/review evidence remain pending.
 This finishes the second exercise within Step 4. Step 5 is still chunking.
+
+## Recorded partial execution — 27 November
+
+Author-supplied Windows output confirms 2 pinned PDFs, 71 physical / 70 usable
+pages, monthly 20/21 and annual 50/50. Monthly physical page 1 is skipped with
+zero alphanumeric characters and the configured no-OCR reason. Offline run
+a8998693-ba1f-4044-b3b5-169b84456ca8 verifies cached PDFs and retains
+18 extracted/loaded/stored observations with all four checks passing.
+Git shows exactly the three intended untracked files on feature/phase2-guided.
+
+Focused/full software-test output and the detailed page/review checks requested
+at the end remain pending. Expected test counts below are not claimed as passed.
+See [the learning log](AI_LEARNING_LOG.md) for evidence and the remaining gate.
+Keep the work uncommitted until those checks are reviewed.
 
 ## Purpose, ELI5 and boundaries
 

@@ -9,7 +9,7 @@ Step 3 inspector execution checks: **passed**.
 Step 3 local commit checkpoint: **complete, 39ceacb, clean branch**.
 Documentation merge: **verified, local merge a5001c0; clean branch**.
 Step 4A execution checks: **passed, 27 November 2026**.
-Current checkpoint: **actual retrieval.py reviewed; implement and verify the supplied Step 4B lesson**. Existing
+Current checkpoint: **Step 4B real-source batch and offline numerical regression passed; software-test and page-review evidence pending**. Existing
 prototype milestones are product evidence, not learner-completed lessons.
 
 ## Working agreement
@@ -253,6 +253,44 @@ synchronization at the Step 4 checkpoint after inspecting actual history.
 The assistant changes documentation only; learner application code stays on the
 personal branch until explicitly published.
 
+## Step 4B — real-source batch and numerical regression verified, 27 November
+
+The author pasted Windows terminal output directly after the uploaded text file
+could not be read in the unavailable execution workspace. Only the pasted
+results below are verified here; no uninspected attachment content is treated
+as evidence.
+
+| Check | Author-supplied result |
+|---|---|
+| Batch command | python -m gacl_pipeline.retrieval --all-pages --summary |
+| Approved sources | 2; both reported PDF hashes match the pinned register |
+| Monthly source | 21 physical pages, 20 usable pages |
+| Monthly skip | Physical page 1; insufficient_embedded_text_no_ocr; alnum_chars 0 |
+| Annual source | 50 physical pages, 50 usable pages; no skips |
+| Total | 71 physical pages, 70 usable pages, one skipped page |
+| Offline run ID | a8998693-ba1f-4044-b3b5-169b84456ca8 |
+| Offline status/input | success / cached_pdfs; pdfs_verified_this_run=true |
+| Numerical observations | 18 extracted, 18 loaded, 18 stored |
+| Dataset checks | All four passed: monthly coverage, annual coverage, two energy reconciliations |
+| Energy differences | 0.002 GJ and 0.00 GJ; tolerance 0.01 GJ |
+| Git branch | feature/phase2-guided |
+| Untracked paths | config/retrieval.json; src/gacl_pipeline/retrieval.py; tests/test_retrieval.py |
+| Tracked diff summary | Empty; untracked files do not appear in git diff --stat |
+
+This confirms real-source batch coverage and an unchanged accepted numerical
+dataset in the supplied local run. A batch summary omits page bodies; it does not
+independently establish exact page-text preservation, mapping/review field values
+or agreement of review notes with the visible PDF. File presence does not prove
+test execution. No cloud/dbt/Power BI rerun, local commit or source upload is
+claimed.
+
+Still needed: focused/full software-test summaries (expected 13/45 with the
+unchanged baseline), Step 4B page-5 text hash and page-6 unknown mapping, the annual
+page-1/page-37 review fields and learner visual comparison, plus the understanding
+discussion. Existing results may be pasted; no repeat run is required merely to
+share output. Keep Step 4 open and code uncommitted until the remaining evidence
+is reviewed. Documentation synchronization stays batched at that checkpoint.
+
 ## Evidence to record after each lesson
 
 Use the existing stable step ID. Record purpose, exact files changed, new
@@ -280,3 +318,4 @@ change does not advance the learner automatically.
 | 25 November 2026 | Step 4A | Single-page dictionary lesson prepared; 4B required before Step 4 completion | Pending learner implementation |
 | 27 November 2026 | Step 4A | Page-5 evidence, null unknown mapping, expected page-zero error, 32 tests OK in 1.233 seconds; module untracked | Execution checks passed; source-file review before 4B pending |
 | 27 November 2026 | Step 4A source review / Step 4B | Actual module matches 4A; complete 4B lesson supplied; JSON/Python syntax and 13 test-method count checked without execution | Review complete; learner 4B implementation/execution pending |
+| 27 November 2026 | Step 4B partial execution | Both pinned PDFs: 71 physical / 70 usable pages, one monthly cover skipped; offline run a8998693-ba1f-4044-b3b5-169b84456ca8 preserves 18 facts and four passing checks; exactly three intended untracked paths | Batch/core checks passed; tests and page-review evidence pending |

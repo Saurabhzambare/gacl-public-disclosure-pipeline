@@ -45,10 +45,21 @@ exact commented configuration, the reviewed module's replacement, focused tests
 and real-source verification instructions. No application/configuration/test file
 was changed by this documentation update. Syntax checks passed for the lesson's
 JSON and both Python blocks; its 13 new test methods have not been executed.
-Expected real coverage is 70 usable pages from 71 physical pages; expected full
-software count is 45 with the unchanged 32-test baseline. These are targets,
-not verified results. Step 4B implementation/execution and the complete Step 4
-gate remain pending. Understanding discussion is recorded separately.
+The author subsequently supplied the real batch summary: two approved PDF hashes
+match the register, 71 physical pages yield 70 usable pages (monthly 20/21;
+annual 50/50), and monthly physical page 1 is skipped with zero alphanumeric
+characters and reason insufficient_embedded_text_no_ocr. Offline run
+a8998693-ba1f-4044-b3b5-169b84456ca8 succeeds with cached PDFs verified,
+18 extracted/loaded/stored and four passing dataset checks; energy differences
+remain 0.002/0.00 GJ within 0.01 GJ. Git shows exactly the three intended
+untracked paths on feature/phase2-guided; an empty tracked diff is expected.
+
+Focused/full test summaries (expected 13/45), the Step 4B page-field checks and
+learner comparison of annual review notes against physical pages 1/37 are not
+yet supplied. The batch summary does not expose raw page text or review fields.
+The unavailable uploaded text file was not read; no omitted test result is
+inferred from it. No code commit or public source upload is evidenced.
+The complete Step 4 gate remains open. Understanding discussion is recorded separately.
 Steps 4–30 remain pending. Supporting
 [concept](AI_CONCEPTS.md), [contract](AI_CONTRACTS.md) and
 [evaluation](AI_EVALUATION_PLAN.md) guides define scope without claiming

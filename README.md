@@ -56,7 +56,10 @@ Documentation synchronization is verified at local merge a5001c0.
 Step 4A execution checks passed on Windows, 27 November.
 The supplied retrieval.py has now been reviewed against 4A.
 [Step 4B](docs/PHASE_2_STEP_04B.md) supplies all-page extraction, separate reviewed
-metadata and focused tests for personal implementation; execution is pending and Step 4 remains open.** Existing prototype work does not mark learner steps complete.
+metadata and focused tests for personal implementation. The learner's batch run
+now confirms 70 usable pages from 71 physical pages, and the offline core rerun
+retains 18 observations with four passing checks. Software-test summaries and
+detailed page/review evidence are pending; Step 4 remains open.** Existing prototype work does not mark learner steps complete.
 
 ### Existing retrieval reference
 
@@ -201,7 +204,7 @@ Raw source PDFs, databases, working exports, environments and logs are ignored b
 | [Step 2 lesson](docs/PHASE_2_STEP_02.md) | Windows baseline verified: 32 tests, 18 records, four checks |
 | [Step 3 lesson](docs/PHASE_2_STEP_03.md) | Verified inspector and local commit checkpoint |
 | [Step 4A lesson](docs/PHASE_2_STEP_04.md) | Single-page structured evidence; Windows execution passed |
-| [Step 4B lesson](docs/PHASE_2_STEP_04B.md) | Complete commented all-page/configuration/test exercise; execution pending |
+| [Step 4B lesson](docs/PHASE_2_STEP_04B.md) | Batch/core execution passed; test and page-review evidence pending |
 | [AI scope](docs/AI_EXTENSION_PLAN.md) | Research assistant goals, boundaries and delivery milestones |
 | [Learning log](docs/AI_LEARNING_LOG.md) | Current step, learner evidence and next action |
 | [AI concepts](docs/AI_CONCEPTS.md) | Technical and ELI5 explanations |

@@ -9,7 +9,7 @@ Baseline execution: **Step 2 passed on Windows, 25 November 2026**.
 Step 3 checkpoint: **reviewed, duplicate removed, local commit 39ceacb; clean branch**.
 Documentation synchronization: **local merge a5001c0 verified; clean personal branch**.
 Step 4A: **execution checks passed on Windows, 27 November 2026**.
-Current checkpoint: **actual retrieval.py reviewed; implement the supplied Step 4B lesson**.
+Current checkpoint: **Step 4B batch coverage and offline core regression passed; software-test and page-review evidence pending**.
 Step 4B completes all-page extraction/configuration/tests before Step 5.
 Learner understanding discussion is recorded separately in the learning log.
 
